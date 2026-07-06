@@ -3,10 +3,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const sections = document.querySelectorAll('section');
   const navLinks = document.querySelectorAll('header nav a');
   const slideIndicator = document.getElementById('slide-index-indicator');
+  
+  let currentFocusedIndex = 0;
 
   const observerOptions = {
     root: null,
-    rootMargin: '-20% 0px -60% 0px',
+    rootMargin: '-30% 0px -30% 0px',
     threshold: 0
   };
 
@@ -17,6 +19,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const index = parseInt(id.split('-')[1]);
         
         slideIndicator.innerText = `${index.toString().padLeft(2, '0')} / 20`;
+        currentFocusedIndex = index;
+        
+
         
         let activeChapterIdx = 0;
         if (index >= 4 && index < 8) activeChapterIdx = 1;
@@ -305,4 +310,49 @@ Role: Expert AI Software Engineer
       }, 800);
     });
   }
+
+  // --- 8. Keyboard Navigation Event Handlers ---
+  let isScrolling = false;
+
+  window.addEventListener('keydown', (e) => {
+    // Check if modal dialog overlay is currently open
+    const modal = document.getElementById('spec-modal');
+    if (modal && !modal.classList.contains('hidden')) {
+      // If modal is active, let ESC key close it and prevent arrow scrolling inside the deck
+      if (e.key === 'Escape') {
+        modal.classList.add('hidden');
+      }
+      return; 
+    }
+
+    if (isScrolling) {
+      // Ignore key events while scrolling transition is active
+      return;
+    }
+
+    if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') {
+      // Prevent default page scrolling jump
+      e.preventDefault();
+      
+      if (currentFocusedIndex < sections.length - 1) {
+        const nextSec = document.getElementById(`section-${currentFocusedIndex + 1}`);
+        if (nextSec) {
+          isScrolling = true;
+          nextSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          setTimeout(() => { isScrolling = false; }, 850);
+        }
+      }
+    } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft' || e.key === 'PageUp') {
+      e.preventDefault();
+      
+      if (currentFocusedIndex > 0) {
+        const prevSec = document.getElementById(`section-${currentFocusedIndex - 1}`);
+        if (prevSec) {
+          isScrolling = true;
+          prevSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          setTimeout(() => { isScrolling = false; }, 850);
+        }
+      }
+    }
+  });
 });

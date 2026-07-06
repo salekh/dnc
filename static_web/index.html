@@ -17,7 +17,10 @@
       main > :last-child { margin-bottom: 0 !important; }
     }
     ::-webkit-scrollbar { display: none; }
-    section { scroll-snap-align: start; scroll-snap-stop: always; }
+    section {
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+    }
     .active-nav {
       color: #ffb1c6 !important;
       border-bottom: 2px solid #e20074 !important;
@@ -152,8 +155,7 @@
   <main class="flex-grow bg-surface mt-20">
     <div class="flex flex-col w-full relative">
       <section id="section-0" class="relative w-full pt-32 pb-48 px-12 bg-on-primary text-primary min-h-[921px] flex items-center overflow-hidden">
-  <!-- Dynamic Background backdrop illustration overlay -->
-  <div class="absolute inset-0 bg-cover bg-center -z-10 opacity-30 mix-blend-overlay" style="background-image: url('assets/illustrations/shift_hero.jpg')"></div>
+
   <div class="absolute top-0 left-0 w-full h-48 bg-gradient-to-b from-background/30 to-transparent pointer-events-none"></div>
   
   <div class="max-w-[1440px] mx-auto w-full grid grid-cols-12 gap-gutter relative z-10">
@@ -828,7 +830,7 @@
 <div class="flex flex-col items-center text-center">
 <span class="font-label-mono text-label-mono text-primary-fixed mb-12 tracking-[0.5em] uppercase">The Final Synthesis</span>
 <div class="relative mb-8">
-<h1 class="font-display-xl text-[14vw] leading-[0.8] tracking-tighter text-on-primary-container mix-blend-plus-lighter">
+<h1 class="font-display-xl text-[8.5vw] leading-[0.85] tracking-tighter text-on-primary-container mix-blend-plus-lighter">
                         DESIGN <span class="italic font-light opacity-50">IS</span><br/>THE NEW CODE
                     </h1>
 <div class="absolute -top-12 -right-12 font-display-md text-primary-fixed/20 select-none pointer-events-none">§14</div>
