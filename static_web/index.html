@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Design is the New Code</title>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Display:wght@100..900&amp;family=Google+Sans+Mono:wght@100..900&amp;family=Google+Sans+Text:wght@100..900&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Mrs+Saint+Delafield&amp;family=Yesteryear&amp;display=swap" rel="stylesheet"/>
+  <style>
+    @layer base {
+      html { scroll-snap-type: y mandatory; scroll-behavior: smooth; }
+      body { margin: 0; padding: 0; overscroll-behavior: none; background-color: #1e0f13; }
+      body { overscroll-behavior: none; background-color: #1e0f13; }
+      main > :first-child { margin-top: 0 !important; }
+      main > :last-child { margin-bottom: 0 !important; }
+    }
+    ::-webkit-scrollbar { display: none; }
+    section { scroll-snap-align: start; scroll-snap-stop: always; }
+    .active-nav {
+      color: #ffb1c6 !important;
+      border-bottom: 2px solid #e20074 !important;
+    }
+    .fancy-logo {
+      font-family: 'Mrs Saint Delafield', cursive;
+      font-size: 46px !important;
+      font-weight: 400;
+      text-transform: none !important;
+      letter-spacing: 0px !important;
+      line-height: 1.0;
+    }
+  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container": "#2c1b1f",
+            "surface": "#1e0f13",
+            "on-secondary": "#003061",
+            "primary-fixed": "#ffd9e1",
+            "surface-dim": "#1e0f13",
+            "on-secondary-fixed": "#001b3c",
+            "on-primary": "#650030",
+            "on-tertiary-fixed": "#241a00",
+            "error-container": "#93000a",
+            "outline": "#aa8890",
+            "primary-container": "#e20074",
+            "tertiary-fixed-dim": "#e8c352",
+            "secondary-fixed-dim": "#a8c8ff",
+            "inverse-on-surface": "#3e2b30",
+            "tertiary": "#e8c352",
+            "on-primary-fixed-variant": "#8e0047",
+            "surface-container-low": "#27171b",
+            "primary-fixed-dim": "#ffb1c6",
+            "on-secondary-container": "#8cb6fb",
+            "on-error": "#690005",
+            "primary": "#ffb1c6",
+            "on-tertiary-fixed-variant": "#574400",
+            "on-tertiary": "#3d2f00",
+            "tertiary-container": "#caa739",
+            "on-surface": "#f9dbe1",
+            "on-secondary-fixed-variant": "#114784",
+            "on-tertiary-container": "#4e3d00",
+            "on-primary-container": "#fffbfa",
+            "inverse-surface": "#f9dbe1",
+            "surface-container-lowest": "#180a0e",
+            "surface-container-high": "#37252a",
+            "on-surface-variant": "#e3bdc5",
+            "surface-variant": "#433034",
+            "background": "#1e0f13",
+            "on-primary-fixed": "#3f001c",
+            "surface-tint": "#ffb1c6",
+            "surface-bright": "#473439",
+            "outline-variant": "#5b3f46",
+            "inverse-primary": "#ba005e",
+            "error": "#ffb4ab",
+            "on-error-container": "#ffdad6",
+            "secondary-fixed": "#d5e3ff",
+            "secondary-container": "#114784",
+            "secondary": "#a8c8ff",
+            "on-background": "#f9dbe1",
+            "tertiary-fixed": "#ffe08a",
+            "surface-container-highest": "#433034"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "columns": "12",
+            "unit": "4px",
+            "motion_curve": "cubic-bezier(0.22, 1, 0.36, 1)",
+            "max_width": "1440px",
+            "margin": "48px",
+            "gutter": "24px"
+          },
+          "fontFamily": {
+            "body-md": ["Google Sans Text"],
+            "headline-sm": ["Google Sans Display"],
+            "body-lg": ["Google Sans Text"],
+            "label-mono": ["Google Sans Mono"],
+            "headline-md": ["Google Sans Display"],
+            "display-xl": ["Google Sans Display"],
+            "display-lg": ["Google Sans Display"],
+            "headline-lg": ["Google Sans Display"],
+            "display-md": ["Google Sans Display"]
+          },
+          "fontSize": {
+            "body-md": ["18px", { "lineHeight": "150%", "letterSpacing": "0", "fontWeight": "400" }],
+            "headline-sm": ["26px", { "lineHeight": "130%", "letterSpacing": "0", "fontWeight": "500" }],
+            "body-lg": ["22px", { "lineHeight": "160%", "letterSpacing": "0", "fontWeight": "400" }],
+            "label-mono": ["16px", { "lineHeight": "140%", "letterSpacing": "0.05em", "fontWeight": "400" }],
+            "headline-md": ["32px", { "lineHeight": "120%", "letterSpacing": "0", "fontWeight": "500" }],
+            "display-xl": ["128px", { "lineHeight": "110%", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+            "display-lg": ["96px", { "lineHeight": "110%", "letterSpacing": "-0.03em", "fontWeight": "700" }],
+            "headline-lg": ["48px", { "lineHeight": "120%", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+            "display-md": ["72px", { "lineHeight": "110%", "letterSpacing": "-0.02em", "fontWeight": "500" }]
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-background font-body-md text-on-surface flex flex-col min-h-screen">
+  
+  <!-- Sticky Header Navigation -->
+  <header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl border-b border-outline-variant/30">
+    <div class="max-w-[1440px] mx-auto px-12 h-20 flex items-center justify-between">
+      <div class="flex items-center gap-8">
+        <span class="fancy-logo text-primary">Design is the new code</span>
+        <nav class="flex items-center gap-10 ml-12">
+          <a class="font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface transition-colors py-7 active-nav" data-sec="0" href="#section-0">THE SHIFT</a>
+          <a class="font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface transition-colors py-7" data-sec="4" href="#section-4">AHA MOMENTS</a>
+          <a class="font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface transition-colors py-7" data-sec="8" href="#section-8">EXECUTION</a>
+          <a class="font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface transition-colors py-7" data-sec="12" href="#section-12">THE FUTURE</a>
+          <a class="font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface transition-colors py-7" data-sec="16" href="#section-16">ORCHESTRATION</a>
+        </nav>
+      </div>
+      <div class="flex items-center gap-6">
+        <span id="slide-index-indicator" class="font-label-mono text-primary text-sm tracking-widest font-bold">00 / 20</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Scrollytelling View -->
+  <main class="flex-grow bg-surface mt-20">
+    <div class="flex flex-col w-full relative">
+      <section id="section-0" class="relative w-full pt-32 pb-48 px-12 bg-on-primary text-primary min-h-[921px] flex items-center overflow-hidden">
+  <!-- Dynamic Background backdrop illustration overlay -->
+  <div class="absolute inset-0 bg-cover bg-center -z-10 opacity-30 mix-blend-overlay" style="background-image: url('assets/illustrations/shift_hero.jpg')"></div>
+  <div class="absolute top-0 left-0 w-full h-48 bg-gradient-to-b from-background/30 to-transparent pointer-events-none"></div>
+  
+  <div class="max-w-[1440px] mx-auto w-full grid grid-cols-12 gap-gutter relative z-10">
+    <!-- Massive Dramatic Header -->
+    <div class="col-span-12 mb-16 border-l-8 border-primary pl-8">
+      <span class="font-label-mono text-sm uppercase tracking-[0.25em] opacity-80 mb-4 block">INITIAL LOGIC STATE // PHASE_00</span>
+      <h1 class="font-display-lg text-[96px] text-display-lg text-on-primary-container leading-[0.85] mb-6 italic font-bold tracking-tight">§0: The Shift</h1>
+      <p class="font-headline-md text-headline-md opacity-95 max-w-3xl leading-snug">
+        We are witnessing the terminal velocity of manual syntax. The paradigm is pivoting from the granular assembly of lines to the orchestration of <span class="underline decoration-4 underline-offset-8">spec-driven intent</span>.
+      </p>
+    </div>
+    
+    <!-- Left Column: Blockquote manifesto -->
+    <div class="col-span-7 space-y-12">
+      <div class="relative bg-on-primary-container/10 border border-on-primary-container/20 p-10 rounded-xl backdrop-blur-md overflow-hidden">
+        <div class="absolute top-0 right-0 p-4 opacity-5">
+          <span class="material-symbols-outlined text-8xl">bolt</span>
+        </div>
+        <blockquote class="font-headline-sm text-headline-sm text-primary-fixed leading-normal">
+          "Code is no longer the destination. It is becoming an <span class="font-bold underline decoration-4 underline-offset-8">opaque intermediate target</span>—a transient byproduct generated and checked by systems."
+        </blockquote>
+        <div class="mt-8 flex items-center gap-4">
+          <div class="h-[2px] w-12 bg-on-primary-container/60"></div>
+          <span class="font-label-mono text-xs tracking-widest uppercase opacity-75">DINTC_MANIFESTO.md</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Right Column: Overlapping Rotated Cards showing Evolution steps -->
+    <div class="col-span-5 flex flex-col gap-6 justify-center">
+      <!-- Card 1 -->
+      <div class="bg-surface p-8 rounded-xl text-on-surface shadow-2xl -rotate-2 hover:rotate-0 transition-transform duration-500 relative overflow-hidden border border-outline-variant/25">
+        <div class="flex items-center justify-between mb-4">
+          <span class="font-label-mono text-[10px] bg-outline-variant/20 px-2 py-0.5 text-outline">EVOLUTION_STEP_01</span>
+          <span class="text-xs opacity-40 font-label-mono">PRE-AGENTIC</span>
+        </div>
+        <h3 class="font-headline-sm mb-2 text-primary font-bold">Manual Syntax</h3>
+        <p class="text-sm text-on-surface-variant leading-relaxed">Granular assembly of strings line-by-line. Engineers compile layouts and logic inside their minds.</p>
+      </div>
+      
+      <!-- Card 2 -->
+      <div class="bg-surface p-8 rounded-xl text-on-surface shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-500 translate-x-6 relative overflow-hidden border border-outline-variant/30">
+        <div class="flex items-center justify-between mb-4">
+          <span class="font-label-mono text-[10px] bg-primary-container/20 px-2 py-0.5 text-primary-fixed-dim">EVOLUTION_STEP_02</span>
+          <span class="text-xs opacity-40 font-label-mono">CURRENT_SHIFT</span>
+        </div>
+        <h3 class="font-headline-sm mb-2 text-primary-fixed-dim font-bold">Spec-Driven Intent</h3>
+        <p class="text-sm text-on-surface-variant leading-relaxed">Micro-decisions recorded in declarative protocols. Code generation and verification are fully automated.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="section-1" class="relative min-h-[921px] flex flex-col justify-center px-12 py-32 bg-surface-container-lowest/30">
+<div class="grid grid-cols-12 gap-gutter">
+<!-- Asymmetric Layout -->
+<div class="col-span-1 flex flex-col items-center justify-between py-4">
+<span class="font-label-mono text-label-mono [writing-mode:vertical-rl] rotate-180 text-outline">DECAY RATE</span>
+<div class="w-px h-full bg-outline-variant/30 my-8"></div>
+<span class="font-label-mono text-label-mono text-primary">2024</span>
+</div>
+<div class="col-span-11 pl-8">
+<h2 class="font-headline-lg text-[42px] text-on-surface mb-16">
+          §1: <span class="text-secondary italic">The Illusion of Speed</span>
+</h2>
+<div class="grid grid-cols-2 gap-12">
+<div class="relative">
+<p class="font-body-lg text-body-lg text-on-surface leading-relaxed mb-8">
+              Rapid syntax generation masks a catastrophic decline in systemic visibility. Velocity without comprehension is merely <span class="italic">accelerated technical debt</span>.
+            </p>
+<div class="h-72 w-full bg-surface-container-high border border-outline-variant/50 rounded-xl p-8 relative overflow-hidden group">
+<div class="absolute -top-12 -right-12 w-32 h-32 bg-secondary/5 blur-2xl"></div>
+<div class="flex justify-between items-center mb-6 pb-4 border-b border-outline-variant/30">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span class="font-label-mono text-xs text-secondary tracking-widest uppercase">TELEMETRY: CODE EXPANSION</span>
+</div>
+<span class="font-label-mono text-[10px] text-on-surface-variant/40">REF_ID // DNC_VOL_01</span>
+</div>
+<div class="mb-6">
+<div class="flex justify-between items-end mb-2">
+<span class="font-label-mono text-xs text-on-surface-variant">SYNTAX VOLUME</span>
+<span class="font-label-mono text-xs text-secondary font-bold">+480%</span>
+</div>
+<div class="w-full h-1.5 bg-surface-variant rounded-full overflow-hidden">
+<div class="w-full h-full bg-secondary transition-all duration-1000" style="width: 95%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between items-end mb-2">
+<span class="font-label-mono text-xs text-on-surface-variant">ARCHITECTURAL VISIBILITY</span>
+<span class="font-label-mono text-xs text-error font-bold">-62%</span>
+</div>
+<div class="w-full h-1.5 bg-surface-variant rounded-full overflow-hidden">
+<div class="w-full h-full bg-error transition-all duration-1000" style="width: 38%"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col justify-center space-y-12 pl-12 border-l border-outline-variant/20">
+<div>
+<span class="font-label-mono text-label-mono text-secondary mb-2 block">01 / MASKING</span>
+<p class="font-body-md text-on-surface-variant">High-frequency commits create a false sense of progress while core logic becomes untraceable.</p>
+</div>
+<div>
+<span class="font-label-mono text-label-mono text-secondary mb-2 block">02 / FRICTION</span>
+<p class="font-body-md text-on-surface-variant">The gap between "what the code says" and "what the system does" expands exponentially.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="section-2" class="relative min-h-[921px] flex flex-col justify-center px-12 py-32">
+<div class="max-w-[1440px] mx-auto w-full">
+<div class="flex flex-col mb-24">
+<span class="font-label-mono text-label-mono text-error uppercase mb-4 tracking-widest">Structural Collapse</span>
+<h2 class="font-headline-lg text-[42px] text-on-surface max-w-3xl">
+          §2: <span class="text-error italic">Auto-scaling Our Mistakes</span>
+</h2>
+</div>
+<div class="grid grid-cols-3 gap-8">
+<!-- Card 1 -->
+<div class="bg-surface-container border border-outline-variant/30 border-l-4 border-l-tertiary p-8 rounded-r-xl space-y-6 -mt-8 relative overflow-hidden group hover:scale-[1.02] transition-transform duration-300">
+<div class="absolute top-0 right-0 p-4 opacity-5 text-tertiary font-display-lg select-none pointer-events-none">01</div>
+<div class="text-tertiary flex items-center justify-between">
+<span class="material-symbols-outlined text-[42px]">warning</span>
+<span class="font-label-mono text-[10px] bg-tertiary/10 text-tertiary px-2 py-1 rounded">LIMIT CRITICAL</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Slop Limits</h3>
+<p class="font-body-md text-on-surface-variant leading-relaxed">Every system has a finite capacity for non-deterministic "slop" before the weight of hallucinated logic triggers project collapse.</p>
+</div>
+
+<!-- Card 2 -->
+<div class="bg-surface-container border border-outline-variant/30 border-l-4 border-l-primary-container p-8 rounded-r-xl space-y-6 relative overflow-hidden group hover:scale-[1.02] transition-transform duration-300">
+<div class="absolute top-0 right-0 p-4 opacity-5 text-primary font-display-lg select-none pointer-events-none">02</div>
+<div class="text-primary flex items-center justify-between">
+<span class="material-symbols-outlined text-[42px]">layers_clear</span>
+<span class="font-label-mono text-[10px] bg-primary-container/20 text-primary px-2 py-1 rounded">DECAY SHIFT</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Entropy Injection</h3>
+<p class="font-body-md text-on-surface-variant leading-relaxed">Automated generation without rigorous constraint systems injects entropy into the foundation at machine speed.</p>
+</div>
+
+<!-- Card 3 -->
+<div class="bg-surface-container border border-outline-variant/30 border-l-4 border-l-error p-8 rounded-r-xl space-y-6 mt-8 relative overflow-hidden group hover:scale-[1.02] transition-transform duration-300">
+<div class="absolute top-0 right-0 p-4 opacity-5 text-error font-display-lg select-none pointer-events-none">03</div>
+<div class="text-error flex items-center justify-between">
+<span class="material-symbols-outlined text-[42px]">destruction</span>
+<span class="font-label-mono text-[10px] bg-error/10 text-error px-2 py-1 rounded">WARN_REBOOT</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Terminal Debt</h3>
+<p class="font-body-md text-on-surface-variant leading-relaxed">We are approaching the point where re-writing is cheaper than debugging, leading to the death of the "long-term" codebase.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="section-3" class="relative min-h-[921px] flex flex-col items-center justify-center px-12 py-32">
+<!-- Centered Visual Anchor -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-5">
+<span class="font-display-xl text-[600px] leading-none text-on-surface select-none pointer-events-none">3</span>
+</div>
+<div class="z-10 text-center max-w-4xl">
+<h2 class="font-headline-lg text-[42px] text-on-surface mb-12">
+        §3: <span class="italic text-primary-fixed">The Blank Slate</span>
+</h2>
+<p class="font-body-lg text-body-lg text-on-surface mb-16 max-w-2xl mx-auto leading-relaxed">
+        The solution isn't better maintenance. It's the ability to discard and <span class="text-primary font-medium">re-bootstrap in 30 seconds</span>. A system that cannot be rebuilt from scratch is a liability.
+      </p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto">
+<!-- Stat 1 -->
+<div class="bg-surface-container border border-outline-variant/40 p-10 rounded-xl flex flex-col items-center relative overflow-hidden">
+<span class="absolute top-2 left-4 font-label-mono text-[10px] text-outline/30">METRIC // TARGET</span>
+<span class="font-display-md text-primary-container font-extrabold mb-2 text-[56px]">30s</span>
+<span class="font-label-mono text-xs text-on-surface-variant tracking-wider">RE-BOOTSTRAP TIME</span>
+</div>
+<!-- Stat 2 -->
+<div class="bg-surface-container border border-outline-variant/40 p-10 rounded-xl flex flex-col items-center relative overflow-hidden">
+<span class="absolute top-2 left-4 font-label-mono text-[10px] text-outline/30">VELOCITY // INDEX</span>
+<span class="font-display-md text-primary font-extrabold mb-2 text-[56px]">&infin;</span>
+<span class="font-label-mono text-xs text-on-surface-variant tracking-wider">ITERATION VELOCITY</span>
+</div>
+</div>
+<div class="mt-24">
+<button class="bg-primary text-on-primary font-label-mono px-10 py-5 rounded-full hover:bg-primary-container transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-xl shadow-primary/20">
+          INITIALIZE RE-BOOTSTRAP SEQUENCE
+        </button>
+</div>
+</div>
+</section>
+
+<section id="section-4" class="relative w-full px-12 py-32 overflow-hidden flex flex-col justify-center min-h-[921px]">
+<div class="absolute top-0 right-0 w-1/2 h-full opacity-20 pointer-events-none">
+
+</div>
+<div class="relative z-10 max-w-[1440px] mx-auto w-full grid grid-cols-12 gap-gutter items-end">
+<div class="col-span-12 lg:col-span-8">
+<span class="font-label-mono text-label-mono text-primary mb-8 block uppercase tracking-[0.2em]">Phase IV / Drift Dynamics</span>
+<h2 class="font-display-lg text-display-lg text-on-surface leading-none mb-12 -ml-2">
+          §4: THE EAGER<br/>
+<span class="text-primary italic">RUNAWAY</span>
+</h2>
+<div class="flex gap-12 items-start max-w-2xl">
+<div class="w-px h-32 bg-primary-container"></div>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+            The fundamental friction of agentic workflows is the "Drift Threshold." Without strict semantic guardrails, LLM-driven architecture tends toward entropy. We move from deterministic code to probabilistic intentions.
+          </p>
+</div>
+</div>
+<div class="col-span-12 lg:col-span-4 mt-12 lg:mt-0">
+<div class="bg-surface-container-high p-8 flex flex-col gap-8 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 font-label-mono text-[120px] leading-none opacity-5 select-none pointer-events-none pointer-events-none">04</div>
+<div class="flex flex-col gap-2">
+<span class="font-label-mono text-label-mono text-primary">DRIFT RADIUS</span>
+<span class="font-display-md text-display-md leading-none tabular-nums text-on-surface">14.2%</span>
+<span class="font-label-mono text-label-mono text-on-surface-variant/60">PER ITERATION CYCLE</span>
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex justify-between items-end border-b border-outline-variant/30 pb-2">
+<span class="font-label-mono text-label-mono">GUARDRAIL STATUS</span>
+<span class="font-label-mono text-label-mono text-primary">ENFORCED</span>
+</div>
+<div class="flex justify-between items-end border-b border-outline-variant/30 pb-2">
+<span class="font-label-mono text-label-mono">RECOVERY RATE</span>
+<span class="font-label-mono text-label-mono text-on-surface">99.8%</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="section-5" class="w-full px-12 py-32 bg-surface-container-lowest border-y border-outline-variant/10">
+  
+<div class="max-w-[1440px] mx-auto w-full">
+<div class="grid grid-cols-12 gap-gutter items-center">
+<div class="col-span-12 lg:col-span-6 flex flex-col gap-8">
+<span class="font-label-mono text-label-mono text-secondary mb-4 block uppercase">Systemic Ratio</span>
+<h2 class="font-display-md text-display-md text-on-surface mb-6">
+            §5: THE MATHEMATICAL<br/><span class="text-secondary-fixed-dim">CERTAINTY</span>
+</h2>
+<div class="p-12 bg-surface-container flex items-center justify-center relative group overflow-hidden border border-outline-variant/20 rounded-xl">
+<div class="absolute inset-0 bg-cover bg-center opacity-30 grayscale group-hover:grayscale-0 group-hover:opacity-60 transition-all duration-700" style="background-image: url('assets/illustrations/spec_ssot.jpg')"></div>
+<code class="font-label-mono text-headline-md text-secondary tracking-tighter mix-blend-screen relative z-10">
+              sizeof(docs) &lt;&lt;&lt; sizeof(code)
+            </code>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">
+            The efficiency of the DINTC framework lies in the compression of intent. High-fidelity documentation serves as the compressed kernel from which massive codebases are deterministically expanded.
+          </p>
+</div>
+<div class="col-span-12 lg:col-span-6 grid grid-cols-2 gap-4">
+<div class="aspect-square bg-surface-container-high flex flex-col items-center justify-center gap-4 group hover:bg-secondary-container transition-colors duration-700">
+<span class="font-label-mono text-label-mono text-secondary">SPEC DENSITY</span>
+<span class="font-display-md text-display-md tabular-nums">0.82</span>
+</div>
+<div class="aspect-square bg-surface-container-low flex flex-col items-center justify-center gap-4">
+<span class="font-label-mono text-label-mono text-on-surface-variant">CODE EXPANSION</span>
+<span class="font-display-md text-display-md tabular-nums">12x</span>
+</div>
+<div class="col-span-2 p-8 bg-surface-container-highest flex justify-between items-center">
+<div class="flex flex-col">
+<span class="font-label-mono text-label-mono text-on-surface-variant">STRUCTURAL OVERHEAD</span>
+<span class="font-headline-sm text-headline-sm">MINIMIZED</span>
+</div>
+<span class="material-symbols-outlined text-secondary text-display-md opacity-20">functions</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="section-6" class="w-full px-12 py-48 bg-surface overflow-hidden relative">
+  
+<div class="max-w-[1440px] mx-auto w-full relative z-10">
+<div class="flex flex-col items-center text-center mb-24">
+<span class="font-label-mono text-label-mono text-tertiary mb-6 uppercase tracking-widest">Cognitive Architecture</span>
+<h2 class="font-display-lg text-display-lg text-on-surface mb-4">§6: THE LIMITS OF <span class="italic font-light">PRECISION</span></h2>
+<div class="h-1 w-24 bg-tertiary"></div>
+</div>
+<div class="grid grid-cols-12 gap-gutter">
+<div class="col-span-12 lg:col-span-5 flex flex-col gap-12">
+<div class="group">
+<h4 class="font-headline-sm text-headline-sm text-tertiary mb-4 flex items-center gap-4">
+<span class="material-symbols-outlined">psychology</span>
+              THE ELEPHANT MODEL
+            </h4>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              Long-term structural memory. The architectural bedrock that remains immutable through version cycles. It is the "What" that defines the soul of the product.
+            </p>
+</div>
+<div class="group">
+<h4 class="font-headline-sm text-headline-sm text-on-surface-variant mb-4 flex items-center gap-4">
+<span class="material-symbols-outlined">memory</span>
+              THE GOLDFISH MODEL
+            </h4>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed opacity-60">
+              Ephemeral context window. The immediate syntax, the local variables, and the transient logic that shifts with every prompt. High-velocity, low-retention.
+            </p>
+</div>
+</div>
+<div class="col-span-12 lg:col-span-7 relative h-96 bg-surface-container-low flex items-center justify-center border border-outline-variant/20 rounded-xl overflow-hidden shadow-xl">
+<div class="absolute inset-0 opacity-25 bg-cover bg-center" style="background-image: url('assets/illustrations/agentic_loop.jpg')"></div>
+<div class="relative flex gap-8 items-center bg-surface/80 backdrop-blur-md p-12 -rotate-2">
+<div class="text-center">
+<span class="font-display-md text-display-md text-tertiary tabular-nums">∞</span>
+<span class="font-label-mono text-label-mono block">RETENTION</span>
+</div>
+<div class="w-px h-24 bg-outline-variant"></div>
+<div class="text-center">
+<span class="font-display-md text-display-md text-on-surface-variant tabular-nums">8k</span>
+<span class="font-label-mono text-label-mono block">TOKENS</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="section-7" class="w-full px-12 py-32 bg-surface-container-lowest">
+<div class="max-w-[1440px] mx-auto w-full">
+<div class="flex flex-col lg:flex-row justify-between items-baseline gap-12 mb-24">
+<h2 class="font-display-md text-display-md text-on-surface">§7: DECOUPLING <br/><span class="text-primary-fixed-dim">INTENT</span></h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+          We move from a single monolith of code to a tiered Specification Stack. Each layer serves a specific cognitive function for the orchestrator.
+        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-0 border border-outline-variant/20">
+<!-- PRD.MD -->
+<div class="p-10 flex flex-col gap-12 border-r border-outline-variant/20 group hover:bg-surface-container-high transition-all duration-500">
+<div class="flex justify-between items-start">
+<span class="font-label-mono text-label-mono text-primary">LAYER_01</span>
+<span class="font-label-mono text-label-mono opacity-30">STRATEGIC</span>
+</div>
+<div>
+<h3 class="font-headline-lg text-headline-lg text-on-surface mb-2">prd.md</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">The product requirements document. Defining user needs and business constraints without technical pollution.</p>
+</div>
+<div class="mt-auto pt-8 flex items-center gap-2">
+<div class="h-1 w-12 bg-primary"></div>
+<span class="font-label-mono text-[10px] tracking-widest text-primary uppercase">Immutable Truth</span>
+</div>
+</div>
+<!-- DESIGN.MD -->
+<div class="p-10 flex flex-col gap-12 border-r border-outline-variant/20 group hover:bg-surface-container-high transition-all duration-500">
+<div class="flex justify-between items-start">
+<span class="font-label-mono text-label-mono text-primary">LAYER_02</span>
+<span class="font-label-mono text-label-mono opacity-30">ARCHITECTURAL</span>
+</div>
+<div>
+<h3 class="font-headline-lg text-headline-lg text-on-surface mb-2">design.md</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">The structural blueprint. Defining component relationships, state machines, and API contracts.</p>
+</div>
+<div class="mt-auto pt-8 flex items-center gap-2">
+<div class="h-1 w-12 bg-primary opacity-50"></div>
+<span class="font-label-mono text-[10px] tracking-widest text-on-surface-variant uppercase">Logic Mapping</span>
+</div>
+</div>
+<!-- GEMINI.MD -->
+<div class="p-10 flex flex-col gap-12 group hover:bg-surface-container-high transition-all duration-500">
+<div class="flex justify-between items-start">
+<span class="font-label-mono text-label-mono text-primary">LAYER_03</span>
+<span class="font-label-mono text-label-mono opacity-30">SYNTHETIC</span>
+</div>
+<div>
+<h3 class="font-headline-lg text-headline-lg text-on-surface mb-2">GEMINI.md</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">The execution bridge. LLM-specific instructions, prompting strategies, and tactical implementation guides.</p>
+</div>
+<div class="mt-auto pt-8 flex items-center gap-2">
+<div class="h-1 w-12 bg-primary opacity-20"></div>
+<span class="font-label-mono text-[10px] tracking-widest text-on-surface-variant/40 uppercase">Actionable Syntax</span>
+</div>
+</div>
+</div>
+<div class="mt-32 p-12 bg-primary-container text-on-primary-container flex flex-col lg:flex-row justify-between items-center gap-12">
+<div class="max-w-2xl">
+<span class="font-label-mono text-label-mono opacity-80 uppercase block mb-2">The Closing Insight</span>
+<p class="font-headline-sm text-headline-sm italic">"When intent is decoupled from implementation, the cost of change approaches the speed of thought."</p>
+</div>
+<button class="bg-on-primary-container text-primary-container px-12 py-6 font-label-mono text-label-mono tracking-widest uppercase hover:opacity-90 transition-opacity">
+              DOWNLOAD SPEC STACK
+          </button>
+</div>
+</div>
+</section>
+
+<section id="section-8" class="relative w-full py-24 px-12 overflow-hidden border-b border-outline-variant/10">
+<div class="absolute top-0 right-0 p-12 opacity-5 pointer-events-none select-none pointer-events-none">
+<span class="font-display-xl text-[240px] leading-none">08</span>
+</div>
+<div class="max-w-[1440px] mx-auto grid grid-cols-12 gap-gutter relative z-10">
+<div class="col-span-12 mb-16">
+<span class="font-label-mono text-primary uppercase tracking-[0.2em] mb-4 block">Architecture / Cognition</span>
+<h2 class="font-display-md text-display-md text-on-surface leading-tight max-w-4xl">§8: Agent Context Memory Modes</h2>
+</div>
+<div class="col-span-5 flex flex-col gap-8">
+<div class="bg-surface-container p-8 rounded-xl relative group overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-tertiary"></div>
+<div class="flex items-center gap-4 mb-6">
+<span class="material-symbols-outlined text-tertiary text-4xl">set_meal</span>
+<h3 class="font-headline-sm text-headline-sm text-tertiary">Goldfish Mode</h3>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-6">Ephemeral, stateless execution optimized for token efficiency. High-velocity throughput with zero historical drag.</p>
+<div class="space-y-3">
+<div class="flex justify-between items-center py-2 border-b border-outline-variant/20">
+<span class="font-label-mono text-sm opacity-60">RETENTION</span>
+<span class="font-label-mono text-sm text-on-surface">Single Transaction</span>
+</div>
+<div class="flex justify-between items-center py-2 border-b border-outline-variant/20">
+<span class="font-label-mono text-sm opacity-60">LATENCY</span>
+<span class="font-label-mono text-sm text-on-surface">&lt; 200ms</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container p-8 rounded-xl relative group overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-primary"></div>
+<div class="flex items-center gap-4 mb-6">
+<span class="material-symbols-outlined text-primary text-4xl">memory</span>
+<h3 class="font-headline-sm text-headline-sm text-primary">Elephant Mode</h3>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-6">Deep recursive retrieval over entire codebase history. Semantic grounding that persists across long-running feature branches.</p>
+<div class="space-y-3">
+<div class="flex justify-between items-center py-2 border-b border-outline-variant/20">
+<span class="font-label-mono text-sm opacity-60">RETENTION</span>
+<span class="font-label-mono text-sm text-on-surface">System Perpetual</span>
+</div>
+<div class="flex justify-between items-center py-2 border-b border-outline-variant/20">
+<span class="font-label-mono text-sm opacity-60">VECTOR SPACE</span>
+<span class="font-label-mono text-sm text-on-surface">1M+ Nodes</span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-span-7 h-[500px] bg-surface-container-low rounded-xl relative overflow-hidden flex items-center justify-center">
+
+<div class="relative z-10 flex flex-col items-center">
+<div class="font-label-mono text-xs text-primary mb-2">LIVE_CONTEXT_ROUTING.ts</div>
+<div class="bg-surface/80 backdrop-blur-md p-6 font-label-mono text-sm text-on-surface-variant leading-relaxed shadow-xl max-w-md border-l-2 border-primary">
+<span class="text-primary">if</span> (intent.depth &gt; threshold) {<br/>
+              switchMode(<span class="text-tertiary">'ELEPHANT'</span>);<br/>
+              mountVectorStore(<span class="text-tertiary">'./.dnc/ctx'</span>);<br/>
+            } <span class="text-primary">else</span> {<br/>
+              flushBuffer();<br/>
+              exec(<span class="text-tertiary">'GOLDFISH_LITE'</span>);<br/>
+            }
+          </div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="section-9" class="w-full py-24 px-12 bg-surface-container-lowest">
+<div class="max-w-[1440px] mx-auto">
+<div class="flex items-baseline gap-6 mb-20">
+<h2 class="font-display-md text-display-md text-on-surface">§9: Specification Synthesis</h2>
+<div class="h-px flex-grow bg-outline-variant/30"></div>
+<span class="font-label-mono text-primary text-xl">DIFF_STREAM_V2</span>
+</div>
+<div class="grid grid-cols-12 gap-gutter">
+<div class="col-span-8">
+<div class="relative group">
+<div class="absolute -inset-4 bg-primary/5 blur-xl group-hover:bg-primary/10 transition-all duration-700"></div>
+<div class="relative bg-surface-container p-1 rounded-sm shadow-2xl">
+<div class="flex items-center justify-between px-4 py-2 border-b border-outline-variant/10 bg-surface-container-high">
+<div class="flex gap-2">
+<div class="w-3 h-3 rounded-full bg-error/40"></div>
+<div class="w-3 h-3 rounded-full bg-tertiary/40"></div>
+<div class="w-3 h-3 rounded-full bg-secondary/40"></div>
+</div>
+<span class="font-label-mono text-xs opacity-50 uppercase tracking-widest">Synthesis Output: delta_stream_09.diff</span>
+</div>
+<div class="p-8 font-label-mono text-sm grid grid-cols-1 gap-2">
+<div class="text-on-surface-variant opacity-40">@@ -124,6 +124,24 @@</div>
+<div class="bg-primary/10 text-primary py-1 px-2">+ // FEATURE_DELTA: Implement dynamic context synthesis</div>
+<div class="bg-primary/10 text-primary py-1 px-2">+ export const synthesize = (specs: Spec[]) =&gt; {</div>
+<div class="bg-primary/10 text-primary py-1 px-2">+   return specs.reduce((acc, curr) =&gt; ({ ...acc, ...curr.delta }), {});</div>
+<div class="bg-primary/10 text-primary py-1 px-2">+ };</div>
+<div class="text-on-surface-variant opacity-40 mt-4">@@ -210,4 +228,8 @@</div>
+<div class="bg-error/10 text-error py-1 px-2">- const legacy_delta = old_synthesis_logic();</div>
+<div class="bg-primary/10 text-primary py-1 px-2">+ const modern_delta = await agent.synthesis(raw_stream);</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-span-4 flex flex-col justify-center gap-12">
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface mb-4">Feature Delta Instructions</h4>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">Instead of full-file rewrites, agents now consume atomic deltas. This preserves developer intent and minimizes regression risk in massive architectures.</p>
+</div>
+<div class="p-6 border-l-2 border-primary bg-primary/5">
+<span class="material-symbols-outlined text-primary mb-2">terminal</span>
+<p class="font-label-mono text-sm text-on-surface">dnc stream --watch ./specs --output ./src</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="section-10" class="w-full py-24 px-12 relative overflow-hidden">
+<div class="max-w-[1440px] mx-auto grid grid-cols-12 gap-gutter items-center">
+<div class="col-span-6">
+<h2 class="font-display-md text-display-md text-on-surface mb-8 leading-none">§10: Runbooks &amp; Skills</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-12 max-w-xl">Decoupling the 'What' from the 'How'. The specification defines the desired state; the skill provides the procedural intelligence to achieve it.</p>
+<div class="grid grid-cols-2 gap-6">
+<div class="p-6 bg-surface-container border-b-4 border-secondary shadow-lg">
+<span class="font-label-mono text-secondary mb-2 block uppercase text-xs tracking-tighter">The Spec (What)</span>
+<h5 class="font-headline-sm text-on-surface mb-2">Intent Definition</h5>
+<p class="text-sm opacity-60">Declarative JSON/YAML schemas describing final system state.</p>
+</div>
+<div class="p-6 bg-surface-container border-b-4 border-primary shadow-lg">
+<span class="font-label-mono text-primary mb-2 block uppercase text-xs tracking-tighter">The Skill (How)</span>
+<h5 class="font-headline-sm text-on-surface mb-2">Execution Logic</h5>
+<p class="text-sm opacity-60">Procedural runbooks that the agent follows to satisfy the spec.</p>
+</div>
+</div>
+</div>
+<div class="col-span-6 relative h-[600px]">
+<div class="absolute inset-0 flex items-center justify-center">
+
+</div>
+<!-- Technical Callouts -->
+<div class="absolute top-1/4 left-0 p-4 bg-surface-container-high shadow-2xl flex items-center gap-4">
+<div class="w-2 h-2 rounded-full bg-secondary animate-pulse"></div>
+<span class="font-label-mono text-xs">SKILL_INJECT: "RefactorGrid"</span>
+</div>
+<div class="absolute bottom-1/4 right-0 p-4 bg-surface-container-high shadow-2xl flex items-center gap-4">
+<div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+<span class="font-label-mono text-xs">GOAL_STATE: "AtomicFluidity"</span>
+</div>
+</div>
+</div>
+</section>
+
+<section id="section-11" class="w-full pt-24 pb-48 px-12 bg-primary text-on-primary relative">
+<div class="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-surface to-transparent opacity-20"></div>
+<div class="max-w-[1440px] mx-auto grid grid-cols-12 gap-gutter relative z-10">
+<div class="col-span-12 mb-16 border-l-8 border-on-primary pl-8">
+<h2 class="font-display-lg text-display-lg leading-none mb-4 italic">§11: The Shift Left</h2>
+<p class="font-headline-md text-headline-md opacity-90 max-w-3xl">Design judgments are no longer downstream. We are forcing micro-decisions into documentation before a single component is rendered.</p>
+</div>
+<div class="col-span-7 space-y-12">
+<div class="grid grid-cols-2 gap-12">
+<div class="space-y-4">
+<span class="font-label-mono text-sm opacity-70 border-b border-on-primary/30 block pb-2">PRE-SHIFT WORKFLOW</span>
+<p class="font-body-md text-on-primary">Designer ships Figma → Engineer interprets spacing → QA catches misalignment → Cycle repeats.</p>
+</div>
+<div class="space-y-4">
+<span class="font-label-mono text-sm border-b border-on-primary block pb-2">DNC WORKFLOW</span>
+<p class="font-body-md font-bold">Designer ships Judgment Doc → Agent synthesizes Spec → UI is rendered correct-by-construction.</p>
+</div>
+</div>
+<div class="relative bg-on-primary/10 p-12 rounded-sm backdrop-blur-md overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-20">
+<span class="material-symbols-outlined text-8xl">gavel</span>
+</div>
+<blockquote class="font-headline-lg text-headline-lg leading-tight relative z-10">
+            "We don't build features. We build the <span class="underline decoration-4 underline-offset-8">rulesets</span> that allow agents to build features."
+          </blockquote>
+<div class="mt-8 flex items-center gap-4">
+<div class="h-1 w-12 bg-on-primary"></div>
+<span class="font-label-mono text-sm tracking-widest">DESIGN_JUDGMENT_MANIFESTO.md</span>
+</div>
+</div>
+</div>
+<div class="col-span-5 flex flex-col gap-6 self-end">
+<div class="bg-surface p-8 rounded-xl text-on-surface shadow-2xl -rotate-2 hover:rotate-0 transition-transform duration-500">
+<div class="flex items-center justify-between mb-4">
+<span class="font-label-mono text-xs text-primary">DECISION_LOG_012</span>
+<span class="text-xs opacity-40">2024-11-24</span>
+</div>
+<h6 class="font-headline-sm mb-4">Border-Radius Strategy</h6>
+<p class="text-sm text-on-surface-variant mb-6 italic">"All outer containers must inherit parent curvature minus 4px padding to maintain visual concentricity."</p>
+<div class="bg-primary/10 p-3 rounded font-mono text-[10px] text-primary">
+            EXECUTION: COMPONENT_CONSTRUCT_ENGINE
+          </div>
+</div>
+<div class="bg-surface p-8 rounded-xl text-on-surface shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-500 translate-x-12">
+<div class="flex items-center justify-between mb-4">
+<span class="font-label-mono text-xs text-secondary">DECISION_LOG_013</span>
+<span class="text-xs opacity-40">2024-11-25</span>
+</div>
+<h6 class="font-headline-sm mb-4">Luminance Contrast</h6>
+<p class="text-sm text-on-surface-variant mb-6 italic">"Active states should not exceed 85% luminance to prevent eye fatigue in dark-mode technical environments."</p>
+<div class="bg-secondary/10 p-3 rounded font-mono text-[10px] text-secondary">
+            STATUS: APPLIED_TO_ALL_AGENTS
+          </div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="section-12" class="relative w-full min-h-[921px] flex items-center px-12 overflow-hidden">
+  <div class="absolute inset-0 bg-cover bg-center -z-10 opacity-20" style="background-image: url('assets/illustrations/vanishing_layer.jpg')"></div>
+<div class="absolute inset-0 -z-10 opacity-20">
+
+</div>
+<div class="max-w-[1440px] mx-auto w-full grid grid-cols-12 gap-gutter items-end">
+<div class="col-span-12 lg:col-span-8">
+<span class="font-label-mono text-label-mono text-primary mb-8 block tracking-[0.2em]">TRANSITION PHASE / 012</span>
+<h2 class="font-display-xl text-display-xl text-on-surface leading-[0.85] mb-12">
+<span class="block">THE</span>
+<span class="text-primary italic">VANISHING</span>
+<span class="block">CODE</span>
+</h2>
+</div>
+<div class="col-span-12 lg:col-span-4 pb-4">
+<div class="bg-surface-container-high p-8 shadow-2xl relative">
+<div class="absolute -top-6 -left-6 text-[120px] font-display-lg text-primary/10 select-none pointer-events-none">§12</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant relative z-10">
+                        Code is no longer the destination. It is becoming an <span class="text-primary">opaque intermediate step</span>—a transient byproduct generated and consumed by machines, invisible to the architect.
+                    </p>
+<div class="mt-8 flex items-center gap-4">
+<div class="h-px flex-grow bg-outline-variant/30"></div>
+<span class="font-label-mono text-label-mono text-primary/50">ARCHITECTURAL DECAY</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="section-13" class="relative w-full py-32 bg-surface-container-lowest">
+<div class="max-w-[1440px] mx-auto px-12">
+<div class="flex flex-col mb-24">
+<h2 class="font-display-lg text-display-lg text-on-surface mb-4">§13: THE OPAQUE AVALANCHE</h2>
+<div class="w-24 h-2 bg-primary"></div>
+</div>
+<div class="grid grid-cols-12 gap-gutter items-start">
+<div class="col-span-12 lg:col-span-5 flex flex-col gap-12">
+<div class="relative group">
+<div class="absolute -inset-2 bg-gradient-to-r from-primary/20 to-transparent blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+<div class="relative bg-surface-container p-12">
+<span class="font-display-xl text-display-xl text-primary leading-none">100X</span>
+<p class="font-headline-sm text-headline-sm mt-4 text-on-surface">ACCELERATION VELOCITY</p>
+<p class="font-body-md text-body-md text-on-surface-variant mt-6">
+                                When logic is generated at machine-speed, human review becomes a mathematical impossibility. We are entering the era of the "Review Paradox."
+                            </p>
+</div>
+</div>
+<div class="pl-12 border-l-2 border-primary/30">
+<p class="font-label-mono text-label-mono text-on-surface-variant uppercase tracking-widest mb-4">System Telemetry</p>
+<div class="flex flex-col gap-2">
+<div class="flex justify-between text-on-surface/60"><span class="font-label-mono">Tokens/Sec</span><span class="font-label-mono text-primary">14,200</span></div>
+<div class="flex justify-between text-on-surface/60"><span class="font-label-mono">Human Capacity</span><span class="font-label-mono text-error">0.02</span></div>
+</div>
+</div>
+</div>
+<div class="col-span-12 lg:col-span-7 h-[600px] relative overflow-hidden group">
+<div class="absolute inset-0 bg-surface-container-high overflow-hidden">
+
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent"></div>
+</div>
+<div class="absolute bottom-12 left-12 right-12">
+<div class="backdrop-blur-md bg-surface/40 p-8">
+<p class="font-headline-md text-headline-md text-on-surface mb-2">The Impossibility of Review</p>
+<p class="font-body-md text-body-md text-on-surface-variant">The avalanche of synthetic logic buries traditional QA under a mountain of undecipherable, high-entropy syntax.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="section-14" class="relative w-full min-h-[1024px] flex flex-col justify-center overflow-hidden bg-on-primary">
+  <div class="absolute inset-0 bg-cover bg-center -z-10 opacity-25" style="background-image: url('assets/illustrations/shift_hero.jpg')"></div>
+<!-- Intense Background Interaction -->
+<div class="absolute inset-0 mix-blend-overlay opacity-40">
+
+</div>
+<div class="max-w-[1440px] mx-auto w-full px-12 relative z-10">
+<div class="flex flex-col items-center text-center">
+<span class="font-label-mono text-label-mono text-primary-fixed mb-12 tracking-[0.5em] uppercase">The Final Synthesis</span>
+<div class="relative mb-8">
+<h1 class="font-display-xl text-[14vw] leading-[0.8] tracking-tighter text-on-primary-container mix-blend-plus-lighter">
+                        DESIGN <span class="italic font-light opacity-50">IS</span><br/>THE NEW CODE
+                    </h1>
+<div class="absolute -top-12 -right-12 font-display-md text-primary-fixed/20 select-none pointer-events-none">§14</div>
+</div>
+<div class="max-w-2xl mt-12 bg-surface-container-lowest/20 backdrop-blur-2xl p-12 border border-white/5">
+<p class="font-headline-md text-headline-md text-primary-fixed leading-tight">
+                        When the "how" is automated, the "what" is the only remaining lever. Structure, intent, and interface become the source of truth.
+                    </p>
+<div class="mt-12 flex justify-center gap-8">
+<button class="bg-primary-container text-on-primary-container px-10 py-5 font-label-mono text-label-mono hover:scale-105 transition-transform duration-motion_curve shadow-[0_0_50px_rgba(226,0,116,0.4)]">
+                            EXPLORE MANIFESTO
+                        </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Decorative Vertical Text -->
+<div class="absolute left-12 top-1/2 -translate-y-1/2 [writing-mode:vertical-rl] opacity-20">
+<span class="font-label-mono text-[80px] text-primary-fixed select-none pointer-events-none tracking-tighter uppercase">PARADIGM SHIFT</span>
+</div>
+</section>
+
+<section id="section-15" class="relative w-full py-32 px-12">
+<div class="max-w-[1440px] mx-auto">
+<div class="grid grid-cols-12 gap-gutter items-center">
+<div class="col-span-12 lg:col-span-6 order-2 lg:order-1">
+<div class="relative w-full aspect-square bg-surface-container-high flex items-center justify-center p-1">
+<div class="absolute inset-0 opacity-40">
+<div class="w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/20 via-transparent to-transparent"></div>
+</div>
+<!-- UI Simulation: Sandbox Monitor -->
+<div class="w-full h-full bg-surface-container-lowest p-12 flex flex-col gap-8 relative overflow-hidden">
+<div class="flex justify-between items-center border-b border-outline-variant/20 pb-6">
+<span class="font-label-mono text-label-mono text-primary">SANDBOX_VM_04</span>
+<span class="bg-primary/10 text-primary text-[10px] px-2 py-1 font-label-mono">ISOLATED</span>
+</div>
+<div class="flex-grow flex flex-col gap-4">
+<div class="h-2 w-full bg-surface-variant relative">
+<div class="absolute inset-y-0 left-0 bg-primary w-[72%]"></div>
+</div>
+<div class="h-2 w-full bg-surface-variant relative">
+<div class="absolute inset-y-0 left-0 bg-primary w-[44%]"></div>
+</div>
+<div class="flex-grow bg-surface/50 mt-4 font-label-mono text-[12px] text-on-surface-variant/40 p-4 leading-relaxed overflow-hidden">
+                                    [SYS] Initializing blast_radius_shield...<br/>
+                                    [MEM] Allocation restricted to 256MB...<br/>
+                                    [NET] Outbound egress denied...<br/>
+                                    [CPU] Cycle monitoring active...<br/>
+                                    [LOG] Anomaly detected in slide_13_logic...
+                                </div>
+</div>
+<div class="h-32 w-full">
+
+</div>
+</div>
+</div>
+</div>
+<div class="col-span-12 lg:col-span-5 lg:col-start-8 order-1 lg:order-2 mb-16 lg:mb-0">
+<span class="font-label-mono text-label-mono text-on-surface-variant/60 block mb-4 uppercase tracking-[0.3em]">Governance &amp; Safety</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-8">§15: CONTAINMENT AND THE BLAST RADIUS</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-12">
+                        In a world of synthetic code, execution must be adversarial. We do not trust the generation; we contain it. Every block of code runs in a <span class="text-primary italic">disposable sandbox</span>, where its "Blast Radius" is monitored in real-time.
+                    </p>
+<div class="grid grid-cols-2 gap-8">
+<div class="flex flex-col">
+<span class="font-label-mono text-label-mono text-primary mb-2">01. ISOLATION</span>
+<p class="font-body-md text-body-md text-on-surface-variant/80">Hypervisor-level segregation for every design-to-code iteration.</p>
+</div>
+<div class="flex flex-col">
+<span class="font-label-mono text-label-mono text-primary mb-2">02. TELEMETRY</span>
+<p class="font-body-md text-body-md text-on-surface-variant/80">Real-time resource exhaustion monitoring and automatic kill-switches.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="section-16" class="relative w-full py-32 px-12 overflow-hidden flex flex-col gap-12">
+  <div class="absolute inset-0 bg-cover bg-center -z-10 opacity-10" style="background-image: url('assets/illustrations/adversarial_verification.jpg')"></div>
+<div class="absolute top-0 right-0 p-12 opacity-10 select-none pointer-events-none">
+<span class="font-display-xl text-display-xl leading-none">16</span>
+</div>
+<div class="grid grid-cols-12 gap-gutter relative z-10">
+<div class="col-span-7 flex flex-col gap-6">
+<span class="font-label-mono text-label-mono text-primary uppercase tracking-widest">Protocol Evolution / Stage 04</span>
+<h2 class="font-display-md text-display-md text-on-surface leading-tight">§16: Test-Driven Spec</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+                    Specifications are no longer static descriptions; they are executable constraints. We move from "writing documentation" to "coding expectations" that agents must satisfy before a single line of application logic is written.
+                </p>
+</div>
+</div>
+<div class="grid grid-cols-12 gap-gutter items-stretch">
+<div class="col-span-5 bg-surface-container-high p-8 flex flex-col gap-8 relative overflow-hidden">
+<div class="flex items-center gap-4">
+<div class="w-3 h-3 rounded-full bg-primary animate-pulse"></div>
+<span class="font-label-mono text-label-mono text-primary">BUILDER_AGENT_TX</span>
+</div>
+<div class="font-headline-sm text-headline-sm text-on-surface">Constructive Intelligence</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Responsible for generating structural candidates based on the prompt. Optimizes for speed, novelty, and adherence to the visual tokens of the Design System.</p>
+<div class="mt-auto pt-8 border-t border-outline-variant/30 font-label-mono text-label-mono text-primary/50">
+                    STATUS: GENERATING_PROTOTYPE_V4.2
+                </div>
+</div>
+<div class="col-span-2 flex items-center justify-center">
+<div class="w-px h-full bg-gradient-to-b from-transparent via-outline-variant/50 to-transparent relative">
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-surface-container px-2 py-4 font-label-mono text-primary rotate-90 whitespace-nowrap">VALIDATION_LOOP</div>
+</div>
+</div>
+<div class="col-span-5 bg-surface-container-highest p-8 flex flex-col gap-8">
+<div class="flex items-center gap-4">
+<div class="w-3 h-3 rounded-full bg-secondary"></div>
+<span class="font-label-mono text-label-mono text-secondary">VERIFIER_AGENT_RX</span>
+</div>
+<div class="font-headline-sm text-headline-sm text-on-surface">Adversarial Intelligence</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Attempts to break the builder's output. Checks against accessibility standards, performance budgets, and logical edge cases defined in the Test-Driven Spec.</p>
+<div class="mt-auto pt-8 border-t border-outline-variant/30 font-label-mono text-secondary/50">
+                    STATUS: AUDITING_STRUCTURE...
+                </div>
+</div>
+</div>
+</section>
+
+<section id="section-17" class="relative w-full py-32 px-12 bg-surface-container-low overflow-hidden">
+
+<div class="relative z-10 grid grid-cols-12 gap-gutter">
+<div class="col-span-4 flex flex-col justify-center">
+<h2 class="font-display-md text-display-md text-on-surface mb-8">§17: Continuous Regeneration</h2>
+<div class="p-6 bg-primary/10 border-l-4 border-primary mb-8">
+<p class="font-body-md text-body-md text-primary">"The document is the deployment. To commit a design spec is to trigger a total system rebuild."</p>
+</div>
+<ul class="flex flex-col gap-4">
+<li class="flex items-center gap-3 font-label-mono text-label-mono text-on-surface-variant">
+<span class="text-primary">01</span> CI/CD of Intellectual Property
+                    </li>
+<li class="flex items-center gap-3 font-label-mono text-label-mono text-on-surface-variant">
+<span class="text-primary">02</span> Zero-Downtime Design Updates
+                    </li>
+<li class="flex items-center gap-3 font-label-mono text-label-mono text-on-surface-variant">
+<span class="text-primary">03</span> Version-Controlled Aesthetic
+                    </li>
+</ul>
+</div>
+<div class="col-span-8 relative">
+<div class="grid grid-cols-2 gap-4 h-full">
+<div class="bg-surface p-1 shadow-2xl">
+<div class="w-full h-full bg-cover bg-center grayscale contrast-125 opacity-60" style="background-image: url('assets/illustrations/continuous_regeneration.jpg')"></div>
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex-1 bg-surface-container p-8 flex flex-col justify-end">
+<span class="font-label-mono text-label-mono text-on-surface-variant mb-2">LAST REGEN</span>
+<div class="font-display-md text-display-md text-primary leading-none">0.42s</div>
+</div>
+<div class="flex-1 bg-primary text-on-primary p-8 flex flex-col justify-between">
+<span class="material-symbols-outlined text-4xl">refresh</span>
+<div class="font-headline-sm text-headline-sm">Trigger Pipeline</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="section-18" class="relative w-full py-32 px-12 overflow-hidden">
+<div class="max-w-[1440px] mx-auto">
+<div class="flex items-baseline gap-8 mb-24">
+<h2 class="font-display-md text-display-md text-on-surface shrink-0">§18: Multi-agent Orchestration</h2>
+<div class="h-px flex-grow bg-outline-variant/30"></div>
+<span class="font-label-mono text-label-mono text-on-surface-variant uppercase">Specialized Clusters</span>
+</div>
+<div class="grid grid-cols-4 gap-6">
+<!-- Specialized Worker 1 -->
+<div class="flex flex-col gap-6 p-8 bg-surface-container-high transition-all hover:bg-surface-container-highest cursor-default">
+<div class="font-label-mono text-label-mono text-primary">TYPOGRAPHY_CORE</div>
+<div class="font-headline-sm text-headline-sm text-on-surface">The Letterist</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Manages rhythmic scales, kerning logic, and editorial hierarchy. Ensures contrast ratios exceed 7:1.</p>
+</div>
+<!-- Specialized Worker 2 -->
+<div class="flex flex-col gap-6 p-8 bg-surface-container-high transition-all hover:bg-surface-container-highest mt-12">
+<div class="font-label-mono text-label-mono text-secondary">LAYOUT_LOGIC</div>
+<div class="font-headline-sm text-headline-sm text-on-surface">The Architect</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Determines grid spans, asymmetric offsets, and Z-index layering. Handles the scrollytelling physics.</p>
+</div>
+<!-- Specialized Worker 3 -->
+<div class="flex flex-col gap-6 p-8 bg-surface-container-high transition-all hover:bg-surface-container-highest">
+<div class="font-label-mono text-label-mono text-tertiary">ASSET_GEN</div>
+<div class="font-headline-sm text-headline-sm text-on-surface">The Curator</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Injects data-alt prompts, selects SVG primitives, and manages the animation asset library.</p>
+</div>
+<!-- Specialized Worker 4 -->
+<div class="flex flex-col gap-6 p-8 bg-surface-container-high transition-all hover:bg-surface-container-highest mt-12">
+<div class="font-label-mono text-label-mono text-primary-fixed">INTEGRATION_HUB</div>
+<div class="font-headline-sm text-headline-sm text-on-surface">The Orchestrator</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Syncs state between specialized workers. Resolves conflicts in the unified output stream.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="section-19" class="relative w-full py-32 px-12 bg-surface-container-highest overflow-hidden">
+<div class="absolute -left-20 top-0 opacity-5">
+<span class="font-display-xl text-[400px] leading-none select-none pointer-events-none">HEAL</span>
+</div>
+<div class="grid grid-cols-12 gap-gutter relative z-10 items-center">
+<div class="col-span-5">
+<h2 class="font-display-md text-display-md text-on-surface mb-6 leading-none">§19: Self-Healing Architectures</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-12">System failures are treated as new design constraints. When the UI breaks, the agent observes the error, rewrites the spec, and redeploys autonomously.</p>
+<div class="space-y-4">
+<div class="bg-surface-container-low p-4 flex justify-between items-center">
+<span class="font-label-mono text-label-mono text-error">CRITICAL_EXCEPTION:04</span>
+<span class="font-label-mono text-label-mono text-on-surface-variant">DETECTED 12ms AGO</span>
+</div>
+<div class="bg-surface-container-low p-4 flex justify-between items-center border-l-2 border-secondary">
+<span class="font-label-mono text-label-mono text-secondary">REPAIR_AGENT_INVOKED</span>
+<span class="font-label-mono text-label-mono text-on-surface-variant">ANALYZING AST...</span>
+</div>
+<div class="bg-surface-container-low p-4 flex justify-between items-center border-l-2 border-primary animate-pulse">
+<span class="font-label-mono text-label-mono text-primary">SYSTEM_RESTORED</span>
+<span class="font-label-mono text-label-mono text-on-surface-variant">VERSION 4.2.1-AUTO</span>
+</div>
+</div>
+</div>
+<div class="col-span-7 pl-12">
+<div class="aspect-video relative bg-surface overflow-hidden shadow-2xl">
+
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-highest via-transparent to-transparent"></div>
+<div class="absolute bottom-8 left-8 right-8 flex justify-between items-end">
+<div class="flex flex-col">
+<div class="font-display-lg text-display-lg text-on-surface leading-none">99.999%</div>
+<div class="font-label-mono text-label-mono text-primary">UPTIME_VIA_AUTONOMOUS_FIX</div>
+</div>
+<div class="font-label-mono text-label-mono text-on-surface-variant/30 text-right">DIAGNOSTIC_LOOP_ACTIVE<br/>CONTINUOUS_REPAIR_ENABLED</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="section-20" class="relative w-full pt-48 pb-64 px-12 overflow-hidden flex flex-col items-center text-center">
+  <div class="absolute inset-0 bg-cover bg-center -z-10 opacity-15" style="background-image: url('assets/illustrations/self_referential.jpg')"></div>
+
+<div class="absolute inset-0 bg-gradient-to-b from-surface via-transparent to-surface z-10"></div>
+<div class="relative z-20 max-w-4xl flex flex-col items-center">
+<span class="font-label-mono text-label-mono text-primary mb-6 tracking-[0.4em] uppercase">The Final Frontier</span>
+<h2 class="font-display-xl text-display-xl text-on-surface mb-12 leading-[0.9]">§20: The Self-Referential Engine</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-16 leading-relaxed">
+                We have reached the point of Singularity in Design. The Agent no longer builds the UI for the User—it builds the Agent that will build the next UI. It is an iterative improvement cycle where the Designer's role is not to create, but to define the Initial Conditions of the engine itself.
+            </p>
+<div class="flex gap-4">
+<button class="px-12 py-4 bg-primary text-on-primary font-label-mono text-label-mono uppercase tracking-widest hover:scale-105 transition-all">INITIALIZE_SINGULARITY</button>
+<button class="px-12 py-4 bg-transparent border border-outline-variant text-on-surface font-label-mono text-label-mono uppercase tracking-widest hover:bg-on-surface/5 transition-all">VIEW_ORIGIN_CODE</button>
+</div>
+</div>
+<!-- Decorative background elements -->
+<div class="absolute top-1/2 left-0 w-full flex justify-between px-12 pointer-events-none opacity-20">
+<div class="font-display-xl text-[200px] leading-none select-none pointer-events-none -translate-x-1/2">S</div>
+<div class="font-display-xl text-[200px] leading-none select-none pointer-events-none translate-x-1/2">R</div>
+</div>
+</section>
+    </div>
+  </main>
+
+  <!-- Editorial Footer -->
+  <footer class="w-full bg-surface-container-lowest border-t border-outline-variant/20 py-12">
+    <div class="max-w-[1440px] mx-auto px-12 flex flex-col md:flex-row justify-between items-start gap-8">
+      <div class="max-w-md">
+        <div class="font-headline-sm text-headline-sm text-on-surface mb-4">DNC / 2026</div>
+        <p class="font-body-md text-body-md text-on-surface-variant">A high-density editorial exploration of the convergence between system design and software architecture.</p>
+      </div>
+      <div class="grid grid-cols-2 gap-12">
+        <div class="flex flex-col gap-3">
+          <span class="font-label-mono text-label-mono text-primary">CHAPTERS</span>
+          <a class="text-on-surface-variant hover:text-primary transition-colors" href="#section-0">The Shift</a>
+          <a class="text-on-surface-variant hover:text-primary transition-colors" href="#section-4">Aha Moments</a>
+          <a class="text-on-surface-variant hover:text-primary transition-colors" href="#section-8">Execution</a>
+          <a class="text-on-surface-variant hover:text-primary transition-colors" href="#section-12">The Future</a>
+          <a class="text-on-surface-variant hover:text-primary transition-colors" href="#section-16">Orchestration</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Spec Preview Modal Overlay -->
+  <div id="spec-modal" class="fixed inset-0 z-[100] flex items-center justify-center bg-black/85 backdrop-blur-md hidden opacity-0 transition-opacity duration-300">
+    <div class="bg-surface-container border border-outline-variant p-8 rounded-xl max-w-2xl w-full mx-4 relative transform scale-95 transition-transform duration-300">
+      <button id="close-modal-btn" class="absolute top-6 right-6 font-label-mono text-outline hover:text-on-surface text-2xl transition-colors">&times;</button>
+      <h3 id="modal-title" class="font-headline-sm text-headline-sm text-primary mb-4">prd.md</h3>
+      <pre id="modal-content" class="font-label-mono text-sm text-on-surface-variant overflow-y-auto max-h-[500px] whitespace-pre-wrap bg-surface-container-lowest p-6 border border-outline-variant/30 rounded"></pre>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
