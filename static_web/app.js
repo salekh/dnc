@@ -1,4 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then(registrations => {
+      registrations.forEach(registration => registration.unregister());
+    });
+  }
+
   // --- 1. Scroll Observer for Active Chapter & Slide Counter ---
   const sections = document.querySelectorAll('section');
   const navLinks = document.querySelectorAll('header nav a');
@@ -16,18 +22,25 @@ document.addEventListener('DOMContentLoaded', () => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const id = entry.target.id;
-        const index = parseInt(id.split('-')[1]);
+        const idxInList = Array.from(sections).indexOf(entry.target);
         
-        slideIndicator.innerText = `${index.toString().padLeft(2, '0')} / 20`;
-        currentFocusedIndex = index;
-        
-
+        let displayStr = '';
+        if (id === 'section-13-5') {
+          displayStr = '13.5 / 18';
+        } else if (id === 'section-3-5') {
+          displayStr = '03.5 / 18';
+        } else {
+          const index = parseInt(id.split('-')[1]);
+          displayStr = `${index.toString().padStart(2, '0')} / 18`;
+        }
+        slideIndicator.innerText = displayStr;
+        currentFocusedIndex = idxInList;
         
         let activeChapterIdx = 0;
-        if (index >= 4 && index < 8) activeChapterIdx = 1;
-        else if (index >= 8 && index < 12) activeChapterIdx = 2;
-        else if (index >= 12 && index < 16) activeChapterIdx = 3;
-        else if (index >= 16) activeChapterIdx = 4;
+        if (idxInList >= 5 && idxInList < 9) activeChapterIdx = 1;       // AHA MOMENTS (Indices 5..8)
+        else if (idxInList >= 9 && idxInList < 16) activeChapterIdx = 2; // EXECUTION (Indices 9..15)
+        else if (idxInList >= 16 && idxInList < 18) activeChapterIdx = 3;// ORCHESTRATION (Indices 16..17)
+        else if (idxInList >= 18) activeChapterIdx = 4;                  // THE FUTURE (Indices 18..20)
         
         navLinks.forEach((link, idx) => {
           if (idx === activeChapterIdx) {
@@ -40,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Highlight active side dot
         const dots = document.querySelectorAll('.fixed.right-6 a');
         dots.forEach((dot, idx) => {
-          if (idx === index) {
+          if (idx === idxInList) {
             dot.classList.add('bg-primary', 'border-primary', 'scale-125');
             dot.classList.remove('bg-surface/80', 'border-outline/40');
           } else {
@@ -49,7 +62,8 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         });
         
-        animateSlideEntry(index);
+        const numericIndex = parseInt(id.split('-')[1]) || 0;
+        animateSlideEntry(numericIndex);
       }
     });
   }, observerOptions);
@@ -58,11 +72,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- Dynamic Side Dots Navigation Generation ---
   const dotsContainer = document.createElement('div');
-  dotsContainer.className = 'fixed right-6 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-3 pointer-events-auto';
+  dotsContainer.className = 'fixed right-6 top-1/2 -translate-y-1/2 z-50 hidden md:flex flex-col gap-3 pointer-events-auto';
   
   sections.forEach((sec, idx) => {
     const h2 = sec.querySelector('h2, h1');
-    let title = h2 ? h2.innerText.replace(/§\d+:\s*/, '').trim() : `Slide ${idx}`;
+    let title = h2 ? h2.innerText.replace(/§\d+(\.\d+)?:?\s*/, '').trim() : `Slide ${idx}`;
     // Strip nested html tags from text if any
     title = title.replace(/<[^>]*>/g, '');
     
@@ -105,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const specContentMap = {
     'prd.md': `# Product Requirements Document (PRD)
-Project: DINTC Orchestrator
+Project: Agentic Orchestrator
 Status: DRAFT v2.1
 
 ## 1. Objective
@@ -119,29 +133,23 @@ Establish a zero-human-loop development engine that generates, builds, and self-
     'design.md': `# System Architecture Design (design.md)
 Target: Autonomous Scaffold Engine
 
-## 1. Modular Architecture
-- **Builder Agent**: Performs code synthesis by applying atomic changes to the repository file tree.
-- **Verifier Agent**: Orchestrates hermetic build and test environments, generating detailed triage logs on compile failures.
-- **Orchestrator**: Coordinates tasks, updates specifications, and records history logs.
+## 1. Component Boundaries
+All components are built correct-by-construction from formal specs.
 
-## 2. State Mapping Schema
-- Layer 01: Product requirements (prd.md)
-- Layer 02: API & Architecture Schemas (design.md)
-- Layer 03: Integration bindings (GEMINI.md)`,
+## 2. State Management
+State transitions follow deterministic specification maps.`,
 
-    'GEMINI.md': `# Gemini Execution Instructions (GEMINI.md)
-Role: Expert AI Software Engineer
+    'GEMINI.md': `# Agent Execution Instructions (GEMINI.md)
+Protocol: SPEC_FIRST_V4
 
-## 1. Guiding Principles
-- **Conciseness**: Avoid diagnostic warnings, apologies, or verbose summaries. Speak directly via code and specifications.
-- **Autonomy**: Proactively write scratch scripts to compile and test code. Do not halt loops for minor decisions.
+## 1. Rule of Engagement
+Never output application code directly unless directed by a formal spec change.
 
-## 2. Sandbox Constraints
-- NEVER attempt to modify or query files outside the configured workspace directory.
-- DO NOT execute non-hermetic shell commands (such as curl, wget, or ssh) without sandboxing flags.`
+## 2. Verification Protocol
+Run tests continuously after every delta injection.`
   };
 
-  const specCards = document.querySelectorAll('#section-7 .bg-surface-container');
+  const specCards = document.querySelectorAll('#section-8 .bg-surface-container');
   specCards.forEach(card => {
     const h3 = card.querySelector('h3');
     if (h3) {
@@ -190,10 +198,10 @@ Role: Expert AI Software Engineer
   // --- 3. Fullscreen art viewer removed (illustrations integrated directly into slide panels) ---
 
 
-  // --- 4. Interactive Toggles: Goldfish vs. Elephant (Slide 8) ---
-  const goldfishCard = document.querySelector('#section-8 .bg-surface-container:nth-of-type(1)');
-  const elephantCard = document.querySelector('#section-8 .bg-surface-container:nth-of-type(2)');
-  const codeConsole = document.querySelector('#section-8 .bg-surface\\/80');
+  // --- 4. Interactive Toggles: Goldfish vs. Elephant (Slide 9) ---
+  const goldfishCard = document.querySelector('#section-9 .bg-surface-container:nth-of-type(1)');
+  const elephantCard = document.querySelector('#section-9 .bg-surface-container:nth-of-type(2)');
+  const codeConsole = document.querySelector('#section-9 .bg-surface\\/80');
 
   if (goldfishCard && elephantCard && codeConsole) {
     goldfishCard.style.cursor = 'pointer';
@@ -215,7 +223,7 @@ Role: Expert AI Software Engineer
       goldfishCard.style.border = 'none';
       codeConsole.innerHTML = `<span class="text-primary">if</span> (intent.depth &gt; threshold) {<br/>
 &nbsp;&nbsp;switchMode(<span class="text-tertiary">'ELEPHANT'</span>);<br/>
-&nbsp;&nbsp;mountVectorStore(<span class="text-tertiary">'./.dnc/ctx'</span>);<br/>
+&nbsp;&nbsp;mountVectorStore(<span class="text-tertiary">'./.agentic/ctx'</span>);<br/>
 } <span class="text-primary">else</span> {<br/>
 &nbsp;&nbsp;flushBuffer();<br/>
 &nbsp;&nbsp;exec(<span class="text-tertiary">'GOLDFISH_LITE'</span>);<br/>
@@ -223,56 +231,15 @@ Role: Expert AI Software Engineer
     });
   }
 
-  // --- 5. Interactive Spec Synthesis (Slide 9) ---
-  const diffOutput = document.querySelector('#section-9 .grid-cols-1');
-  const slide9TextCol = document.querySelector('#section-9 .col-span-4');
-
-  if (diffOutput && slide9TextCol) {
-    const btnContainer = document.createElement('div');
-    btnContainer.className = 'mt-6';
-    btnContainer.innerHTML = `<button id="synthesis-trigger-btn" class="bg-primary text-on-primary font-label-mono text-xs px-6 py-3 rounded hover:bg-primary-container transition-colors uppercase tracking-wider cursor-pointer">Run Spec Synthesis</button>`;
-    slide9TextCol.appendChild(btnContainer);
-
-    const triggerBtn = document.getElementById('synthesis-trigger-btn');
-    const baseDiffLines = [
-      '<div class="text-on-surface-variant opacity-40">@@ -124,6 +124,24 @@</div>',
-      '<div class="bg-primary/10 text-primary py-1 px-2">+ // FEATURE_DELTA: Implement dynamic context synthesis</div>',
-      '<div class="bg-primary/10 text-primary py-1 px-2">+ export const synthesize = (specs: Spec[]) =&gt; {</div>',
-      '<div class="bg-primary/10 text-primary py-1 px-2">+ &nbsp;&nbsp;return specs.reduce((acc, curr) =&gt; ({{ ...acc, ...curr.delta }}), {{}});</div>',
-      '<div class="bg-primary/10 text-primary py-1 px-2">+ };</div>',
-      '<div class="text-on-surface-variant opacity-40 mt-4">@@ -210,4 +228,8 @@</div>',
-      '<div class="bg-error/10 text-error py-1 px-2">- const legacy_delta = old_synthesis_logic();</div>',
-      '<div class="bg-primary/10 text-primary py-1 px-2">+ const modern_delta = await agent.synthesis(raw_stream);</div>'
-    ];
-
-    triggerBtn.addEventListener('click', () => {
-      triggerBtn.disabled = true;
-      triggerBtn.innerText = "SYNTHESIZING...";
-      diffOutput.innerHTML = "";
-      
-      let lineIdx = 0;
-      const interval = setInterval(() => {
-        if (lineIdx < baseDiffLines.length) {
-          diffOutput.innerHTML += baseDiffLines[lineIdx];
-          lineIdx++;
-        } else {
-          clearInterval(interval);
-          triggerBtn.disabled = false;
-          triggerBtn.innerText = "RUN SPEC SYNTHESIS";
-        }
-      }, 350);
-    });
-  }
-
-  // --- 6. Sandbox VM Terminal (Slide 15) ---
-  const terminalConsole = document.querySelector('#section-15 .bg-surface\\/50');
+  // --- 6. Sandbox VM Terminal (Slide 14) ---
+  const terminalConsole = document.querySelector('#section-14 .bg-surface\\/50');
   if (terminalConsole) {
     const sandboxLogs = [
       "[SYS] Initializing blast_radius_shield...",
       "[MEM] Allocation restricted to 256MB...",
       "[NET] Outbound egress denied...",
       "[CPU] Cycle monitoring active...",
-      "[LOG] Anomaly detected in slide_13_logic...",
+      "[LOG] Anomaly detected in slide_14_logic...",
       "[SEC] Isolating process context VM_04...",
       "[SYS] Executing adversarial build checks...",
       "[ERR] Invalid package import 'third_party/boost' blocked...",
@@ -293,9 +260,9 @@ Role: Expert AI Software Engineer
     }, 1800);
   }
 
-  // --- 7. Interactive Latency Trigger (Slide 17) ---
-  const pipelineBtn = document.querySelector('#section-17 .bg-primary');
-  const latencyTimer = document.querySelector('#section-17 .text-primary');
+  // --- 7. Interactive Latency Trigger (Slide 16) ---
+  const pipelineBtn = document.querySelector('#section-16 .bg-primary');
+  const latencyTimer = document.querySelector('#section-16 .text-primary');
 
   if (pipelineBtn && latencyTimer) {
     pipelineBtn.style.cursor = 'pointer';
@@ -335,7 +302,7 @@ Role: Expert AI Software Engineer
       e.preventDefault();
       
       if (currentFocusedIndex < sections.length - 1) {
-        const nextSec = document.getElementById(`section-${currentFocusedIndex + 1}`);
+        const nextSec = sections[currentFocusedIndex + 1];
         if (nextSec) {
           isScrolling = true;
           nextSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -346,7 +313,7 @@ Role: Expert AI Software Engineer
       e.preventDefault();
       
       if (currentFocusedIndex > 0) {
-        const prevSec = document.getElementById(`section-${currentFocusedIndex - 1}`);
+        const prevSec = sections[currentFocusedIndex - 1];
         if (prevSec) {
           isScrolling = true;
           prevSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -355,4 +322,244 @@ Role: Expert AI Software Engineer
       }
     }
   });
+
+  // --- 7.5 Studio Interface Controller ---
+  const studioSpecBtns = document.querySelectorAll('.studio-spec-btn');
+  const studioEditorTitle = document.getElementById('studio-editor-title');
+  const studioEditorContent = document.getElementById('studio-editor-content');
+  const studioTokenBadge = document.getElementById('studio-token-badge');
+  const studioGenerateBtn = document.getElementById('studio-generate-btn');
+  const studioTweakBtn = document.getElementById('studio-tweak-btn');
+  const studioTweakMenu = document.getElementById('studio-tweak-menu');
+  const studioTweakChips = document.querySelectorAll('.studio-tweak-chip');
+  const studioStreamStatus = document.getElementById('studio-stream-status');
+  const studioStreamStatusText = document.getElementById('studio-stream-status-text');
+  const studioWriteStatus = document.getElementById('studio-write-status');
+  const studioAppReloadBadge = document.getElementById('studio-app-reload-badge');
+  const studioAppIframe = document.getElementById('studio-app-iframe');
+  const studioLastAction = document.getElementById('studio-last-action');
+  const studioSynthBadge = document.getElementById('studio-synth-badge');
+
+  let currentSessionId = 'session_' + Math.random().toString(36).substring(2, 9);
+  let activeTweak = '';
+  let cachedSpecs = {};
+
+  function escapeHtml(str) {
+    return (str || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+
+  function renderRichCode(codeStr, isSpec = false) {
+    if (!studioEditorContent) return;
+    const lines = (codeStr || '').split('\n');
+    
+    const formattedLines = lines.map((line, idx) => {
+      const lineNum = (idx + 1).toString().padLeft(2, '0');
+      const numSpan = `<span class="text-on-surface-variant/40 select-none inline-block w-8 mr-2 text-right">${lineNum}</span>`;
+      
+      if (isSpec) {
+        let content = escapeHtml(line);
+        if (line.startsWith('# ')) {
+          content = `<span class="text-primary font-bold text-sm">${content}</span>`;
+        } else if (line.startsWith('## ') || line.startsWith('### ')) {
+          content = `<span class="text-secondary font-semibold">${content}</span>`;
+        } else if (line.startsWith('- ') || line.startsWith('* ')) {
+          content = `<span class="text-tertiary">${content}</span>`;
+        } else if (line.startsWith('>') || line.startsWith('```')) {
+          content = `<span class="text-on-surface-variant/60 italic">${content}</span>`;
+        } else {
+          content = `<span class="text-on-surface/90">${content}</span>`;
+        }
+        return `<div>${numSpan}${content}</div>`;
+      } else {
+        // JS Syntax Highlighting
+        let content = escapeHtml(line);
+        
+        if (content.trim().startsWith('//')) {
+          content = `<span class="text-on-surface-variant/50 italic">${content}</span>`;
+        } else {
+          content = content.replace(/\b(import|export|async|function|const|let|var|return|if|else|from|new|await|true|false)\b/g, '<span class="text-secondary font-semibold">$1</span>');
+          content = content.replace(/\b(\d+(\.\d+)?)\b/g, '<span class="text-primary-fixed-dim">$1</span>');
+          content = content.replace(/(&quot;.*?&quot;|&apos;.*?&apos;|&#039;.*?&#039;|'.*?'|".*?")/g, '<span class="text-tertiary">$1</span>');
+          content = content.replace(/\b([a-zA-Z_$][0-9a-zA-Z_$]*)\s*\(/g, '<span class="text-primary font-bold">$1</span>(');
+        }
+        return `<div>${numSpan}${content}</div>`;
+      }
+    });
+
+    studioEditorContent.innerHTML = formattedLines.join('');
+  }
+
+  // Render initial code state on load
+  const initialCode = `// Ready to compile specification stack.
+// Select a specification file on the left to inspect intent,
+// or click ▶ GENERATE MODULE to synthesize the recommendation engine.
+
+export async function rank(userContext, watchHistory, deviceContext) {
+  // Awaiting compilation...
+}`;
+  renderRichCode(initialCode, false);
+
+  // Fetch specs on load
+  fetch('/api/studio/specs')
+    .then(res => res.json())
+    .then(data => {
+      if (data && data.specs) {
+        data.specs.forEach(spec => {
+          cachedSpecs[spec.name] = spec;
+        });
+      }
+    })
+    .catch(err => console.log('Offline/Mock specs mode:', err));
+
+  // Spec button click handler
+  studioSpecBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      studioSpecBtns.forEach(b => b.classList.remove('active-spec', 'border-primary/50', 'bg-primary/10'));
+      btn.classList.add('active-spec', 'border-primary/50', 'bg-primary/10');
+      
+      const specName = btn.dataset.spec;
+      if (studioEditorTitle) studioEditorTitle.innerText = `content/ruby-tv/${specName}`;
+      if (studioTokenBadge && cachedSpecs[specName]) {
+        studioTokenBadge.innerText = `${cachedSpecs[specName].tokens} tokens ▾`;
+      }
+      if (cachedSpecs[specName]) {
+        renderRichCode(cachedSpecs[specName].content, true);
+      } else {
+        renderRichCode(`# ${specName}\n\nLoading specification content...`, true);
+      }
+    });
+  });
+
+  // Tweak button toggle
+  if (studioTweakBtn && studioTweakMenu) {
+    studioTweakBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      studioTweakMenu.classList.toggle('hidden');
+    });
+    document.addEventListener('click', (e) => {
+      if (!studioTweakMenu.contains(e.target) && e.target !== studioTweakBtn) {
+        studioTweakMenu.classList.add('hidden');
+      }
+    });
+  }
+
+  // Tweak chip click handler
+  studioTweakChips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      if (studioTweakMenu) studioTweakMenu.classList.add('hidden');
+      activeTweak = chip.dataset.tweak || '';
+      if (studioLastAction) {
+        studioLastAction.innerText = `STATE: TWEAK -> ${activeTweak ? activeTweak.substring(0, 25) + '...' : 'STANDARD'}`;
+      }
+      runStudioGeneration(activeTweak);
+    });
+  });
+
+  // Generate button click handler
+  if (studioGenerateBtn) {
+    studioGenerateBtn.addEventListener('click', () => {
+      runStudioGeneration(activeTweak);
+    });
+  }
+
+  async function runStudioGeneration(tweak = '') {
+    if (!studioEditorContent) return;
+    
+    currentSessionId = 'session_' + Math.random().toString(36).substring(2, 9);
+    
+    if (studioEditorTitle) studioEditorTitle.innerText = '/demo/ruby/recommender.js';
+    if (studioTokenBadge) studioTokenBadge.innerText = '4,213 tokens ▾';
+    if (studioWriteStatus) studioWriteStatus.innerHTML = '<span class="text-amber-400">⏳ Compiling ES module...</span>';
+    if (studioAppReloadBadge) studioAppReloadBadge.innerHTML = '<span>⏳</span><span>Compiling...</span>';
+    if (studioSynthBadge) studioSynthBadge.classList.remove('hidden');
+    if (studioStreamStatus) {
+      studioStreamStatus.classList.remove('hidden');
+      if (studioStreamStatusText) {
+        studioStreamStatusText.innerText = `Assembling 4,213 tokens across 5 files → sending to Gemini 3.1 Pro...${tweak ? ' [Tweak Active]' : ''}`;
+      }
+    }
+    
+    let rawBuffer = '';
+    renderRichCode('', false);
+
+    try {
+      const response = await fetch('/api/studio/generate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ session_id: currentSessionId, tweak: tweak })
+      });
+
+      if (!response.ok) throw new Error('Generation failed');
+      
+      const reader = response.body.getReader();
+      const decoder = new TextDecoder();
+      let buffer = '';
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        
+        buffer += decoder.decode(value, { stream: true });
+        const lines = buffer.split('\n\n');
+        buffer = lines.pop(); // keep last incomplete chunk
+        
+        for (const line of lines) {
+          if (line.startsWith('data: ')) {
+            try {
+              const data = JSON.parse(line.substring(6));
+              if (data.type === 'status') {
+                if (studioStreamStatusText) studioStreamStatusText.innerText = data.message;
+              } else if (data.type === 'chunk') {
+                rawBuffer += data.text;
+                renderRichCode(rawBuffer, false);
+                const container = document.getElementById('studio-code-container');
+                if (container) container.scrollTop = container.scrollHeight;
+              } else if (data.type === 'complete') {
+                if (studioStreamStatus) studioStreamStatus.classList.add('hidden');
+                if (studioSynthBadge) studioSynthBadge.classList.add('hidden');
+                if (studioWriteStatus) {
+                  studioWriteStatus.innerHTML = '<span class="text-emerald-400">✓ Written to /demo/ruby/recommender.js</span>';
+                }
+                
+                // Countdown and reload iframe
+                let count = 3;
+                if (studioAppReloadBadge) {
+                  studioAppReloadBadge.innerHTML = `<span>↻</span><span>Reloading in ${count}…</span>`;
+                }
+                const timer = setInterval(() => {
+                  count--;
+                  if (count <= 0) {
+                    clearInterval(timer);
+                    if (studioAppReloadBadge) {
+                      studioAppReloadBadge.innerHTML = `<span>✓</span><span>Hot-Reloaded (${tweak ? 'Custom Spec' : 'Standard Spec'})</span>`;
+                    }
+                    if (studioAppIframe) {
+                      studioAppIframe.src = `/demo/ruby/index.html?session=${encodeURIComponent(currentSessionId)}&t=${Date.now()}`;
+                    }
+                    if (studioLastAction) {
+                      studioLastAction.innerText = `STATE: COMPLETED (${tweak ? 'TWEAKED' : 'STANDARD'})`;
+                    }
+                  } else {
+                    if (studioAppReloadBadge) {
+                      studioAppReloadBadge.innerHTML = `<span>↻</span><span>Reloading in ${count}…</span>`;
+                    }
+                  }
+                }, 700);
+              }
+            } catch (e) {
+              console.error('Error parsing SSE event:', e);
+            }
+          }
+        }
+      }
+    } catch (err) {
+      console.error('Studio generation error:', err);
+      if (studioStreamStatus) studioStreamStatus.classList.add('hidden');
+      if (studioSynthBadge) studioSynthBadge.classList.add('hidden');
+      if (studioWriteStatus) studioWriteStatus.innerHTML = '<span class="text-red-400">⚠️ Generation error - Reverting to Golden Fallback</span>';
+      if (studioAppIframe) {
+        studioAppIframe.src = `/demo/ruby/index.html?session=default&t=${Date.now()}`;
+      }
+    }
+  }
 });

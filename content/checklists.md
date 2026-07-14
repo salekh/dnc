@@ -14,15 +14,15 @@ Execute these tasks manually at the start of the week:
   git pull origin main
   ```
 - [ ] **Spec Drift Inspection:** Compare active design files against deployed versions.
-  - Open `content/magenta-tv/spec.md` and check if there are any pending proposals or comments.
+  - Open `content/ruby-tv/spec.md` and check if there are any pending proposals or comments.
 - [ ] **Static Quality Check:** Run the local unit-test and static analysis orchestrator to verify compile state.
   ```bash
   # Check python, C++, and Go targets
   mypy --strict content/
   black --check content/
   ```
-- [ ] **Alerts & Oncall Handovers:** Check Buganizer queue and look for unresolved tickets under `MagentaTV-CW-Issues`.
-  - Read `content/magenta-tv/runbook.md` to refresh on active incident scenarios.
+- [ ] **Alerts & Oncall Handovers:** Check Buganizer queue and look for unresolved tickets under `RubyTV-CW-Issues`.
+  - Read `content/ruby-tv/runbook.md` to refresh on active incident scenarios.
   - Review the oncall log from the weekend rotation.
 
 ---
@@ -40,7 +40,7 @@ When an agent is booted at the start of the week, it must execute the following 
 - [ ] **Step 3: Execute Load and Regression Tests**
   - Run latency test suites to ensure P99 continues to meet targets under load.
   ```bash
-  rapid-cli test --target=//content/magenta-tv/... --type=load
+  rapid-cli test --target=//content/ruby-tv/... --type=load
   ```
 - [ ] **Step 4: Report Status**
   - Output a weekly compliance report to `/var/log/weekly-dintc-report.json`.

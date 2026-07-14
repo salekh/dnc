@@ -15,7 +15,7 @@ logger = logging.getLogger("refresh_cache")
 BASE_DIR = "/usr/local/google/home/sanchitalekh/Code/dnc"
 CACHE_DIR = os.path.join(BASE_DIR, "api", "cache")
 PROMPTS_DIR = os.path.join(BASE_DIR, "content", "prompts")
-MAGENTA_DIR = os.path.join(BASE_DIR, "content", "magenta-tv")
+RUBY_DIR = os.path.join(BASE_DIR, "content", "ruby-tv")
 
 os.makedirs(CACHE_DIR, exist_ok=True)
 
@@ -40,17 +40,17 @@ def generate_key_prompts():
     """Generates the list of key prompts we want to pre-cache."""
     prompts_to_cache = []
 
-    # 1. INTERROGATE PROMPT: MagentaTV spec vs targets
+    # 1. INTERROGATE PROMPT: Ruby TV spec vs targets
     interrogate_template = load_file(os.path.join(PROMPTS_DIR, "interrogate.txt"))
-    spec_path = os.path.join(MAGENTA_DIR, "spec.md")
+    spec_path = os.path.join(RUBY_DIR, "spec.md")
     spec_content = load_file(spec_path)
     
     target_files = [
-        os.path.join(MAGENTA_DIR, "prd.md"),
-        os.path.join(MAGENTA_DIR, "design.md"),
-        os.path.join(MAGENTA_DIR, "plan.md"),
-        os.path.join(MAGENTA_DIR, "GEMINI.md"),
-        os.path.join(MAGENTA_DIR, "runbook.md"),
+        os.path.join(RUBY_DIR, "prd.md"),
+        os.path.join(RUBY_DIR, "design.md"),
+        os.path.join(RUBY_DIR, "plan.md"),
+        os.path.join(RUBY_DIR, "GEMINI.md"),
+        os.path.join(RUBY_DIR, "runbook.md"),
     ]
     
     target_files_content = ""
@@ -63,7 +63,7 @@ def generate_key_prompts():
 
     if interrogate_template:
         interrogate_prompt = (
-            interrogate_template.replace("{spec_path}", "content/magenta-tv/spec.md")
+            interrogate_template.replace("{spec_path}", "content/ruby-tv/spec.md")
             .replace("{spec_content}", spec_content)
             .replace("{target_files}", target_paths_str)
             .replace("{target_files_content}", target_files_content)
@@ -72,13 +72,13 @@ def generate_key_prompts():
             "model": MODEL_SPARRING,
             "prompt": interrogate_prompt,
             "type": "interrogate",
-            "description": "MagentaTV Spec Interrogation",
+            "description": "Ruby TV Spec Interrogation",
             "mock_fallback": MOCK_INTERROGATE_RESPONSE
         })
 
     # 2. GOLDFISH PROMPT: Modify plan.md to add post-monitoring phase
     goldfish_template = load_file(os.path.join(PROMPTS_DIR, "goldfish.txt"))
-    plan_path = os.path.join(MAGENTA_DIR, "plan.md")
+    plan_path = os.path.join(RUBY_DIR, "plan.md")
     plan_content = load_file(plan_path)
 
     if goldfish_template and plan_content:
@@ -93,12 +93,12 @@ def generate_key_prompts():
             "model": MODEL_GOLDFISH,
             "prompt": goldfish_prompt_1,
             "type": "goldfish",
-            "description": "MagentaTV Plan Modification (Phase 7)",
+            "description": "Ruby TV Plan Modification (Phase 7)",
             "mock_fallback": mock_goldfish_1
         })
 
     # 3. GOLDFISH PROMPT: Update CTR target in design.md
-    design_path = os.path.join(MAGENTA_DIR, "design.md")
+    design_path = os.path.join(RUBY_DIR, "design.md")
     design_content = load_file(design_path)
 
     if goldfish_template and design_content:
@@ -113,7 +113,7 @@ def generate_key_prompts():
             "model": MODEL_GOLDFISH,
             "prompt": goldfish_prompt_2,
             "type": "goldfish",
-            "description": "MagentaTV Design Modification (CTR Target)",
+            "description": "Ruby TV Design Modification (CTR Target)",
             "mock_fallback": mock_goldfish_2
         })
 

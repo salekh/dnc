@@ -20,7 +20,6 @@ This repository serves as a slide presentation deck and live interactive playgro
 | [`static_web/`](file:///usr/local/google/home/sanchitalekh/Code/dnc/static_web) | The primary visual presentation deck. | HTML5, TailwindCSS, Vanilla JS |
 | [`content/`](file:///usr/local/google/home/sanchitalekh/Code/dnc/content) | Source content files and prompt templates. | Markdown, Plain Text |
 | [`api/`](file:///usr/local/google/home/sanchitalekh/Code/dnc/api) | Mock agent services simulating memory modes. | FastAPI, Uvicorn, Python |
-| [`web/`](file:///usr/local/google/home/sanchitalekh/Code/dnc/web) | Legacy Flutter web presentation framework (for reference). | Dart, Flutter Web |
 | [`scripts/`](file:///usr/local/google/home/sanchitalekh/Code/dnc/scripts) | Compiler tools and workspace cache management. | Python |
 
 ---

@@ -39,7 +39,7 @@ MOCK_INTERROGATE_RESPONSE = """{
   "issues_detected": [
     {
       "severity": "WARNING",
-      "file_path": "content/magenta-tv/plan.md",
+      "file_path": "content/ruby-tv/plan.md",
       "line_number": 42,
       "rule_violated": "GEMINI.md requirements",
       "description": "Mock Warning: Verify that no banned libraries are imported.",

@@ -20,16 +20,22 @@ The repository is organized into distinct namespaces under `/usr/local/google/ho
 │   ├── prompts/                         # Agent API prompt templates
 │   │   ├── interrogate.txt
 │   │   └── goldfish.txt
-│   └── magenta-tv/                      # MagentaTV "Continue Watching" spec thread
-│       ├── prd.md                       # Product requirements, user stories, metrics
-│       ├── design.md                    # ASCII wireframes and API payloads
-│       ├── plan.md                      # 6-phase RPI implementation roadmap
-│       ├── GEMINI.md                    # House style, banned libraries, sandboxing
-│       ├── runbook.md                   # Oncall incident triage and remediations
-│       ├── spec.md                      # MagentaTV master specification
-│       └── skills/                      # Executable playbooks/skills
-│           ├── deploy-recs-service.md   # Deployment orchestration playbook
-│           └── query-watch-history.md   # BigQuery SQL templates and dry-runs
+│   └── ruby-tv/                         # Ruby TV "Continue Watching" spec thread
+│       ├── prd.md                       # Product requirements, user stories, non-goals, numeric metrics
+│       ├── design.md                    # Technical design, wireframes, API contracts, sequence diagrams
+│       ├── plan.md                      # RPI phased implementation plan
+│       ├── GEMINI.md                    # Agent rules, banned libraries, sandbox boundaries, style guide
+│       ├── runbook.md                   # Operational playbooks, symptom-to-remediation matrix
+│       ├── spec.md                      # Ruby TV master specification
+│       └── skills/                      # Executable markdown skills for this thread
+│           ├── deploy-recs-service.md   # Deployment and canary rollout skill
+│           └── query-watch-history.md   # SQL query execution skill
+├── infra/                               # Infrastructure automation (mocked/simulated)
+│   ├── terraform/                       # Sandbox environment provisioning
+│   └── tests/                           # Verification suites (latency, CTR, hallucination)
+├── scripts/                             # Maintenance scripts (e.g., refresh_cache.py)
+├── static_web/                          # Standalone HTML5 presentation deck (Section §7.5 Studio)
+└── ARCHITECTURE.md                      # System architecture overview
 ```
 
 ---
@@ -43,8 +49,8 @@ The `content/sections/` directory contains 16 markdown documents (§0 to §15) t
 - **§8 to §11:** Test-Driven Spec, Continuous Regeneration, Death of the Mainframe, and Self-Healing Architectures.
 - **§12 to §15:** Humans as Architects/Auditors, Multi-agent Orchestration, the Self-Referential Engine, and the Epilogue.
 
-### B. The Specification Threads (MagentaTV)
-Under `content/magenta-tv/`, we maintain the spec thread for a real-world recommendation service. This thread showcases:
+### B. The Specification Threads (Ruby TV)
+Under `content/ruby-tv/`, we maintain the spec thread for a real-world recommendation service. This thread showcases:
 - **The product demand (`prd.md`):** Defining exactly what needs to be built with explicit user stories and numeric targets.
 - **The technical design (`design.md`):** Providing the precise visual structure and serialization contracts.
 - **The implementation roadmap (`plan.md`):** Outlining the timeline in 6 phases (Research, Plan, Implement sequence).
