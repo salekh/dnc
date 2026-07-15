@@ -25,26 +25,26 @@ document.addEventListener('DOMContentLoaded', () => {
         const idxInList = Array.from(sections).indexOf(entry.target);
         
         let displayStr = '';
-        if (id === 'section-1-1') {
-          displayStr = '01.1 / 18';
-        } else if (id === 'section-1-2') {
-          displayStr = '01.2 / 18';
-        } else if (id === 'section-13-5') {
-          displayStr = '13.5 / 18';
-        } else if (id === 'section-3-5') {
-          displayStr = '03.5 / 18';
+        if (id === 'section-2-1') {
+          displayStr = '02.1 / 19';
+        } else if (id === 'section-2-2') {
+          displayStr = '02.2 / 19';
+        } else if (id === 'section-14-5') {
+          displayStr = '14.5 / 19';
+        } else if (id === 'section-4-5') {
+          displayStr = '04.5 / 19';
         } else {
           const index = parseInt(id.split('-')[1]);
-          displayStr = `${index.toString().padStart(2, '0')} / 18`;
+          displayStr = `${index.toString().padStart(2, '0')} / 19`;
         }
         slideIndicator.innerText = displayStr;
         currentFocusedIndex = idxInList;
         
         let activeChapterIdx = 0;
-        if (idxInList >= 7 && idxInList < 11) activeChapterIdx = 1;       // AHA MOMENTS (Indices 7..10)
-        else if (idxInList >= 11 && idxInList < 18) activeChapterIdx = 2; // EXECUTION (Indices 11..17)
-        else if (idxInList >= 18 && idxInList < 20) activeChapterIdx = 3; // ORCHESTRATION (Indices 18..19)
-        else if (idxInList >= 20) activeChapterIdx = 4;                   // THE FUTURE (Indices 20..22)
+        if (idxInList >= 8 && idxInList < 12) activeChapterIdx = 1;       // AHA MOMENTS (Indices 8..11)
+        else if (idxInList >= 12 && idxInList < 19) activeChapterIdx = 2; // EXECUTION (Indices 12..18)
+        else if (idxInList >= 19 && idxInList < 21) activeChapterIdx = 3; // ORCHESTRATION (Indices 19..20)
+        else if (idxInList >= 21) activeChapterIdx = 4;                   // THE FUTURE (Indices 21..23)
         
         navLinks.forEach((link, idx) => {
           if (idx === activeChapterIdx) {

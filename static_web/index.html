@@ -139,13 +139,13 @@
       </div>
       <nav class="hidden lg:flex items-center justify-center gap-6 xl:gap-10 mx-auto">
         <a class="font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface transition-colors py-7 active-nav" data-sec="0" href="#section-0">THE SHIFT</a>
-        <a class="font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface transition-colors py-7" data-sec="4" href="#section-4">AHA MOMENTS</a>
-        <a class="font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface transition-colors py-7" data-sec="8" href="#section-8">EXECUTION</a>
-        <a class="font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface transition-colors py-7" data-sec="14" href="#section-14">ORCHESTRATION</a>
-        <a class="font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface transition-colors py-7" data-sec="16" href="#section-16">THE FUTURE</a>
+        <a class="font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface transition-colors py-7" data-sec="5" href="#section-5">AHA MOMENTS</a>
+        <a class="font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface transition-colors py-7" data-sec="9" href="#section-9">EXECUTION</a>
+        <a class="font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface transition-colors py-7" data-sec="15" href="#section-15">ORCHESTRATION</a>
+        <a class="font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface transition-colors py-7" data-sec="17" href="#section-17">THE FUTURE</a>
       </nav>
       <div class="flex items-center justify-end shrink-0 w-auto lg:w-60 xl:w-72">
-        <span id="slide-index-indicator" class="font-label-mono text-primary text-sm tracking-widest font-bold">00 / 18</span>
+        <span id="slide-index-indicator" class="font-label-mono text-primary text-sm tracking-widest font-bold">00 / 19</span>
       </div>
     </div>
   </header>
@@ -153,7 +153,284 @@
   <!-- Main Scrollytelling View -->
   <main class="flex-grow bg-surface mt-20">
     <div class="flex flex-col w-full relative">
-      <section id="section-0" class="relative w-full pt-32 pb-48 px-12 bg-on-primary text-primary min-h-[921px] flex items-center overflow-hidden">
+      <!-- Slide 0: The Agentic IDE & The Crash -->
+      <section id="section-0" class="relative w-full min-h-[100vh] flex flex-col justify-center py-12 px-6 md:px-12 bg-surface overflow-hidden">
+        <div class="max-w-[1600px] mx-auto w-full flex flex-col gap-6 relative z-10">
+          <!-- Top Window Title & Context Header -->
+          <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-outline-variant/30 pb-4">
+            <div>
+              <span class="font-label-mono text-xs text-primary uppercase tracking-[0.3em] font-semibold">§0 // THE AGENTIC CODING FRONTIER</span>
+              <h2 class="font-display-lg text-[36px] md:text-[48px] text-on-surface leading-tight font-bold">
+                The Promise <span class="text-on-surface-variant font-normal">&amp;</span> The Reality
+              </h2>
+            </div>
+            <div class="flex items-center gap-3 bg-surface-container-high/80 px-4 py-2 rounded-full border border-outline-variant/40">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span class="font-label-mono text-xs text-on-surface">ANTIGRAVITY STUDIO // AGENT WORKSPACE V3.1</span>
+            </div>
+          </div>
+
+          <!-- Full-Page 3-Column IDE Interface -->
+          <div class="bg-[#181a1f] border border-outline-variant/40 rounded-2xl shadow-2xl overflow-hidden flex flex-col h-[75vh] max-h-[820px] min-h-[600px] w-full">
+            
+            <!-- IDE Window Chrome Bar -->
+            <div class="bg-[#202227] px-4 py-3 border-b border-outline-variant/30 flex items-center justify-between shrink-0">
+              <div class="flex items-center gap-4">
+                <!-- Window Dots -->
+                <div class="flex items-center gap-2">
+                  <span class="w-3 h-3 rounded-full bg-[#ff5f56] inline-block"></span>
+                  <span class="w-3 h-3 rounded-full bg-[#ffbd2e] inline-block"></span>
+                  <span class="w-3 h-3 rounded-full bg-[#27c93f] inline-block"></span>
+                </div>
+                <div class="h-4 w-px bg-outline-variant/20 hidden sm:block"></div>
+                <!-- Project Info -->
+                <div class="hidden sm:flex items-center gap-2 font-mono text-xs text-gray-300">
+                  <span class="material-symbols-outlined text-sm text-primary">folder_open</span>
+                  <span>~/Code/ruby-recommender</span>
+                  <span class="bg-[#2a2d34] text-gray-400 px-2 py-0.5 rounded text-[11px] border border-gray-700">git: main*</span>
+                </div>
+              </div>
+              
+              <!-- Center Title -->
+              <span class="font-label-mono text-xs text-gray-400 hidden md:block">ruby-recommender — Antigravity Workspace</span>
+              
+              <!-- Right Status -->
+              <div class="flex items-center gap-3 font-mono text-xs">
+                <span class="bg-[#2a2d34] text-primary px-2.5 py-1 rounded-md text-[11px] border border-primary/30 flex items-center gap-1.5 font-bold">
+                  <span class="material-symbols-outlined text-xs">auto_awesome</span> Gemini 3.1 Pro (High)
+                </span>
+                <span class="text-gray-400 hidden sm:inline">24,192 tokens</span>
+              </div>
+            </div>
+
+            <!-- IDE 3-Column Body -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 flex-grow min-h-0 divide-y lg:divide-y-0 lg:divide-x divide-outline-variant/20 bg-[#1e2025]">
+              
+              <!-- Column 1: Left Pane — Project Explorer (col-span-2) -->
+              <div class="col-span-1 lg:col-span-2 flex flex-col bg-[#1b1d22] overflow-y-auto hidden sm:flex">
+                <div class="p-3 border-b border-outline-variant/15 flex items-center justify-between font-label-mono text-[11px] text-gray-400 font-bold tracking-wider uppercase shrink-0">
+                  <span>EXPLORER</span>
+                  <span class="material-symbols-outlined text-xs">collapse_all</span>
+                </div>
+                <div class="p-2 font-mono text-xs text-gray-300 space-y-1 select-none">
+                  <div class="flex items-center gap-1.5 px-2 py-1.5 rounded hover:bg-[#262930] text-gray-200 font-bold">
+                    <span class="material-symbols-outlined text-sm text-yellow-500">folder_open</span>
+                    <span>ruby-recommender/</span>
+                  </div>
+                  <div class="pl-4 space-y-1 border-l border-gray-700/50 ml-3">
+                    <div class="flex items-center gap-1.5 px-2 py-1 rounded hover:bg-[#262930] text-gray-400">
+                      <span class="material-symbols-outlined text-sm text-blue-400">folder</span>
+                      <span>api/</span>
+                    </div>
+                    <div class="pl-4 space-y-1 border-l border-gray-700/50 ml-2">
+                      <div class="flex items-center gap-1.5 px-2 py-1 rounded hover:bg-[#262930] text-gray-400">
+                        <span class="material-symbols-outlined text-sm text-cyan-400">code</span>
+                        <span>main.go</span>
+                      </div>
+                      <div class="flex items-center gap-1.5 px-2 py-1 rounded hover:bg-[#262930] text-gray-400">
+                        <span class="material-symbols-outlined text-sm text-cyan-400">code</span>
+                        <span>routes.go</span>
+                      </div>
+                      <div class="flex items-center gap-1.5 px-2 py-1.5 rounded bg-primary/20 text-white font-bold border-l-2 border-primary">
+                        <span class="material-symbols-outlined text-sm text-primary">code</span>
+                        <span>recommender.go</span>
+                      </div>
+                    </div>
+                    <div class="flex items-center gap-1.5 px-2 py-1 rounded hover:bg-[#262930] text-gray-400">
+                      <span class="material-symbols-outlined text-sm text-amber-400">folder</span>
+                      <span>models/</span>
+                    </div>
+                    <div class="pl-4 space-y-1 border-l border-gray-700/50 ml-2">
+                      <div class="flex items-center gap-1.5 px-2 py-1 rounded hover:bg-[#262930] text-gray-400">
+                        <span class="material-symbols-outlined text-sm text-cyan-400">code</span>
+                        <span>user_profile.go</span>
+                      </div>
+                      <div class="flex items-center gap-1.5 px-2 py-1 rounded hover:bg-[#262930] text-gray-400">
+                        <span class="material-symbols-outlined text-sm text-emerald-400">data_object</span>
+                        <span>fifa_catalog.json</span>
+                      </div>
+                    </div>
+                    <div class="flex items-center gap-1.5 px-2 py-1 rounded hover:bg-[#262930] text-gray-400">
+                      <span class="material-symbols-outlined text-sm text-purple-400">folder</span>
+                      <span>skills/</span>
+                    </div>
+                    <div class="pl-4 space-y-1 border-l border-gray-700/50 ml-2">
+                      <div class="flex items-center gap-1.5 px-2 py-1 rounded hover:bg-[#262930] text-gray-400">
+                        <span class="material-symbols-outlined text-sm text-pink-400">description</span>
+                        <span>query-watch-history.md</span>
+                      </div>
+                    </div>
+                    <div class="flex items-center gap-1.5 px-2 py-1 rounded hover:bg-[#262930] text-gray-400">
+                      <span class="material-symbols-outlined text-sm text-gray-300">description</span>
+                      <span>spec.md</span>
+                    </div>
+                    <div class="flex items-center gap-1.5 px-2 py-1 rounded hover:bg-[#262930] text-gray-400">
+                      <span class="material-symbols-outlined text-sm text-gray-300">description</span>
+                      <span>runbook.md</span>
+                    </div>
+                    <div class="flex items-center gap-1.5 px-2 py-1 rounded hover:bg-[#262930] text-gray-400">
+                      <span class="material-symbols-outlined text-sm text-primary">description</span>
+                      <span>GEMINI.md</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Column 2: Middle Pane — Code Editor (col-span-5) -->
+              <div class="col-span-1 lg:col-span-5 flex flex-col bg-[#1a1c21] overflow-hidden">
+                <!-- Editor Tabs -->
+                <div class="bg-[#16181c] flex items-center border-b border-outline-variant/15 overflow-x-auto shrink-0 font-mono text-xs">
+                  <div class="bg-[#1a1c21] border-t-2 border-primary text-white px-4 py-2.5 flex items-center gap-2 border-r border-outline-variant/15 font-semibold shrink-0">
+                    <span class="material-symbols-outlined text-sm text-primary">code</span>
+                    <span>recommender.go</span>
+                    <span class="material-symbols-outlined text-xs text-gray-400 hover:text-white ml-1">close</span>
+                  </div>
+                  <div class="text-gray-400 hover:bg-[#1f2227] px-4 py-2.5 flex items-center gap-2 border-r border-outline-variant/15 shrink-0">
+                    <span class="material-symbols-outlined text-sm text-emerald-400">data_object</span>
+                    <span>fifa_catalog.json</span>
+                  </div>
+                  <div class="text-gray-400 hover:bg-[#1f2227] px-4 py-2.5 flex items-center gap-2 border-r border-outline-variant/15 shrink-0">
+                    <span class="material-symbols-outlined text-sm text-gray-300">description</span>
+                    <span>spec.md</span>
+                  </div>
+                </div>
+
+                <!-- Code Content Area -->
+                <div class="p-5 font-mono text-xs md:text-sm text-gray-300 overflow-y-auto flex-grow space-y-1.5 leading-relaxed bg-[#1a1c21]">
+                  <div class="flex"><span class="w-8 text-gray-600 select-none text-right pr-3">1</span><span class="text-purple-400">package</span> <span class="text-yellow-200">api</span></div>
+                  <div class="flex"><span class="w-8 text-gray-600 select-none text-right pr-3">2</span></div>
+                  <div class="flex"><span class="w-8 text-gray-600 select-none text-right pr-3">3</span><span class="text-purple-400">import</span> (</div>
+                  <div class="flex"><span class="w-8 text-gray-600 select-none text-right pr-3">4</span>    <span class="text-green-300">"context"</span></div>
+                  <div class="flex"><span class="w-8 text-gray-600 select-none text-right pr-3">5</span>    <span class="text-green-300">"fmt"</span></div>
+                  <div class="flex"><span class="w-8 text-gray-600 select-none text-right pr-3">6</span>    <span class="text-green-300">"ruby-tv/models"</span></div>
+                  <div class="flex"><span class="w-8 text-gray-600 select-none text-right pr-3">7</span>)</div>
+                  <div class="flex"><span class="w-8 text-gray-600 select-none text-right pr-3">8</span></div>
+                  <div class="flex"><span class="w-8 text-gray-600 select-none text-right pr-3">9</span><span class="text-gray-500">// RecommenderEngine generates personalized rails.</span></div>
+                  <div class="flex"><span class="w-8 text-gray-600 select-none text-right pr-3">10</span><span class="text-purple-400">type</span> <span class="text-yellow-300">RecommenderEngine</span> <span class="text-purple-400">struct</span> {</div>
+                  <div class="flex"><span class="w-8 text-gray-600 select-none text-right pr-3">11</span>    Catalog *models.ContentCatalog</div>
+                  <div class="flex"><span class="w-8 text-gray-600 select-none text-right pr-3">12</span>    Cache   *models.RedisCache</div>
+                  <div class="flex"><span class="w-8 text-gray-600 select-none text-right pr-3">13</span>}</div>
+                  <div class="flex"><span class="w-8 text-gray-600 select-none text-right pr-3">14</span></div>
+                  <div class="flex"><span class="w-8 text-gray-600 select-none text-right pr-3">15</span><span class="text-gray-500">// GetSeasonRecommendations applies active seasonal triggers.</span></div>
+                  <div class="flex"><span class="w-8 text-gray-600 select-none text-right pr-3">16</span><span class="text-purple-400">func</span> (e *<span class="text-yellow-300">RecommenderEngine</span>) <span class="text-blue-400">GetSeasonRecommendations</span>(ctx context.Context, userID <span class="text-cyan-300">string</span>) ([]models.Item, <span class="text-cyan-300">error</span>) {</div>
+                  <div class="flex"><span class="w-8 text-gray-600 select-none text-right pr-3">17</span>    profile, err := e.Cache.GetUser(ctx, userID)</div>
+                  <div class="flex"><span class="w-8 text-gray-600 select-none text-right pr-3">18</span>    <span class="text-purple-400">if</span> err != <span class="text-purple-400">nil</span> {</div>
+                  <div class="flex"><span class="w-8 text-gray-600 select-none text-right pr-3">19</span>        <span class="text-purple-400">return</span> <span class="text-purple-400">nil</span>, fmt.Errorf(<span class="text-green-300">"failed fetching user %s: %w"</span>, userID, err)</div>
+                  <div class="flex"><span class="w-8 text-gray-600 select-none text-right pr-3">20</span>    }</div>
+                  <div class="flex"><span class="w-8 text-gray-600 select-none text-right pr-3">21</span></div>
+                  <div class="flex bg-primary/10 -mx-5 px-5 py-1 border-l-4 border-primary text-white"><span class="w-8 text-primary select-none text-right pr-3">22</span>    <span class="text-gray-400">// TODO: Inject FIFA World Cup recommendation logic...</span></div>
+                  <div class="flex bg-primary/10 -mx-5 px-5 py-1 border-l-4 border-primary text-white"><span class="w-8 text-primary select-none text-right pr-3">23</span>    <span class="text-purple-400">if</span> profile.HasSportsAffinity() &amp;&amp; models.IsFootballSeason() {</div>
+                  <div class="flex bg-primary/10 -mx-5 px-5 py-1 border-l-4 border-primary text-white items-center gap-1.5"><span class="w-8 text-primary select-none text-right pr-3">24</span>        <span class="text-gray-400">// [AGENT SYNTHESIZING CODE...]</span> <span class="w-2 h-4 bg-primary animate-pulse inline-block"></span></div>
+                </div>
+              </div>
+
+              <!-- Column 3: Right Pane — Agent Manager & Antigravity Terminal (col-span-5) -->
+              <div class="col-span-1 lg:col-span-5 flex flex-col justify-between bg-[#1d1f24] overflow-hidden">
+                <!-- Pane Header -->
+                <div class="p-3.5 border-b border-outline-variant/15 flex items-center justify-between font-label-mono text-xs text-primary font-bold bg-[#181a1f] shrink-0">
+                  <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-sm">terminal</span>
+                    <span>AGENT MANAGER // ORCHESTRATOR</span>
+                  </div>
+                  <span class="text-[10px] bg-primary/10 text-primary px-2 py-0.5 rounded border border-primary/30">ACTIVE STREAM</span>
+                </div>
+
+                <!-- Chat & Execution Stream -->
+                <div class="flex-grow p-4 space-y-4 overflow-y-auto font-body-md">
+                  <!-- User Prompt Bubble -->
+                  <div class="bg-[#282b32] p-4 rounded-2xl border border-outline-variant/30 text-gray-200 text-xs md:text-sm shadow-md space-y-2">
+                    <div class="flex justify-between items-center text-[11px] text-gray-400 font-mono border-b border-gray-700/50 pb-1.5">
+                      <span class="font-bold text-primary">sanchitalekh@ (User Prompt)</span>
+                      <span>12s ago</span>
+                    </div>
+                    <p class="leading-relaxed font-mono text-xs">
+                      "it's football season, make sure we are recommending the FIFA world cup to our users who like other sports content etc."
+                    </p>
+                  </div>
+
+                  <!-- Agent Thinking Bubble -->
+                  <div class="bg-black/40 p-3.5 rounded-xl border border-outline-variant/20 font-mono text-xs text-gray-300 space-y-2 shadow-inner">
+                    <div class="flex items-center gap-2 text-primary font-bold border-b border-outline-variant/15 pb-1 text-[11px]">
+                      <span class="material-symbols-outlined text-xs animate-spin">sync</span>
+                      <span>Gemini 3.1 Pro // Thinking Process...</span>
+                    </div>
+                    <div class="space-y-1 text-[11px] text-gray-400">
+                      <div>&gt; Inspecting <code class="text-cyan-300">models/fifa_catalog.json</code> and user affinity rules...</div>
+                      <div>&gt; Identifying target injection point: <code class="text-yellow-300">GetSeasonRecommendations()</code> in <code class="text-cyan-300">api/recommender.go</code></div>
+                      <div>&gt; Generating AST modifications to inject conditional FIFA World Cup rail...</div>
+                      <div class="text-error">&gt; ERROR: Unhandled pointer dereference while resolving recursive catalog triggers.</div>
+                    </div>
+                  </div>
+
+                  <!-- The Antigravity Crash Card (Exact Replica of Screenshot) -->
+                  <div class="bg-[#202124] border border-gray-700/80 rounded-2xl p-5 shadow-2xl space-y-4 text-left">
+                    <div class="flex items-center gap-2.5">
+                      <span class="material-symbols-outlined text-gray-400 text-xl">error</span>
+                      <span class="font-headline-sm text-base md:text-lg text-white font-bold tracking-wide">Agent terminated due to error</span>
+                    </div>
+                    <div class="space-y-1 font-body-md text-xs md:text-sm text-gray-300 leading-relaxed">
+                      <p>You can prompt the model to try again or start a new conversation if the error persists.</p>
+                      <p class="text-gray-400 pt-1">
+                        See our <a href="#" class="underline text-gray-300 hover:text-white transition-colors">troubleshooting guide</a> for more help.
+                      </p>
+                    </div>
+                    <div class="flex items-center justify-between pt-2">
+                      <button class="bg-[#303134] hover:bg-[#3c4043] text-gray-200 px-4 py-2 rounded-xl text-xs font-semibold border border-gray-600/50 transition-colors">
+                        Dismiss
+                      </button>
+                      <div class="flex items-center gap-2">
+                        <button class="bg-[#303134] hover:bg-[#3c4043] text-gray-200 px-4 py-2 rounded-xl text-xs font-semibold border border-gray-600/50 transition-colors">
+                          Copy debug info
+                        </button>
+                        <button class="bg-[#1a73e8] hover:bg-[#1557b0] text-white px-5 py-2 rounded-xl text-xs font-bold shadow-md transition-all">
+                          Retry
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Bottom Prompt Control Bar (Exact replica of Antigravity input bar) -->
+                <div class="p-3.5 border-t border-outline-variant/20 bg-[#181a1f] flex flex-col gap-2.5 shrink-0">
+                  <div class="flex items-center justify-between text-[11px] font-label-mono text-gray-400 px-1">
+                    <div class="flex items-center gap-2">
+                      <span class="material-symbols-outlined text-sm">arrow_back</span>
+                      <span>0 Files With Changes</span>
+                    </div>
+                    <div class="flex items-center gap-1.5 bg-[#262930] px-2 py-0.5 rounded border border-outline-variant/20 text-gray-300">
+                      <span class="material-symbols-outlined text-xs">checklist</span>
+                      <span>Review Changes</span>
+                    </div>
+                  </div>
+                  
+                  <!-- Input Box -->
+                  <div class="bg-[#202227] border border-outline-variant/30 rounded-2xl p-3 flex flex-col gap-3 shadow-inner">
+                    <div class="font-body-md text-xs text-gray-500 italic px-1">
+                      Ask anything, @ to mention, / for workflows
+                    </div>
+                    <div class="flex items-center justify-between text-xs pt-1 border-t border-gray-700/50">
+                      <div class="flex items-center gap-3 text-gray-400">
+                        <span class="material-symbols-outlined text-sm hover:text-white cursor-pointer">add</span>
+                        <span class="flex items-center gap-1 hover:text-white cursor-pointer"><span class="material-symbols-outlined text-xs">expand_less</span> Planning</span>
+                        <span class="flex items-center gap-1 hover:text-white cursor-pointer"><span class="material-symbols-outlined text-xs">expand_less</span> Gemini 3.1 Pro (High)</span>
+                      </div>
+                      <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-sm text-gray-400 hover:text-white cursor-pointer">mic</span>
+                        <div class="w-7 h-7 rounded-full bg-outline-variant/20 flex items-center justify-center text-gray-400 hover:text-white cursor-pointer">
+                          <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="section-1" class="relative w-full pt-32 pb-48 px-12 bg-on-primary text-primary min-h-[921px] flex items-center overflow-hidden">
 
   <div class="absolute top-0 left-0 w-full h-48 bg-gradient-to-b from-background/30 to-transparent pointer-events-none"></div>
   
@@ -161,7 +438,7 @@
     <!-- Massive Dramatic Header -->
     <div class="col-span-12 mb-16 border-l-8 border-primary pl-8">
       <span class="font-label-mono text-sm uppercase tracking-[0.25em] opacity-80 mb-4 block">SOFTWARE DEVELOPMENT IS AT A CROSSROADS</span>
-      <h1 class="font-display-lg text-[96px] text-display-lg text-on-primary-container leading-[0.85] mb-6 italic font-bold tracking-tight">§0: The Shift</h1>
+      <h1 class="font-display-lg text-[96px] text-display-lg text-on-primary-container leading-[0.85] mb-6 italic font-bold tracking-tight">§1: The Shift</h1>
       <p class="font-headline-md text-headline-md opacity-95 max-w-3xl leading-snug">
         Developers can write 10x more code. But is this really leading to 10x better outcomes? We need to change how we think about code (and coding).
       </p>
@@ -208,7 +485,7 @@
   </div>
 </section>
 
-<section id="section-1" class="relative w-full min-h-[921px] flex flex-col justify-center px-12 py-32 bg-surface">
+<section id="section-2" class="relative w-full min-h-[921px] flex flex-col justify-center px-12 py-32 bg-surface">
 <div class="grid grid-cols-12 gap-gutter">
 <!-- Asymmetric Layout -->
 <div class="col-span-1 flex flex-col items-center justify-between py-4">
@@ -218,7 +495,7 @@
 </div>
 <div class="col-span-11 pl-8">
 <h2 class="font-headline-lg text-[42px] text-on-surface mb-12">
-          §1: <span class="text-secondary italic">The Illusion of Speed</span>
+          §2: <span class="text-secondary italic">The Illusion of Speed</span>
 </h2>
 <div class="grid grid-cols-12 gap-12">
 <div class="col-span-7 flex flex-col justify-between">
@@ -262,14 +539,14 @@
 </div>
 </section>
 
-<!-- Slide 1.1: Productivity Timeline (View 1: 2026) -->
-<section id="section-1-1" class="relative w-full min-h-[100vh] flex flex-col justify-center px-8 md:px-16 py-24 bg-surface overflow-hidden">
+<!-- Slide 2.1: Productivity Timeline (View 1: 2026) -->
+<section id="section-2-1" class="relative w-full min-h-[100vh] flex flex-col justify-center px-8 md:px-16 py-24 bg-surface overflow-hidden">
   <div class="max-w-[1600px] mx-auto w-full flex flex-col justify-between gap-12 relative z-10">
     
     <!-- Interactive Timeline Header -->
     <div class="flex flex-col gap-4 border-b border-outline-variant/30 pb-8">
       <div class="flex justify-between items-center flex-wrap gap-4">
-        <span class="font-label-mono text-xs text-primary uppercase tracking-[0.3em] font-semibold">§1.1 // PRODUCTIVITY TIMELINE // VIEW 1: THE PRESENT</span>
+        <span class="font-label-mono text-xs text-primary uppercase tracking-[0.3em] font-semibold">§2.1 // PRODUCTIVITY TIMELINE // VIEW 1: THE PRESENT</span>
         <div class="flex items-center gap-2 bg-surface-container-high/80 px-3 py-1.5 rounded-full border border-outline-variant/40">
           <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
           <span class="font-label-mono text-[11px] text-on-surface">INTERACTIVE TIMELINE: CLICK TO SWITCH ERA</span>
@@ -278,7 +555,7 @@
       
       <!-- Timeline Track -->
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-2">
-        <a href="#section-1-2" class="p-3.5 rounded-xl border border-outline-variant/30 bg-surface-container/60 hover:border-secondary hover:bg-surface-container-high transition-all flex items-center justify-between group" title="Click to reveal precedent">
+        <a href="#section-2-2" class="p-3.5 rounded-xl border border-outline-variant/30 bg-surface-container/60 hover:border-secondary hover:bg-surface-container-high transition-all flex items-center justify-between group" title="Click to reveal precedent">
           <div class="flex items-center gap-3">
             <span class="font-label-mono text-xs text-secondary font-bold">????</span>
             <span class="font-headline-sm text-xs md:text-sm text-on-surface-variant group-hover:text-on-surface font-semibold">The Precedent</span>
@@ -355,14 +632,14 @@
   </div>
 </section>
 
-<!-- Slide 1.2: Productivity Timeline (View 2: 1952) -->
-<section id="section-1-2" class="relative w-full min-h-[100vh] flex flex-col justify-center px-8 md:px-16 py-24 bg-surface overflow-hidden">
+<!-- Slide 2.2: Productivity Timeline (View 2: 1952) -->
+<section id="section-2-2" class="relative w-full min-h-[100vh] flex flex-col justify-center px-8 md:px-16 py-24 bg-surface overflow-hidden">
   <div class="max-w-[1600px] mx-auto w-full flex flex-col justify-between gap-10 relative z-10">
     
     <!-- Interactive Timeline Header -->
     <div class="flex flex-col gap-4 border-b border-outline-variant/30 pb-6">
       <div class="flex justify-between items-center flex-wrap gap-4">
-        <span class="font-label-mono text-xs text-secondary uppercase tracking-[0.3em] font-semibold">§1.2 // PRODUCTIVITY TIMELINE // VIEW 2: THE PRECEDENT</span>
+        <span class="font-label-mono text-xs text-secondary uppercase tracking-[0.3em] font-semibold">§2.2 // PRODUCTIVITY TIMELINE // VIEW 2: THE PRECEDENT</span>
         <div class="flex items-center gap-2 bg-surface-container-high/80 px-3 py-1.5 rounded-full border border-outline-variant/40">
           <span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
           <span class="font-label-mono text-[11px] text-on-surface">HISTORICAL PRECEDENT // THE 1000x EXPLOSION</span>
@@ -390,7 +667,7 @@
             <span class="font-headline-sm text-xs md:text-sm text-on-surface-variant">Frameworks Era</span>
           </div>
         </div>
-        <a href="#section-1-1" class="p-3.5 rounded-xl border border-outline-variant/30 bg-surface-container/60 hover:border-primary hover:bg-surface-container-high transition-all flex items-center justify-between group">
+        <a href="#section-2-1" class="p-3.5 rounded-xl border border-outline-variant/30 bg-surface-container/60 hover:border-primary hover:bg-surface-container-high transition-all flex items-center justify-between group">
           <div class="flex items-center gap-3">
             <span class="font-label-mono text-xs text-primary font-bold">2026</span>
             <span class="font-headline-sm text-xs md:text-sm text-on-surface-variant group-hover:text-on-surface font-semibold">Agentic Coding</span>
@@ -505,12 +782,12 @@
   </div>
 </section>
 
-<section id="section-2" class="relative w-full min-h-[921px] flex flex-col justify-center px-12 py-32 bg-surface">
+<section id="section-3" class="relative w-full min-h-[921px] flex flex-col justify-center px-12 py-32 bg-surface">
 <div class="max-w-[1440px] mx-auto w-full">
 <div class="flex flex-col mb-20">
 <span class="font-label-mono text-label-mono text-error uppercase mb-4 tracking-widest">The Terrifying Realization</span>
 <h2 class="font-headline-lg text-[42px] text-on-surface max-w-4xl mb-6">
-          §2: <span class="text-error italic">Auto-scaling Our Mistakes</span>
+          §3: <span class="text-error italic">Auto-scaling Our Mistakes</span>
 </h2>
 <p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl leading-relaxed border-l-4 border-error pl-6">
           "With AI, we aren't just writing code faster. We are auto-scaling our mistakes. If we are using AI to go fast, but aren't maintaining a high signal-to-noise ratio, we are actually going backwards in productivity."
@@ -553,10 +830,10 @@
 </div>
 </section>
 
-<section id="section-3" class="relative w-full min-h-[100vh] flex flex-col justify-center px-8 md:px-16 py-28 overflow-hidden bg-surface">
+<section id="section-4" class="relative w-full min-h-[100vh] flex flex-col justify-center px-8 md:px-16 py-28 overflow-hidden bg-surface">
   <!-- Centered Visual Anchor -->
   <div class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-5">
-    <span class="font-display-xl text-[600px] leading-none text-on-surface select-none pointer-events-none">3</span>
+    <span class="font-display-xl text-[600px] leading-none text-on-surface select-none pointer-events-none">4</span>
   </div>
 
   <div class="z-10 text-left max-w-[1440px] mx-auto w-full">
@@ -671,7 +948,7 @@
   </div>
 </section>
 
-<section id="section-3-5" class="w-full px-12 py-32 bg-surface border-b border-outline-variant/10 min-h-[921px] flex flex-col justify-center">
+<section id="section-4-5" class="w-full px-12 py-32 bg-surface border-b border-outline-variant/10 min-h-[921px] flex flex-col justify-center">
 <div class="max-w-[1440px] mx-auto w-full grid grid-cols-12 gap-gutter items-center">
 <div class="col-span-12 lg:col-span-7 flex flex-col gap-8">
 <div class="flex flex-col gap-2">
@@ -704,13 +981,13 @@
 </div>
 </section>
 
-<section id="section-4" class="relative w-full px-6 md:px-12 py-24 overflow-hidden flex flex-col justify-center min-h-[921px]">
+<section id="section-5" class="relative w-full px-6 md:px-12 py-24 overflow-hidden flex flex-col justify-center min-h-[921px]">
   <div class="relative z-10 max-w-[1440px] mx-auto w-full grid grid-cols-12 gap-8 lg:gap-12 items-center">
     <!-- Left Column: Heading and Description -->
     <div class="col-span-12 lg:col-span-7">
-      <span class="font-label-mono text-xs text-primary mb-4 block uppercase tracking-[0.25em]">Phase IV // Drift Dynamics</span>
+      <span class="font-label-mono text-xs text-primary mb-4 block uppercase tracking-[0.25em]">Phase V // Drift Dynamics</span>
       <h2 class="font-display-lg text-[64px] md:text-[80px] text-on-surface leading-[0.9] mb-8 font-bold -ml-1">
-        §4: THE EAGER<br/>
+        §5: THE EAGER<br/>
         <span class="text-primary italic">RUNAWAY</span>
       </h2>
       <div class="flex gap-8 items-start max-w-2xl">
@@ -792,13 +1069,13 @@
   </div>
 </section>
 
-<section id="section-5" class="relative w-full min-h-[921px] flex flex-col justify-center px-6 md:px-12 py-24 overflow-hidden border-b border-outline-variant/10">
+<section id="section-6" class="relative w-full min-h-[921px] flex flex-col justify-center px-6 md:px-12 py-24 overflow-hidden border-b border-outline-variant/10">
   <div class="absolute inset-0 bg-cover bg-center -z-10 opacity-15" style="background-image: url('assets/illustrations/vanishing_layer.jpg')"></div>
   <div class="max-w-[1440px] mx-auto w-full relative z-10">
     <!-- Header -->
     <div class="mb-16">
-      <span class="font-label-mono text-xs text-primary mb-3 block tracking-[0.2em] uppercase">Phase V // The Liminal State</span>
-      <h2 class="font-display-lg text-[52px] text-on-surface leading-tight mb-6">§5: The <span class="text-primary italic">Vanishing</span> Code</h2>
+      <span class="font-label-mono text-xs text-primary mb-3 block tracking-[0.2em] uppercase">Phase VI // The Liminal State</span>
+      <h2 class="font-display-lg text-[52px] text-on-surface leading-tight mb-6">§6: The <span class="text-primary italic">Vanishing</span> Code</h2>
       <p class="font-body-lg text-lg text-on-surface-variant max-w-3xl leading-relaxed border-l-4 border-primary pl-6">
         We exist in a liminal state: we still need code for rigor, but code is becoming a vanishing intermediate step. Whether in a blizzard of 100x syntax or direct-to-binary compilation, <span class="text-on-surface font-bold">when code becomes opaque, the only artifact that matters is the design.</span>
       </p>
@@ -875,7 +1152,7 @@
   </div>
 </section>
 
-<section id="section-6" class="relative w-full min-h-[1024px] flex flex-col justify-center overflow-hidden bg-on-primary">
+<section id="section-7" class="relative w-full min-h-[1024px] flex flex-col justify-center overflow-hidden bg-on-primary">
   <div class="absolute inset-0 bg-cover bg-center -z-10 opacity-25" style="background-image: url('assets/illustrations/shift_hero.jpg')"></div>
 <!-- Intense Background Interaction -->
 <div class="absolute inset-0 mix-blend-overlay opacity-40">
@@ -888,7 +1165,7 @@
 <h1 class="font-display-xl text-[8.5vw] leading-[0.85] tracking-tighter text-on-primary-container mix-blend-plus-lighter">
                         DESIGN <span class="italic font-light opacity-50">IS</span><br/>THE NEW CODE
                     </h1>
-<div class="absolute -top-12 -right-12 font-display-md text-primary-fixed/20 select-none pointer-events-none">§6</div>
+<div class="absolute -top-12 -right-12 font-display-md text-primary-fixed/20 select-none pointer-events-none">§7</div>
 </div>
 <div class="max-w-2xl mt-12 bg-surface-container-lowest/20 backdrop-blur-2xl p-12 border border-white/5">
 <p class="font-headline-md text-headline-md text-primary-fixed leading-tight">
@@ -909,13 +1186,13 @@
 </div>
 </section>
 
-<section id="section-7" class="relative w-full px-8 md:px-16 py-32 md:py-44 bg-surface overflow-hidden min-h-[921px] flex flex-col justify-center">
+<section id="section-8" class="relative w-full px-8 md:px-16 py-32 md:py-44 bg-surface overflow-hidden min-h-[921px] flex flex-col justify-center">
   <div class="max-w-[1440px] mx-auto w-full relative z-10">
     <!-- Header -->
     <div class="flex flex-col items-center text-center mb-16 md:mb-24">
       <span class="font-label-mono text-sm text-tertiary mb-3 uppercase tracking-[0.25em] block">THE HOW</span>
       <h2 class="font-headline-lg text-[42px] md:text-[54px] text-on-surface mb-5 font-bold leading-tight max-w-5xl">
-        §7: <span class="text-tertiary italic">FEED THE ELEPHANT</span>, TEST AGAINST THE GOLDFISH
+        §8: <span class="text-tertiary italic">FEED THE ELEPHANT</span>, TEST AGAINST THE GOLDFISH
       </h2>
       <div class="h-1.5 w-24 bg-tertiary rounded-full"></div>
     </div>
@@ -1028,10 +1305,10 @@
   </div>
 </section>
 
-<section id="section-8" class="w-full px-12 py-32 bg-surface-container-lowest">
+<section id="section-9" class="w-full px-12 py-32 bg-surface-container-lowest">
 <div class="max-w-[1600px] mx-auto w-full">
 <div class="flex flex-col lg:flex-row justify-between items-baseline gap-12 mb-24">
-<h2 class="font-display-md text-display-md text-on-surface">§8: DECOUPLING <br/><span class="text-primary-fixed-dim">INTENT</span></h2>
+<h2 class="font-display-md text-display-md text-on-surface">§9: DECOUPLING <br/><span class="text-primary-fixed-dim">INTENT</span></h2>
 <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
           We move from a single monolith of code to a tiered Specification Stack. Each layer serves a specific cognitive function for the orchestrator.
         </p>
@@ -1095,14 +1372,14 @@
 </div>
 </section>
 
-<section id="section-9" class="relative w-full py-24 px-12 overflow-hidden border-b border-outline-variant/10 min-h-[921px] flex flex-col justify-center">
+<section id="section-10" class="relative w-full py-24 px-12 overflow-hidden border-b border-outline-variant/10 min-h-[921px] flex flex-col justify-center">
 <div class="absolute top-0 right-0 p-12 opacity-5 pointer-events-none select-none">
-<span class="font-display-xl text-[240px] leading-none">09</span>
+<span class="font-display-xl text-[240px] leading-none">10</span>
 </div>
 <div class="max-w-[1440px] mx-auto grid grid-cols-12 gap-gutter relative z-10">
   <div class="col-span-12 mb-12">
     <span class="font-label-mono text-primary uppercase tracking-[0.2em] mb-3 block">Cognitive Architecture // Verification Loop</span>
-    <h2 class="font-display-md text-display-md text-on-surface leading-tight max-w-4xl">§9: Elephant and Goldfish</h2>
+    <h2 class="font-display-md text-display-md text-on-surface leading-tight max-w-4xl">§10: Elephant and Goldfish</h2>
     <p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl leading-relaxed mt-3">
       How do you know if your design doc is actually good, or if it's just relying on the hidden context built up in your session? <span class="text-primary font-bold">You test it against a Goldfish.</span>
     </p>
@@ -1202,13 +1479,13 @@
 </div>
 </section>
 
-<section id="section-10" class="relative w-full min-h-[100vh] flex flex-col justify-center py-28 px-8 md:px-16 overflow-hidden bg-surface">
+<section id="section-11" class="relative w-full min-h-[100vh] flex flex-col justify-center py-28 px-8 md:px-16 overflow-hidden bg-surface">
   <div class="max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center w-full">
     <!-- Left Column: Scaled-up Content -->
     <div class="col-span-1 lg:col-span-6 flex flex-col justify-center">
       <span class="font-label-mono text-sm text-primary uppercase tracking-[0.3em] mb-4 block font-semibold">PROCEDURAL INTELLIGENCE</span>
       <h2 class="font-display-lg text-[52px] md:text-[66px] text-on-surface mb-8 leading-[1.05] font-bold">
-        §10: Context Engineering for Success
+        §11: Context Engineering for Success
       </h2>
       <p class="font-body-lg text-xl md:text-2xl text-on-surface-variant mb-12 max-w-2xl leading-relaxed">
         Decoupling the 'What' from the 'How'. The specification defines the desired state; Skills and Tools provide the procedural intelligence to achieve it.
@@ -1284,11 +1561,11 @@
   </div>
 </section>
 
-<section id="section-11" class="relative w-full min-h-[100vh] flex flex-col justify-center pt-24 pb-48 px-12 bg-primary text-on-primary overflow-hidden">
+<section id="section-12" class="relative w-full min-h-[100vh] flex flex-col justify-center pt-24 pb-48 px-12 bg-primary text-on-primary overflow-hidden">
 <div class="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-surface to-transparent opacity-20"></div>
 <div class="max-w-[1440px] mx-auto grid grid-cols-12 gap-gutter relative z-10">
 <div class="col-span-12 mb-16 border-l-8 border-on-primary pl-8">
-<h2 class="font-display-lg text-display-lg leading-none mb-4 italic">§11: The Shift Left</h2>
+<h2 class="font-display-lg text-display-lg leading-none mb-4 italic">§12: The Shift Left</h2>
 <p class="font-headline-md text-headline-md opacity-90 max-w-3xl">Design judgments are no longer downstream. We are forcing micro-decisions into documentation before a single component is rendered.</p>
 </div>
 <div class="col-span-7 space-y-12">
@@ -1338,13 +1615,13 @@
 </div>
 </section>
 
-<section id="section-12" class="relative w-full min-h-[100vh] flex flex-col justify-center py-28 px-8 md:px-16 bg-surface-container-lowest overflow-hidden">
+<section id="section-13" class="relative w-full min-h-[100vh] flex flex-col justify-center py-28 px-8 md:px-16 bg-surface-container-lowest overflow-hidden">
   <div class="max-w-[1600px] mx-auto w-full">
     <!-- Header / Title -->
     <div class="flex flex-col mb-16">
       <span class="font-label-mono text-xs text-primary uppercase tracking-[0.3em] mb-3 block font-semibold">THE HUMAN REVIEW MANDATE</span>
       <h2 class="font-display-lg text-[42px] md:text-[56px] text-on-surface mb-4 font-bold leading-tight max-w-5xl">
-        §12: Judgement Belongs to the Humans, So Don’t Be Lazy
+        §13: Judgement Belongs to the Humans, So Don’t Be Lazy
       </h2>
       <div class="w-32 h-2 bg-primary rounded-full"></div>
     </div>
@@ -1427,13 +1704,13 @@
   </div>
 </section>
 
-<section id="section-13" class="relative w-full min-h-[100vh] flex flex-col justify-center py-16 px-6 md:px-12 bg-surface overflow-hidden">
+<section id="section-14" class="relative w-full min-h-[100vh] flex flex-col justify-center py-16 px-6 md:px-12 bg-surface overflow-hidden">
   <div class="max-w-[1440px] mx-auto w-full flex flex-col items-center justify-center relative z-10">
     <!-- Minimal Header -->
     <div class="text-center mb-8">
       <span class="font-label-mono text-xs text-primary uppercase tracking-[0.3em] block mb-2">OPERATIONAL PROTOCOL</span>
       <h2 class="font-headline-lg text-[32px] md:text-[44px] text-on-surface font-bold leading-tight">
-        §13: The Execution Sequence
+        §14: The Execution Sequence
       </h2>
       <p class="font-body-md text-sm md:text-base text-on-surface-variant max-w-2xl mx-auto mt-2 leading-relaxed opacity-80">
         A deterministic 3-phase verification loop across Developer, AI, and Repository.
@@ -1453,7 +1730,7 @@
   </div>
 </section>
 
-<section id="section-13-5" class="relative w-full h-[100vh] max-h-[100vh] flex flex-col justify-between py-6 px-6 md:px-12 bg-surface-container-lowest border-b border-outline-variant/20 overflow-hidden">
+<section id="section-14-5" class="relative w-full h-[100vh] max-h-[100vh] flex flex-col justify-between py-6 px-6 md:px-12 bg-surface-container-lowest border-b border-outline-variant/20 overflow-hidden">
   <div class="max-w-[1600px] mx-auto w-full h-full flex flex-col flex-1 min-h-0 justify-between gap-4">
     <!-- Section Header (Compact & Tight for Vertical Fit) -->
     <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 shrink-0">
@@ -1462,7 +1739,7 @@
           <span class="font-label-mono text-[11px] text-primary uppercase tracking-widest font-semibold">LIVE PROOF // PIPELINE_V2</span>
           <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-primary/20 text-primary border border-primary/40 animate-pulse">● STUDIO CONNECTED</span>
         </div>
-        <h2 class="font-display-md text-2xl md:text-4xl text-on-surface leading-tight font-bold">§13.5: The Studio <span class="text-on-surface-variant/40 font-light">—</span> <span class="text-primary italic">Spec-to-App</span></h2>
+        <h2 class="font-display-md text-2xl md:text-4xl text-on-surface leading-tight font-bold">§14.5: The Studio <span class="text-on-surface-variant/40 font-light">—</span> <span class="text-primary italic">Spec-to-App</span></h2>
       </div>
       <p class="font-body-md text-xs md:text-sm text-on-surface-variant max-w-xl lg:text-right leading-snug">
         The Living Whitepaper is the argument; The Studio is the proof. Watch us modify the specification stack and see the live Ruby TV application re-render in real time without human code intervention.
@@ -1642,7 +1919,7 @@
   </div>
 </section>
 
-<section id="section-14" class="relative w-full min-h-[100vh] flex flex-col justify-center py-32 px-12 overflow-hidden bg-surface">
+<section id="section-15" class="relative w-full min-h-[100vh] flex flex-col justify-center py-32 px-12 overflow-hidden bg-surface">
 <div class="max-w-[1600px] mx-auto w-full">
 <div class="grid grid-cols-12 gap-gutter items-center">
 <div class="col-span-12 lg:col-span-6 order-2 lg:order-1">
@@ -1679,7 +1956,7 @@
 </div>
 <div class="col-span-12 lg:col-span-5 lg:col-start-8 order-1 lg:order-2 mb-16 lg:mb-0">
 <span class="font-label-mono text-label-mono text-on-surface-variant/60 block mb-4 uppercase tracking-[0.3em]">Governance &amp; Safety</span>
-<h2 class="font-headline-lg text-headline-lg text-on-surface mb-8">§14: CONTAINMENT AND THE BLAST RADIUS</h2>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-8">§15: CONTAINMENT AND THE BLAST RADIUS</h2>
 <p class="font-body-lg text-body-lg text-on-surface-variant mb-12">
                         In a world of synthetic code, execution must be adversarial. We do not trust the generation; we contain it. Every block of code runs in a <span class="text-primary italic">disposable sandbox</span>, where its "Blast Radius" is monitored in real-time.
                     </p>
@@ -1698,14 +1975,14 @@
 </div>
 </section>
 
-<section id="section-15" class="relative w-full min-h-[100vh] flex flex-col justify-center py-28 px-8 md:px-16 overflow-hidden bg-surface">
+<section id="section-16" class="relative w-full min-h-[100vh] flex flex-col justify-center py-28 px-8 md:px-16 overflow-hidden bg-surface">
   <div class="max-w-[1600px] mx-auto w-full">
     <!-- Header with Central Theme & Message -->
     <div class="flex flex-col mb-16">
       <span class="font-label-mono text-xs text-primary uppercase tracking-[0.3em] mb-3 block font-semibold">SPECIALIZATION OVER SLOP // CONCURRENT SYNTHESIS</span>
       <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-8 mb-6">
         <h2 class="font-display-lg text-[44px] md:text-[58px] text-on-surface font-bold leading-tight max-w-4xl">
-          §15: Multi-agent Orchestration
+          §16: Multi-agent Orchestration
         </h2>
         <span class="font-label-mono text-xs md:text-sm text-primary bg-primary/10 border border-primary/30 px-4 py-2 rounded-full uppercase tracking-wider font-bold shrink-0">
           DECENTRALIZED EXPERTISE
@@ -1783,7 +2060,7 @@
   </div>
 </section>
 
-<section id="section-16" class="relative w-full min-h-[100vh] flex flex-col justify-center py-28 px-6 md:px-12 bg-surface-container-highest overflow-hidden">
+<section id="section-17" class="relative w-full min-h-[100vh] flex flex-col justify-center py-28 px-6 md:px-12 bg-surface-container-highest overflow-hidden">
   <div class="absolute -left-20 top-0 opacity-5">
     <span class="font-display-xl text-[400px] leading-none select-none pointer-events-none">HEAL</span>
   </div>
@@ -1792,7 +2069,7 @@
     <div class="col-span-1 lg:col-span-6 flex flex-col justify-center">
       <span class="font-label-mono text-xs text-primary uppercase tracking-[0.3em] mb-3 block font-semibold">AUTONOMOUS RESILIENCE &amp; ADAPTATION</span>
       <h2 class="font-display-lg text-[40px] md:text-[52px] text-on-surface mb-6 leading-tight font-bold">
-        §16: Moving towards Self-Healing and Self-Evolving Software
+        §17: Moving towards Self-Healing and Self-Evolving Software
       </h2>
       <p class="font-body-lg text-lg md:text-xl text-on-surface-variant mb-8 leading-relaxed">
         System failures and runtime friction are no longer human pager alerts—they are <strong class="text-primary font-bold">deterministic feedback signals</strong>. When a UI breaks or an assertion fails, the system intercepts the error, diagnoses the root cause against the spec, patches the logic, and redeploys autonomously.
@@ -1855,12 +2132,12 @@
   </div>
 </section>
 
-<section id="section-17" class="relative w-full min-h-[100vh] flex flex-col justify-center pt-32 pb-44 px-12 overflow-hidden items-center text-center bg-surface">
+<section id="section-18" class="relative w-full min-h-[100vh] flex flex-col justify-center pt-32 pb-44 px-12 overflow-hidden items-center text-center bg-surface">
   <div class="absolute inset-0 bg-cover bg-center -z-10 opacity-15" style="background-image: url('assets/illustrations/self_referential.jpg')"></div>
   <div class="absolute inset-0 bg-gradient-to-b from-surface via-transparent to-surface z-10"></div>
   <div class="relative z-20 max-w-4xl flex flex-col items-center">
     <span class="font-label-mono text-label-mono text-primary mb-6 tracking-[0.4em] uppercase font-semibold">The Final Frontier</span>
-    <h2 class="font-display-xl text-5xl md:text-7xl text-on-surface mb-12 leading-[0.9] font-bold">§17: The Self-Referential Engine</h2>
+    <h2 class="font-display-xl text-5xl md:text-7xl text-on-surface mb-12 leading-[0.9] font-bold">§18: The Self-Referential Engine</h2>
     <p class="font-body-lg text-xl md:text-2xl text-on-surface-variant mb-16 leading-relaxed">
       We have reached the point of Singularity in Design. The Agent no longer builds the UI for the User—it builds the Agent that will build the next UI. It is an iterative improvement cycle where the Designer's role is not to create, but to define the Initial Conditions of the engine itself.
     </p>
@@ -1876,7 +2153,7 @@
   </div>
 </section>
 
-<section id="section-18" class="relative w-full min-h-[100vh] flex flex-col justify-center pt-32 pb-44 px-12 overflow-hidden items-center text-center bg-surface">
+<section id="section-19" class="relative w-full min-h-[100vh] flex flex-col justify-center pt-32 pb-44 px-12 overflow-hidden items-center text-center bg-surface">
   <div class="absolute inset-0 bg-cover bg-center -z-10 opacity-15" style="background-image: url('assets/illustrations/self_referential.jpg')"></div>
   <div class="absolute inset-0 bg-gradient-to-b from-surface via-transparent to-surface z-10"></div>
   <div class="relative z-20 max-w-4xl flex flex-col items-center">
@@ -1910,10 +2187,10 @@
         <div class="flex flex-col gap-3">
           <span class="font-label-mono text-label-mono text-primary">CHAPTERS</span>
           <a class="text-on-surface-variant hover:text-primary transition-colors" href="#section-0">The Shift</a>
-          <a class="text-on-surface-variant hover:text-primary transition-colors" href="#section-4">Aha Moments</a>
-          <a class="text-on-surface-variant hover:text-primary transition-colors" href="#section-8">Execution</a>
-          <a class="text-on-surface-variant hover:text-primary transition-colors" href="#section-14">Orchestration</a>
-          <a class="text-on-surface-variant hover:text-primary transition-colors" href="#section-16">The Future</a>
+          <a class="text-on-surface-variant hover:text-primary transition-colors" href="#section-5">Aha Moments</a>
+          <a class="text-on-surface-variant hover:text-primary transition-colors" href="#section-9">Execution</a>
+          <a class="text-on-surface-variant hover:text-primary transition-colors" href="#section-15">Orchestration</a>
+          <a class="text-on-surface-variant hover:text-primary transition-colors" href="#section-17">The Future</a>
         </div>
       </div>
     </div>
