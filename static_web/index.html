@@ -482,62 +482,108 @@
   </div>
 </section>
 
-<section id="section-2" class="relative w-full min-h-[921px] flex flex-col justify-center px-12 py-32 bg-surface">
-<div class="grid grid-cols-12 gap-gutter">
-<!-- Asymmetric Layout -->
-<div class="col-span-1 flex flex-col items-center justify-between py-4">
-<span class="font-label-mono text-label-mono [writing-mode:vertical-rl] rotate-180 text-outline">DECAY RATE</span>
-<div class="w-px h-full bg-outline-variant/30 my-8"></div>
-<span class="font-label-mono text-label-mono text-primary">2024</span>
-</div>
-<div class="col-span-11 pl-8">
-<h2 class="font-headline-lg text-[42px] text-on-surface mb-12">
+<section id="section-2" class="relative w-full min-h-[100vh] flex flex-col justify-center px-8 md:px-12 py-16 md:py-20 bg-surface overflow-hidden border-b border-outline-variant/10">
+  <div class="max-w-[1600px] mx-auto w-full grid grid-cols-12 gap-6 md:gap-10 items-center">
+    
+    <!-- Left Asymmetric Label -->
+    <div class="col-span-1 hidden lg:flex flex-col items-center justify-between py-4 h-full min-h-[500px]">
+      <span class="font-label-mono text-xs [writing-mode:vertical-rl] rotate-180 text-outline tracking-widest uppercase font-bold">DECAY RATE</span>
+      <div class="w-px h-full bg-outline-variant/30 my-6"></div>
+      <span class="font-label-mono text-xs text-primary font-bold">2024</span>
+    </div>
+
+    <!-- Main Content Area (col-span-11 on desktop / 12 on mobile) -->
+    <div class="col-span-12 lg:col-span-11 flex flex-col gap-6 md:gap-8">
+      
+      <!-- Section Title -->
+      <div>
+        <span class="font-label-mono text-xs text-secondary uppercase tracking-[0.2em] mb-2 block font-bold">ACCELERATION VS ARCHITECTURE</span>
+        <h2 class="font-headline-lg text-[40px] md:text-[52px] text-on-surface font-bold leading-tight">
           §2: <span class="text-secondary italic">The Illusion of Speed</span>
-</h2>
-<div class="grid grid-cols-12 gap-12">
-<div class="col-span-7 flex flex-col justify-between">
-<div>
-<p class="font-body-lg text-body-lg text-on-surface leading-relaxed mb-8">
-              For decades, the holy grail has always been speed: how do we go from idea to execution faster? We invented higher-level languages, frameworks, agile methodologies, and CI/CD pipelines—all in the pursuit of writing and shipping code faster.
+        </h2>
+      </div>
+
+      <!-- Balanced 2-Column Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        
+        <!-- Left Column (col-span-6): Narrative + Paradigm Shift + Terrifying Realization -->
+        <div class="col-span-1 lg:col-span-6 flex flex-col justify-between gap-5">
+          <p class="font-body-lg text-base md:text-lg text-on-surface leading-relaxed">
+            For decades, the holy grail has always been speed: how do we go from idea to execution faster? We invented higher-level languages, frameworks, agile methodologies, and CI/CD pipelines—all in the pursuit of writing and shipping code faster.
+          </p>
+
+          <div class="bg-surface-container-high border border-outline-variant/40 rounded-xl p-6 relative overflow-hidden group shadow-lg">
+            <div class="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
+              <span class="material-symbols-outlined text-6xl">speed</span>
+            </div>
+            <span class="font-label-mono text-xs text-secondary tracking-widest uppercase block mb-2 font-bold">THE GENERATIVE AI PARADIGM SHIFT</span>
+            <p class="font-body-md text-sm md:text-base text-on-surface-variant leading-relaxed mb-3">
+              Then, Generative AI arrived, and suddenly we had the ultimate speed machine. You can now prompt an LLM and watch it spit out 1,000 lines of complex boilerplate in seconds.
             </p>
-<div class="bg-surface-container-high border border-outline-variant/40 rounded-xl p-8 relative overflow-hidden group">
-<div class="absolute top-0 right-0 p-4 opacity-5">
-<span class="material-symbols-outlined text-7xl">speed</span>
-</div>
-<span class="font-label-mono text-xs text-secondary tracking-widest uppercase block mb-3">THE GENERATIVE AI PARADIGM SHIFT</span>
-<p class="font-body-md text-on-surface-variant leading-relaxed mb-4">
-                Then, Generative AI arrived, and suddenly we had the ultimate speed machine. You can now prompt an LLM and watch it spit out 1,000 lines of complex boilerplate in seconds.
+            <p class="font-headline-sm text-base md:text-lg text-secondary font-semibold italic">
+              "It feels like magic. It feels like we finally won."
+            </p>
+          </div>
+
+          <!-- Terrifying Realization Card (Tightened & high impact) -->
+          <div class="p-6 border-2 border-error/50 bg-error/15 rounded-2xl flex items-start gap-5 shadow-xl relative overflow-hidden backdrop-blur-md">
+            <div class="w-11 h-11 rounded-xl bg-error/20 border border-error/40 flex items-center justify-center shrink-0 mt-0.5 text-error shadow-inner">
+              <span class="material-symbols-outlined text-2xl">warning</span>
+            </div>
+            <div class="space-y-1.5">
+              <span class="font-label-mono text-xs text-error uppercase tracking-[0.2em] font-bold block">THE TERRIFYING REALIZATION</span>
+              <p class="font-headline-sm text-base md:text-lg text-on-surface/95 font-semibold leading-relaxed">
+                Speed cuts both ways. When managed with discipline, AI coding dramatically accelerates development; without strict architectural guardrails, however, we risk generating unmaintainable code that silently degrades our foundation over time.
               </p>
-<p class="font-headline-sm text-lg text-secondary font-semibold italic">
-                "It feels like magic. It feels like we finally won."
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column (col-span-6): 01 / Speed Trap & 02 / Invisible Cost Cards -->
+        <div class="col-span-1 lg:col-span-6 flex flex-col justify-between gap-6 pl-0 lg:pl-6 border-t pt-6 lg:pt-0 lg:border-t-0 lg:border-l border-outline-variant/20">
+          
+          <!-- Card 01 -->
+          <div class="bg-surface-container/80 border border-outline-variant/30 rounded-2xl p-7 md:p-8 flex flex-col justify-between shadow-xl border-l-4 border-l-secondary group hover:border-secondary transition-all">
+            <div>
+              <div class="flex items-center justify-between pb-3 mb-4 border-b border-outline-variant/20">
+                <span class="font-label-mono text-xs text-secondary uppercase tracking-widest font-bold block">01 / THE SPEED TRAP</span>
+                <span class="material-symbols-outlined text-secondary text-2xl">electric_bolt</span>
+              </div>
+              <h4 class="font-headline-sm text-2xl md:text-3xl text-on-surface mb-3 font-bold">1,000 Lines in Seconds</h4>
+              <p class="font-body-md text-base md:text-lg text-on-surface-variant leading-relaxed">
+                Prompting an LLM generates massive boilerplate instantly, creating an intoxicating illusion of victory while bypassing architectural comprehension.
               </p>
-</div>
-<div class="mt-10 p-8 border-2 border-error/50 bg-error/15 rounded-2xl flex items-start gap-6 shadow-xl relative overflow-hidden backdrop-blur-md">
-  <div class="w-12 h-12 rounded-xl bg-error/20 border border-error/40 flex items-center justify-center shrink-0 mt-0.5 text-error shadow-inner">
-    <span class="material-symbols-outlined text-3xl">warning</span>
+            </div>
+            <div class="mt-6 pt-3 border-t border-outline-variant/15 font-mono text-xs text-secondary/80 flex items-center justify-between">
+              <span>⚠️ UNCHECKED SYNTHESIS</span>
+              <span>HIGH VOLUME</span>
+            </div>
+          </div>
+
+          <!-- Card 02 -->
+          <div class="bg-surface-container/80 border border-outline-variant/30 rounded-2xl p-7 md:p-8 flex flex-col justify-between shadow-xl border-l-4 border-l-error group hover:border-error transition-all">
+            <div>
+              <div class="flex items-center justify-between pb-3 mb-4 border-b border-outline-variant/20">
+                <span class="font-label-mono text-xs text-error uppercase tracking-widest font-bold block">02 / THE INVISIBLE COST</span>
+                <span class="material-symbols-outlined text-error text-2xl">visibility_off</span>
+              </div>
+              <h4 class="font-headline-sm text-2xl md:text-3xl text-on-surface mb-3 font-bold">Velocity Without Visibility</h4>
+              <p class="font-body-md text-base md:text-lg text-on-surface-variant leading-relaxed">
+                When code generation outpaces human review, the gap between "what the code says" and "what the system actually does" expands exponentially.
+              </p>
+            </div>
+            <div class="mt-6 pt-3 border-t border-outline-variant/15 font-mono text-xs text-error/80 flex items-center justify-between">
+              <span>⚠️ ENTROPY EXPANSION</span>
+              <span>EXPONENTIAL GAP</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
   </div>
-  <div class="space-y-2">
-    <span class="font-label-mono text-sm text-error uppercase tracking-[0.2em] font-bold block">THE TERRIFYING REALIZATION</span>
-    <p class="font-headline-sm text-lg md:text-xl text-on-surface/95 font-semibold leading-relaxed">
-      Speed cuts both ways. When managed with discipline, AI coding dramatically accelerates development; without strict architectural guardrails, however, we risk generating unmaintainable code that silently degrades our foundation over time.
-    </p>
-  </div>
-</div>
-</div>
-<div class="col-span-5 flex flex-col justify-center space-y-12 pl-8 border-l border-outline-variant/20">
-<div>
-<span class="font-label-mono text-label-mono text-secondary mb-2 block">01 / THE SPEED TRAP</span>
-<h4 class="font-headline-sm text-lg text-on-surface mb-2 font-bold">1,000 Lines in Seconds</h4>
-<p class="font-body-md text-on-surface-variant leading-relaxed">Prompting an LLM generates massive boilerplate instantly, creating an intoxicating illusion of victory while bypassing architectural comprehension.</p>
-</div>
-<div>
-<span class="font-label-mono text-label-mono text-secondary mb-2 block">02 / THE INVISIBLE COST</span>
-<h4 class="font-headline-sm text-lg text-on-surface mb-2 font-bold">Velocity Without Visibility</h4>
-<p class="font-body-md text-on-surface-variant leading-relaxed">When code generation outpaces human review, the gap between "what the code says" and "what the system actually does" expands exponentially.</p>
-</div>
-</div>
-</div>
-</div>
 </section>
 
 <!-- Slide 2.1: Productivity Timeline (View 1: 2026) -->
