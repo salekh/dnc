@@ -1435,71 +1435,79 @@
   </div>
 </section>
 
-<section id="section-9" class="w-full px-12 py-32 bg-surface-container-lowest">
-<div class="max-w-[1600px] mx-auto w-full">
-<div class="flex flex-col lg:flex-row justify-between items-baseline gap-12 mb-24">
-<h2 class="font-display-md text-display-md text-on-surface">§9: DECOUPLING <br/><span class="text-primary-fixed-dim">INTENT</span></h2>
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
-          We move from a single monolith of code to a tiered Specification Stack. Each layer serves a specific cognitive function for the orchestrator.
-        </p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-0 border border-outline-variant/20">
-<!-- PRD.MD -->
-<div class="p-10 flex flex-col gap-12 border-r border-outline-variant/20 group hover:bg-surface-container-high transition-all duration-500">
-<div class="flex justify-between items-start">
-<span class="font-label-mono text-label-mono text-primary">LAYER_01</span>
-<span class="font-label-mono text-label-mono opacity-30">STRATEGIC</span>
-</div>
-<div>
-<h3 class="font-headline-lg text-headline-lg text-on-surface mb-2">prd.md</h3>
-<p class="font-body-md text-body-md text-on-surface-variant">The product requirements document. Defining user needs and business constraints without technical pollution.</p>
-</div>
-<div class="mt-auto pt-8 flex items-center gap-2">
-<div class="h-1 w-12 bg-primary"></div>
-<span class="font-label-mono text-[10px] tracking-widest text-primary uppercase">Immutable Truth</span>
-</div>
-</div>
-<!-- DESIGN.MD -->
-<div class="p-10 flex flex-col gap-12 border-r border-outline-variant/20 group hover:bg-surface-container-high transition-all duration-500">
-<div class="flex justify-between items-start">
-<span class="font-label-mono text-label-mono text-primary">LAYER_02</span>
-<span class="font-label-mono text-label-mono opacity-30">ARCHITECTURAL</span>
-</div>
-<div>
-<h3 class="font-headline-lg text-headline-lg text-on-surface mb-2">design.md</h3>
-<p class="font-body-md text-body-md text-on-surface-variant">The structural blueprint. Defining component relationships, state machines, and API contracts.</p>
-</div>
-<div class="mt-auto pt-8 flex items-center gap-2">
-<div class="h-1 w-12 bg-primary opacity-50"></div>
-<span class="font-label-mono text-[10px] tracking-widest text-on-surface-variant uppercase">Logic Mapping</span>
-</div>
-</div>
-<!-- GEMINI.MD -->
-<div class="p-10 flex flex-col gap-12 group hover:bg-surface-container-high transition-all duration-500">
-<div class="flex justify-between items-start">
-<span class="font-label-mono text-label-mono text-primary">LAYER_03</span>
-<span class="font-label-mono text-label-mono opacity-30">SYNTHETIC</span>
-</div>
-<div>
-<h3 class="font-headline-lg text-headline-lg text-on-surface mb-2">GEMINI.md</h3>
-<p class="font-body-md text-body-md text-on-surface-variant">The execution bridge. LLM-specific instructions, prompting strategies, and tactical implementation guides.</p>
-</div>
-<div class="mt-auto pt-8 flex items-center gap-2">
-<div class="h-1 w-12 bg-primary opacity-20"></div>
-<span class="font-label-mono text-[10px] tracking-widest text-on-surface-variant/40 uppercase">Actionable Syntax</span>
-</div>
-</div>
-</div>
-<div class="mt-32 p-12 bg-primary-container text-on-primary-container flex flex-col lg:flex-row justify-between items-center gap-12">
-<div class="max-w-2xl">
-<span class="font-label-mono text-label-mono opacity-80 uppercase block mb-2">The Closing Insight</span>
-<p class="font-headline-sm text-headline-sm italic">"When intent is decoupled from implementation, the cost of change approaches the speed of thought."</p>
-</div>
-<a href="https://drensin.medium.com/elephants-goldfish-and-the-new-golden-age-of-software-engineering-c33641a48874" target="_blank" rel="noopener noreferrer" class="bg-on-primary-container text-primary-container px-12 py-6 font-label-mono text-label-mono tracking-widest uppercase hover:opacity-90 transition-opacity inline-flex items-center gap-3">
-              <span>READ FULL PAPER</span>
-              <span class="material-symbols-outlined text-lg">open_in_new</span>
-          </a>
-</div>
+<section id="section-9" class="relative w-full min-h-[100vh] flex flex-col justify-center px-6 md:px-12 py-20 md:py-24 bg-surface-container-lowest overflow-hidden border-b border-outline-variant/10">
+  <div class="max-w-[1600px] mx-auto w-full flex flex-col justify-center gap-8 md:gap-10">
+    
+    <div class="flex flex-col lg:flex-row justify-between items-baseline gap-6 md:gap-12">
+      <h2 class="font-display-md text-[44px] md:text-[56px] text-on-surface leading-tight font-bold">§9: DECOUPLING <br/><span class="text-primary-fixed-dim">INTENT</span></h2>
+      <p class="font-body-lg text-base md:text-lg text-on-surface-variant max-w-xl leading-relaxed">
+        We move from a single monolith of code to a tiered Specification Stack. Each layer serves a specific cognitive function for the orchestrator.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-0 border border-outline-variant/30 rounded-2xl overflow-hidden shadow-xl bg-surface">
+      <!-- PRD.MD -->
+      <div class="p-7 md:p-8 flex flex-col justify-between gap-6 border-b md:border-b-0 md:border-r border-outline-variant/20 group hover:bg-surface-container-high transition-all duration-300">
+        <div>
+          <div class="flex justify-between items-start mb-4">
+            <span class="font-label-mono text-xs text-primary font-bold tracking-widest">LAYER_01</span>
+            <span class="font-label-mono text-xs opacity-40 font-semibold">STRATEGIC</span>
+          </div>
+          <h3 class="font-headline-lg text-2xl md:text-3xl text-on-surface font-bold mb-3">prd.md</h3>
+          <p class="font-body-md text-sm md:text-base text-on-surface-variant leading-relaxed">The product requirements document. Defining user needs and business constraints without technical pollution.</p>
+        </div>
+        <div class="mt-4 pt-4 border-t border-outline-variant/15 flex items-center gap-2">
+          <div class="h-1 w-8 bg-primary"></div>
+          <span class="font-label-mono text-[10px] tracking-widest text-primary uppercase font-bold">Immutable Truth</span>
+        </div>
+      </div>
+
+      <!-- DESIGN.MD -->
+      <div class="p-7 md:p-8 flex flex-col justify-between gap-6 border-b md:border-b-0 md:border-r border-outline-variant/20 group hover:bg-surface-container-high transition-all duration-300">
+        <div>
+          <div class="flex justify-between items-start mb-4">
+            <span class="font-label-mono text-xs text-primary font-bold tracking-widest">LAYER_02</span>
+            <span class="font-label-mono text-xs opacity-40 font-semibold">ARCHITECTURAL</span>
+          </div>
+          <h3 class="font-headline-lg text-2xl md:text-3xl text-on-surface font-bold mb-3">design.md</h3>
+          <p class="font-body-md text-sm md:text-base text-on-surface-variant leading-relaxed">The structural blueprint. Defining component relationships, state machines, and API contracts.</p>
+        </div>
+        <div class="mt-4 pt-4 border-t border-outline-variant/15 flex items-center gap-2">
+          <div class="h-1 w-8 bg-primary opacity-60"></div>
+          <span class="font-label-mono text-[10px] tracking-widest text-on-surface-variant uppercase font-bold">Logic Mapping</span>
+        </div>
+      </div>
+
+      <!-- GEMINI.MD -->
+      <div class="p-7 md:p-8 flex flex-col justify-between gap-6 group hover:bg-surface-container-high transition-all duration-300">
+        <div>
+          <div class="flex justify-between items-start mb-4">
+            <span class="font-label-mono text-xs text-primary font-bold tracking-widest">LAYER_03</span>
+            <span class="font-label-mono text-xs opacity-40 font-semibold">SYNTHETIC</span>
+          </div>
+          <h3 class="font-headline-lg text-2xl md:text-3xl text-on-surface font-bold mb-3">GEMINI.md</h3>
+          <p class="font-body-md text-sm md:text-base text-on-surface-variant leading-relaxed">The execution bridge. LLM-specific instructions, prompting strategies, and tactical implementation guides.</p>
+        </div>
+        <div class="mt-4 pt-4 border-t border-outline-variant/15 flex items-center gap-2">
+          <div class="h-1 w-8 bg-primary opacity-30"></div>
+          <span class="font-label-mono text-[10px] tracking-widest text-on-surface-variant/60 uppercase font-bold">Actionable Syntax</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- High-Impact Closing Insight -->
+    <div class="p-6 md:p-8 bg-primary-container rounded-2xl text-on-primary-container flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 shadow-xl">
+      <div class="max-w-3xl space-y-2">
+        <span class="font-label-mono text-xs opacity-90 uppercase tracking-[0.2em] font-bold block">The Closing Insight</span>
+        <p class="font-headline-sm text-xl md:text-2xl font-bold italic leading-snug">"When intent is decoupled from implementation, the cost of change approaches the speed of thought."</p>
+      </div>
+      <a href="https://drensin.medium.com/elephants-goldfish-and-the-new-golden-age-of-software-engineering-c33641a48874" target="_blank" rel="noopener noreferrer" class="bg-on-primary-container text-primary-container px-8 py-4 rounded-xl font-label-mono text-xs tracking-widest uppercase font-bold hover:opacity-90 transition-opacity inline-flex items-center gap-2.5 shadow-lg shrink-0">
+        <span>READ FULL PAPER</span>
+        <span class="material-symbols-outlined text-base">open_in_new</span>
+      </a>
+    </div>
+
+  </div>
 </section>
 
 <section id="section-10" class="relative w-full py-24 px-12 overflow-hidden border-b border-outline-variant/10 min-h-[921px] flex flex-col justify-center">
