@@ -555,7 +555,7 @@ export async function rank(userContext, watchHistory, deviceContext) {
       }
       
       const targetJS = tweak ? `// Synthesized Recommender Logic (Active Tweak: ${tweak})
-// Compiled by Antigravity Studio Client Engine
+// Compiled by Antigravity IDE Client Engine
 // Target: Ruby TV OTT-G1 (Sandboxed Execution)
 
 export async function rank(userContext, watchHistory, deviceContext) {
