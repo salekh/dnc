@@ -14,10 +14,14 @@ from api.services.vertex import (
 )
 
 logger = logging.getLogger("cache_service")
-CACHE_DIR = "/usr/local/google/home/sanchitalekh/Code/dnc/api/cache"
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+CACHE_DIR = os.path.join(BASE_DIR, "cache")
 
-# Ensure cache directory exists
-os.makedirs(CACHE_DIR, exist_ok=True)
+# Ensure cache directory exists if writable
+try:
+    os.makedirs(CACHE_DIR, exist_ok=True)
+except Exception as e:
+    logger.warning(f"Could not create CACHE_DIR at {CACHE_DIR}: {e}")
 
 def get_cache_key(prompt: str) -> str:
     """Generate SHA256 hash of the prompt string to use as the cache key."""

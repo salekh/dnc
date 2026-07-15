@@ -20,7 +20,7 @@ async def interrogate(req: InterrogateRequest):
     logger.info(f"Received interrogate request for spec: {req.spec_path}")
     
     # Load prompt template
-    prompt_template_path = "/usr/local/google/home/sanchitalekh/Code/dnc/content/prompts/interrogate.txt"
+    prompt_template_path = os.path.join("content", "prompts", "interrogate.txt")
     try:
         with open(prompt_template_path, "r", encoding="utf-8") as f:
             template = f.read()
