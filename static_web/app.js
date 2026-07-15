@@ -26,16 +26,16 @@ document.addEventListener('DOMContentLoaded', () => {
         
         let displayStr = '';
         if (id === 'section-2-1') {
-          displayStr = '02.1 / 19';
+          displayStr = '02.1 / 18';
         } else if (id === 'section-2-2') {
-          displayStr = '02.2 / 19';
+          displayStr = '02.2 / 18';
         } else if (id === 'section-14-5') {
-          displayStr = '14.5 / 19';
+          displayStr = '14.5 / 18';
         } else if (id === 'section-4-5') {
-          displayStr = '04.5 / 19';
+          displayStr = '04.5 / 18';
         } else {
           const index = parseInt(id.split('-')[1]);
-          displayStr = `${index.toString().padStart(2, '0')} / 19`;
+          displayStr = `${index.toString().padStart(2, '0')} / 18`;
         }
         slideIndicator.innerText = displayStr;
         currentFocusedIndex = idxInList;
@@ -43,8 +43,8 @@ document.addEventListener('DOMContentLoaded', () => {
         let activeChapterIdx = 0;
         if (idxInList >= 8 && idxInList < 12) activeChapterIdx = 1;       // AHA MOMENTS (Indices 8..11)
         else if (idxInList >= 12 && idxInList < 19) activeChapterIdx = 2; // EXECUTION (Indices 12..18)
-        else if (idxInList >= 19 && idxInList < 21) activeChapterIdx = 3; // ORCHESTRATION (Indices 19..20)
-        else if (idxInList >= 21) activeChapterIdx = 4;                   // THE FUTURE (Indices 21..23)
+        else if (idxInList === 19) activeChapterIdx = 3;                  // ORCHESTRATION (Index 19)
+        else if (idxInList >= 20) activeChapterIdx = 4;                   // THE FUTURE (Indices 20..22)
         
         navLinks.forEach((link, idx) => {
           if (idx === activeChapterIdx) {
@@ -262,24 +262,6 @@ Run tests continuously after every delta injection.`
       }
       terminalConsole.scrollTop = terminalConsole.scrollHeight;
     }, 1800);
-  }
-
-  // --- 7. Interactive Latency Trigger (Slide 16) ---
-  const pipelineBtn = document.querySelector('#section-16 .bg-primary');
-  const latencyTimer = document.querySelector('#section-16 .text-primary');
-
-  if (pipelineBtn && latencyTimer) {
-    pipelineBtn.style.cursor = 'pointer';
-    pipelineBtn.addEventListener('click', () => {
-      latencyTimer.innerText = "---";
-      pipelineBtn.style.opacity = '0.5';
-      
-      setTimeout(() => {
-        const randLatency = (Math.random() * 0.15 + 0.01).toFixed(2);
-        latencyTimer.innerText = `${randLatency}s`;
-        pipelineBtn.style.opacity = '1.0';
-      }, 800);
-    });
   }
 
   // --- 8. Keyboard Navigation Event Handlers ---
