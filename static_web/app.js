@@ -25,7 +25,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const idxInList = Array.from(sections).indexOf(entry.target);
         
         let displayStr = '';
-        if (id === 'section-13-5') {
+        if (id === 'section-1-1') {
+          displayStr = '01.1 / 18';
+        } else if (id === 'section-1-2') {
+          displayStr = '01.2 / 18';
+        } else if (id === 'section-13-5') {
           displayStr = '13.5 / 18';
         } else if (id === 'section-3-5') {
           displayStr = '03.5 / 18';
@@ -37,10 +41,10 @@ document.addEventListener('DOMContentLoaded', () => {
         currentFocusedIndex = idxInList;
         
         let activeChapterIdx = 0;
-        if (idxInList >= 5 && idxInList < 9) activeChapterIdx = 1;       // AHA MOMENTS (Indices 5..8)
-        else if (idxInList >= 9 && idxInList < 16) activeChapterIdx = 2; // EXECUTION (Indices 9..15)
-        else if (idxInList >= 16 && idxInList < 18) activeChapterIdx = 3;// ORCHESTRATION (Indices 16..17)
-        else if (idxInList >= 18) activeChapterIdx = 4;                  // THE FUTURE (Indices 18..20)
+        if (idxInList >= 7 && idxInList < 11) activeChapterIdx = 1;       // AHA MOMENTS (Indices 7..10)
+        else if (idxInList >= 11 && idxInList < 18) activeChapterIdx = 2; // EXECUTION (Indices 11..17)
+        else if (idxInList >= 18 && idxInList < 20) activeChapterIdx = 3; // ORCHESTRATION (Indices 18..19)
+        else if (idxInList >= 20) activeChapterIdx = 4;                   // THE FUTURE (Indices 20..22)
         
         navLinks.forEach((link, idx) => {
           if (idx === activeChapterIdx) {
