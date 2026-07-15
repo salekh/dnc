@@ -2007,29 +2007,304 @@
   </div>
 </section>
 
-<section id="section-14" class="relative w-full min-h-[100vh] flex flex-col justify-center py-16 px-6 md:px-12 bg-surface overflow-hidden">
-  <div class="max-w-[1440px] mx-auto w-full flex flex-col items-center justify-center relative z-10">
-    <!-- Minimal Header -->
-    <div class="text-center mb-8">
-      <span class="font-label-mono text-xs text-primary uppercase tracking-[0.3em] block mb-2">OPERATIONAL PROTOCOL</span>
-      <h2 class="font-headline-lg text-[32px] md:text-[44px] text-on-surface font-bold leading-tight">
+<section id="section-14" class="relative w-full min-h-[100vh] flex flex-col justify-center py-20 md:py-24 px-6 md:px-12 bg-surface overflow-hidden border-b border-outline-variant/10">
+  <div class="max-w-[1600px] mx-auto w-full flex flex-col items-center justify-center relative z-10 gap-8">
+    
+    <!-- Header -->
+    <div class="text-center max-w-3xl">
+      <span class="font-label-mono text-xs text-primary uppercase tracking-[0.3em] block mb-2.5 font-bold">OPERATIONAL PROTOCOL // SEQUENCE TRACE</span>
+      <h2 class="font-display-lg text-[40px] md:text-[54px] text-on-surface font-bold leading-tight mb-3">
         §14: The Execution Sequence
       </h2>
-      <p class="font-body-md text-sm md:text-base text-on-surface-variant max-w-2xl mx-auto mt-2 leading-relaxed opacity-80">
-        A deterministic 3-phase verification loop across Developer, AI, and Repository.
+      <p class="font-body-md text-base md:text-lg text-on-surface-variant leading-relaxed">
+        A deterministic 3-phase verification loop across <span class="text-primary font-bold">Developer</span>, <span class="text-[#8ab4f8] font-bold">Gemini</span>, and <span class="text-gray-300 font-bold">Repository</span>.
       </p>
     </div>
 
-    <!-- Hero Centerpiece: Sequence Diagram Image Box -->
-    <div class="w-full max-w-6xl mx-auto relative group">
-      <!-- Glow & Ambient Backdrop -->
-      <div class="absolute -inset-2 bg-gradient-to-r from-primary/20 via-secondary/20 to-tertiary/20 rounded-2xl blur-xl opacity-60 group-hover:opacity-100 transition-opacity duration-700"></div>
+    <!-- Code-Rendered Sequence Studio IDE Window -->
+    <div class="w-full max-w-6xl mx-auto bg-[#13151a] border border-outline-variant/40 rounded-3xl shadow-2xl overflow-hidden flex flex-col">
       
-      <!-- Image Card -->
-      <div class="relative bg-[#0b0709] border border-outline-variant/30 rounded-2xl p-3 md:p-6 shadow-2xl overflow-hidden flex items-center justify-center">
-        <img src="assets/illustrations/agentic_sequence_diagram.jpg" alt="Agentic Implementation Sequence Diagram" class="w-full h-auto max-h-[72vh] object-contain rounded-xl shadow-lg"/>
+      <!-- Top Chrome Bar -->
+      <div class="bg-[#1f2229] px-6 py-4 border-b border-outline-variant/30 flex items-center justify-between flex-wrap gap-4">
+        <div class="flex items-center gap-3">
+          <div class="flex gap-1.5">
+            <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+            <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+            <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+          </div>
+          <span class="font-label-mono text-xs text-on-surface font-bold tracking-wider ml-2">execution_protocol.sequence</span>
+          <span class="text-gray-500 font-mono text-xs hidden sm:inline">// ANTIGRAVITY STUDIO TRACE</span>
+        </div>
+        <span class="font-mono text-[11px] bg-primary/15 text-primary px-3 py-1 rounded-full border border-primary/30 font-bold flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
+          3-PHASE DETERMINISTIC PROTOCOL
+        </span>
       </div>
+
+      <!-- Lifelines Header Bar -->
+      <div class="grid grid-cols-12 bg-[#181a20] px-6 py-5 border-b border-outline-variant/20 gap-4 text-center items-center">
+        <!-- Dev Lifeline Header (col-span-4) -->
+        <div class="col-span-4 flex flex-col items-center">
+          <div class="px-6 py-2.5 rounded-2xl bg-primary/15 border-2 border-primary text-primary font-headline-sm text-base md:text-lg font-bold flex items-center gap-2 shadow-[0_0_20px_rgba(226,0,116,0.3)]">
+            <span class="material-symbols-outlined text-xl">person</span>
+            <span>Dev</span>
+          </div>
+        </div>
+        <!-- Gemini Lifeline Header (col-span-4) -->
+        <div class="col-span-4 flex flex-col items-center">
+          <div class="px-6 py-2.5 rounded-2xl bg-[#1a73e8]/20 border-2 border-[#4285f4] text-[#8ab4f8] font-headline-sm text-base md:text-lg font-bold flex items-center gap-2 shadow-[0_0_20px_rgba(66,133,244,0.3)]">
+            <span class="material-symbols-outlined text-xl">auto_awesome</span>
+            <span>Gemini</span>
+          </div>
+        </div>
+        <!-- Repo Lifeline Header (col-span-4) -->
+        <div class="col-span-4 flex flex-col items-center">
+          <div class="px-6 py-2.5 rounded-2xl bg-surface-container-high/90 border-2 border-gray-500 text-gray-200 font-headline-sm text-base md:text-lg font-bold flex items-center gap-2 shadow-lg">
+            <span class="material-symbols-outlined text-xl">folder</span>
+            <span>Repo</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sequence Traces Body -->
+      <div class="p-6 md:p-8 space-y-8 font-mono text-xs md:text-sm bg-[#111317]">
+        
+        <!-- PHASE 1: CONTEXT & DEFINITION -->
+        <div class="space-y-4">
+          <div class="flex items-center justify-center gap-4">
+            <div class="h-px bg-outline-variant/30 flex-1"></div>
+            <span class="font-label-mono text-xs text-on-surface-variant font-bold tracking-widest uppercase px-3 py-1 rounded bg-surface-container/60 border border-outline-variant/20">
+              Phase 1: Context &amp; Definition
+            </span>
+            <div class="h-px bg-outline-variant/30 flex-1"></div>
+          </div>
+
+          <!-- Phase 1 Steps Box (With Loop: Refine until clear) -->
+          <div class="grid grid-cols-12 gap-2 relative bg-[#171920] border-2 border-cyan-400/50 rounded-2xl p-4 md:p-5 shadow-[0_0_20px_rgba(34,211,238,0.15)]">
+            <div class="absolute -top-3 left-4 bg-cyan-500 text-black font-label-mono text-[10px] uppercase font-bold px-2.5 py-0.5 rounded shadow">
+              LOOP: Refine until clear
+            </div>
+            
+            <div class="col-span-12 space-y-3 pt-2">
+              <!-- Step 1: Dev -> Repo -->
+              <div class="grid grid-cols-12 items-center gap-2 text-on-surface-variant">
+                <span class="col-span-1 text-cyan-400 font-bold text-right pr-2">01.</span>
+                <div class="col-span-11 flex items-center gap-2 bg-black/40 p-2.5 rounded-lg border border-gray-800">
+                  <span class="text-primary font-bold">Dev</span>
+                  <span class="text-gray-500">─── Read context (Source/Docs) ───&gt;</span>
+                  <span class="text-gray-300 font-bold">Repo</span>
+                </div>
+              </div>
+              <!-- Step 2: Dev -> Gemini -->
+              <div class="grid grid-cols-12 items-center gap-2 text-on-surface-variant">
+                <span class="col-span-1 text-cyan-400 font-bold text-right pr-2">02.</span>
+                <div class="col-span-11 flex items-center gap-2 bg-black/40 p-2.5 rounded-lg border border-gray-800">
+                  <span class="text-primary font-bold">Dev</span>
+                  <span class="text-gray-500">─── Describe feature ───&gt;</span>
+                  <span class="text-[#8ab4f8] font-bold">Gemini</span>
+                </div>
+              </div>
+              <!-- Step 3: Gemini -> Dev & Repo -> Gemini -->
+              <div class="grid grid-cols-12 items-center gap-2 text-on-surface-variant">
+                <span class="col-span-1 text-cyan-400 font-bold text-right pr-2">03.</span>
+                <div class="col-span-11 flex items-center justify-between gap-2 bg-black/40 p-2.5 rounded-lg border border-gray-800 flex-wrap">
+                  <div class="flex items-center gap-2">
+                    <span class="text-[#8ab4f8] font-bold">Gemini</span>
+                    <span class="text-gray-500">── Prompt for Q&amp;A ──&gt;</span>
+                    <span class="text-primary font-bold">Dev</span>
+                  </div>
+                  <div class="flex items-center gap-2 text-gray-400 text-xs">
+                    <span>(Ask clarifying questions)</span>
+                    <span>Repo ──&gt; Gemini</span>
+                  </div>
+                </div>
+              </div>
+              <!-- Step 4: Dev -> Gemini -->
+              <div class="grid grid-cols-12 items-center gap-2 text-on-surface-variant">
+                <span class="col-span-1 text-cyan-400 font-bold text-right pr-2">04.</span>
+                <div class="col-span-11 flex items-center gap-2 bg-black/40 p-2.5 rounded-lg border border-gray-800">
+                  <span class="text-primary font-bold">Dev</span>
+                  <span class="text-gray-500">─── Refine requirements ───&gt;</span>
+                  <span class="text-[#8ab4f8] font-bold">Gemini</span>
+                </div>
+              </div>
+              <!-- Step 5: Dev -> Gemini -->
+              <div class="grid grid-cols-12 items-center gap-2 text-on-surface-variant">
+                <span class="col-span-1 text-cyan-400 font-bold text-right pr-2">05.</span>
+                <div class="col-span-11 flex items-center gap-2 bg-black/40 p-2.5 rounded-lg border border-gray-800">
+                  <span class="text-primary font-bold">Dev</span>
+                  <span class="text-gray-500">─── Write full description ───&gt;</span>
+                  <span class="text-[#8ab4f8] font-bold">Gemini</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PHASE 2: STRATEGY & ALIGNMENT -->
+        <div class="space-y-4 pt-2">
+          <div class="flex items-center justify-center gap-4">
+            <div class="h-px bg-outline-variant/30 flex-1"></div>
+            <span class="font-label-mono text-xs text-on-surface-variant font-bold tracking-widest uppercase px-3 py-1 rounded bg-surface-container/60 border border-outline-variant/20">
+              Phase 2: Strategy &amp; Alignment
+            </span>
+            <div class="h-px bg-outline-variant/30 flex-1"></div>
+          </div>
+
+          <div class="grid grid-cols-12 gap-4 items-start">
+            <!-- Left Steps Area (col-span-12 lg:col-span-8) -->
+            <div class="col-span-12 lg:col-span-8 space-y-3">
+              <!-- Step 6: Dev -> Gemini -->
+              <div class="grid grid-cols-12 items-center gap-2 text-on-surface-variant">
+                <span class="col-span-1 text-primary font-bold text-right pr-2">06.</span>
+                <div class="col-span-11 flex items-center gap-2 bg-black/40 p-2.5 rounded-lg border border-gray-800">
+                  <span class="text-primary font-bold">Dev</span>
+                  <span class="text-gray-500">─── Request technical strategy ───&gt;</span>
+                  <span class="text-[#8ab4f8] font-bold">Gemini</span>
+                </div>
+              </div>
+              <!-- Step 7: Gemini -> Dev -->
+              <div class="grid grid-cols-12 items-center gap-2 text-on-surface-variant">
+                <span class="col-span-1 text-primary font-bold text-right pr-2">07.</span>
+                <div class="col-span-11 flex items-center gap-2 bg-black/40 p-2.5 rounded-lg border border-gray-800">
+                  <span class="text-[#8ab4f8] font-bold">Gemini</span>
+                  <span class="text-gray-500">─── Confirm understanding ───&gt;</span>
+                  <span class="text-primary font-bold">Dev</span>
+                </div>
+              </div>
+              <!-- Step 8: Dev -> Gemini -->
+              <div class="grid grid-cols-12 items-center gap-2 text-on-surface-variant">
+                <span class="col-span-1 text-primary font-bold text-right pr-2">08.</span>
+                <div class="col-span-11 flex items-center gap-2 bg-black/40 p-2.5 rounded-lg border border-gray-800">
+                  <span class="text-primary font-bold">Dev</span>
+                  <span class="text-gray-500">─── Request implementation plan ───&gt;</span>
+                  <span class="text-[#8ab4f8] font-bold">Gemini</span>
+                </div>
+              </div>
+
+              <!-- Loop Box: Convergence -->
+              <div class="relative bg-[#171920] border border-gray-700 rounded-xl p-4 mt-2">
+                <div class="absolute -top-2.5 left-3 bg-gray-700 text-gray-200 font-label-mono text-[9px] uppercase font-bold px-2 py-0.5 rounded">
+                  LOOP: Convergence
+                </div>
+                <div class="space-y-2 pt-1 text-xs">
+                  <div class="flex items-center gap-2 text-gray-300">
+                    <span class="text-[#8ab4f8] font-bold">Gemini</span>
+                    <span class="text-gray-500">─── Critique &amp; Discuss ───&gt;</span>
+                    <span class="text-primary font-bold">Dev</span>
+                  </div>
+                  <div class="flex items-center gap-2 text-gray-300">
+                    <span class="text-primary font-bold">Dev</span>
+                    <span class="text-gray-500">&lt;─── Repeat until converged ───&gt;</span>
+                    <span class="text-[#8ab4f8] font-bold">Gemini</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Sticky Note Callout (col-span-12 lg:col-span-4) -->
+            <div class="col-span-12 lg:col-span-4 bg-[#fef08a] text-gray-900 p-4 rounded-xl shadow-lg border border-amber-300 font-mono text-xs flex items-start gap-3 relative transform rotate-1 hover:rotate-0 transition-transform">
+              <span class="material-symbols-outlined text-amber-700 text-xl shrink-0 mt-0.5">sticky_note_2</span>
+              <div>
+                <span class="font-bold block text-amber-900 mb-1">CRITICAL CHECKPOINT // STEP 07</span>
+                <span>Test understanding here. <strong class="text-black">If gaps, read more files from Repo.</strong></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PHASE 3: EXECUTION -->
+        <div class="space-y-4 pt-2">
+          <div class="flex items-center justify-center gap-4">
+            <div class="h-px bg-outline-variant/30 flex-1"></div>
+            <span class="font-label-mono text-xs text-on-surface-variant font-bold tracking-widest uppercase px-3 py-1 rounded bg-surface-container/60 border border-outline-variant/20">
+              Phase 3: Execution
+            </span>
+            <div class="h-px bg-outline-variant/30 flex-1"></div>
+          </div>
+
+          <div class="space-y-3">
+            <!-- Step 11: Gemini -> Dev/Repo -->
+            <div class="grid grid-cols-12 items-center gap-2 text-on-surface-variant">
+              <span class="col-span-1 text-emerald-400 font-bold text-right pr-2">11.</span>
+              <div class="col-span-11 flex items-center justify-between gap-2 bg-black/40 p-2.5 rounded-lg border border-gray-800 flex-wrap">
+                <div class="flex items-center gap-2">
+                  <span class="text-[#8ab4f8] font-bold">Gemini</span>
+                  <span class="text-gray-500">── Create FEATURE.md (Problem+Basic Tech) ──&gt;</span>
+                  <span class="text-primary font-bold">Dev</span>
+                </div>
+                <span class="text-gray-400 text-xs">(Drafts content in Repo)</span>
+              </div>
+            </div>
+            <!-- Step 12: Dev -> Repo -->
+            <div class="grid grid-cols-12 items-center gap-2 text-on-surface-variant">
+              <span class="col-span-1 text-emerald-400 font-bold text-right pr-2">12.</span>
+              <div class="col-span-11 flex items-center gap-2 bg-black/40 p-2.5 rounded-lg border border-gray-800">
+                <span class="text-primary font-bold">Dev</span>
+                <span class="text-gray-500">─── Refine content ───&gt;</span>
+                <span class="text-gray-300 font-bold">Repo</span>
+              </div>
+            </div>
+            <!-- Step 13: Gemini -> Dev/Repo -->
+            <div class="grid grid-cols-12 items-center gap-2 text-on-surface-variant">
+              <span class="col-span-1 text-emerald-400 font-bold text-right pr-2">13.</span>
+              <div class="col-span-11 flex items-center justify-between gap-2 bg-black/40 p-2.5 rounded-lg border border-gray-800 flex-wrap">
+                <div class="flex items-center gap-2">
+                  <span class="text-[#8ab4f8] font-bold">Gemini</span>
+                  <span class="text-gray-500">── Add detailed plan (Enum Files) ──&gt;</span>
+                  <span class="text-primary font-bold">Dev</span>
+                </div>
+                <span class="text-gray-400 text-xs">(Detailed plan &amp; file list in Repo)</span>
+              </div>
+            </div>
+
+            <!-- Loop Box: Final Review (Steps 14-15) -->
+            <div class="grid grid-cols-12 gap-2 relative bg-[#171920] border-2 border-emerald-500/50 rounded-2xl p-4 md:p-5 shadow-[0_0_20px_rgba(16,185,129,0.15)] mt-3">
+              <div class="absolute -top-3 left-4 bg-emerald-500 text-black font-label-mono text-[10px] uppercase font-bold px-2.5 py-0.5 rounded shadow">
+                LOOP: Final Review
+              </div>
+              <div class="col-span-12 space-y-3 pt-2">
+                <!-- Step 14: Dev -> Gemini -->
+                <div class="grid grid-cols-12 items-center gap-2 text-on-surface-variant">
+                  <span class="col-span-1 text-emerald-400 font-bold text-right pr-2">14.</span>
+                  <div class="col-span-11 flex items-center gap-2 bg-black/40 p-2.5 rounded-lg border border-gray-800">
+                    <span class="text-primary font-bold">Dev</span>
+                    <span class="text-gray-500">─── Read, React, Refine ───&gt;</span>
+                    <span class="text-[#8ab4f8] font-bold">Gemini</span>
+                  </div>
+                </div>
+                <!-- Step 15: Dev -> Repo -->
+                <div class="grid grid-cols-12 items-center gap-2 text-on-surface-variant">
+                  <span class="col-span-1 text-emerald-400 font-bold text-right pr-2">15.</span>
+                  <div class="col-span-11 flex items-center justify-between gap-2 bg-black/40 p-2.5 rounded-lg border border-gray-800 flex-wrap">
+                    <div class="flex items-center gap-2">
+                      <span class="text-primary font-bold">Dev</span>
+                      <span class="text-gray-500">─── Create CL &amp; Review ───&gt;</span>
+                      <span class="text-gray-300 font-bold">Repo</span>
+                    </div>
+                    <span class="text-emerald-400 font-bold text-xs">✓ PROTOCOL COMPLETE</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Console Bar -->
+      <div class="bg-[#1f2229] px-6 py-4 border-t border-outline-variant/30 flex flex-wrap items-center justify-between gap-4 font-mono text-xs">
+        <div class="flex items-center gap-2 text-gray-400">
+          <span class="material-symbols-outlined text-primary text-base">verified</span>
+          <span>DETERMINISTIC LIFELINES:</span>
+          <span class="text-primary font-bold">Dev</span> • <span class="text-[#8ab4f8] font-bold">Gemini</span> • <span class="text-gray-300 font-bold">Repo</span>
+        </div>
+        <span class="text-emerald-400 font-label-mono text-xs uppercase tracking-wider font-bold">100% TRACE VERIFIED</span>
+      </div>
+
     </div>
+
   </div>
 </section>
 
