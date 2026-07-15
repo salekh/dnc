@@ -39,8 +39,8 @@
     .pill { background: rgba(226, 0, 116, 0.15); border: 1px solid rgba(226, 0, 116, 0.4); color: #FFB1C6; }
   </style>
 </head>
-<body class="min-h-screen flex flex-col p-6">
-  <div id="app" class="max-w-6xl mx-auto w-full flex-1 flex flex-col gap-8"></div>
+<body class="min-h-screen flex flex-col p-3 md:p-4">
+  <div id="app" class="max-w-6xl mx-auto w-full flex-1 flex flex-col gap-3 min-h-0"></div>
 
   <script type="module">
     import { h, render } from 'https://esm.sh/preact@10.19.0';
@@ -113,30 +113,30 @@
       }, [isColdStart]);
 
       return html`
-        <div class="flex flex-col gap-8">
+        <div class="flex flex-col gap-3.5 flex-1 min-h-0">
           <!-- Header Bar -->
-          <header class="flex items-center justify-between pb-6 border-b border-white/10">
-            <div class="flex items-center gap-3">
-              <div class="w-9 h-9 rounded-lg bg-ruby-500 flex items-center justify-center font-bold text-white shadow-[0_0_15px_rgba(226,0,116,0.5)]">
+          <header class="flex items-center justify-between pb-2.5 border-b border-white/10 shrink-0">
+            <div class="flex items-center gap-2.5">
+              <div class="w-7 h-7 rounded-md bg-ruby-500 flex items-center justify-center font-bold text-white text-sm shadow-[0_0_12px_rgba(226,0,116,0.5)]">
                 R
               </div>
               <div>
-                <h1 class="text-xl font-bold tracking-tight text-white flex items-center gap-2">
-                  Ruby TV <span class="text-xs px-2 py-0.5 rounded bg-white/10 font-mono text-ruby-500 border border-ruby-500/30">OTT-G1</span>
+                <h1 class="text-base font-bold tracking-tight text-white flex items-center gap-2">
+                  Ruby TV <span class="text-[10px] px-1.5 py-0.5 rounded bg-white/10 font-mono text-ruby-500 border border-ruby-500/30">OTT-G1</span>
                 </h1>
-                <p class="text-xs text-white/50 font-mono">LIVE RECOMMENDER PIPELINE // RUBY TV SHELL V2.4</p>
+                <p class="text-[10px] text-white/50 font-mono">LIVE RECOMMENDER PIPELINE // SHELL V2.4</p>
               </div>
             </div>
 
             <!-- User Toggle HUD -->
-            <div class="flex items-center gap-4 bg-surface-card px-4 py-2 rounded-xl border border-white/10 shadow-lg">
+            <div class="flex items-center gap-3 bg-surface-card px-3 py-1.5 rounded-lg border border-white/10 shadow-lg">
               <div class="flex flex-col text-right">
-                <span class="text-xs font-mono text-white/70">Profile: <strong class="text-white">The Curator</strong></span>
-                <span class="text-[10px] font-mono text-ruby-500">${isColdStart ? 'MODE: COLD-START (NO HISTORY)' : 'MODE: ACTIVE WATCH HISTORY'}</span>
+                <span class="text-[11px] font-mono text-white/70">Profile: <strong class="text-white">The Curator</strong></span>
+                <span class="text-[9px] font-mono text-ruby-500">${isColdStart ? 'COLD-START (NO HISTORY)' : 'ACTIVE WATCH HISTORY'}</span>
               </div>
               <button 
                 onClick=${() => setIsColdStart(!isColdStart)}
-                class="px-3 py-1.5 rounded-lg font-mono text-xs font-medium transition-all flex items-center gap-2 ${isColdStart ? 'bg-ruby-500 text-white shadow-[0_0_12px_rgba(226,0,116,0.4)]' : 'bg-white/10 text-white/80 hover:bg-white/20'}"
+                class="px-2.5 py-1 rounded-md font-mono text-[11px] font-medium transition-all flex items-center gap-1.5 ${isColdStart ? 'bg-ruby-500 text-white shadow-[0_0_10px_rgba(226,0,116,0.4)]' : 'bg-white/10 text-white/80 hover:bg-white/20'}"
                 title="Toggle between existing user and new cold-start user"
               >
                 <span>◐</span>
@@ -146,33 +146,33 @@
           </header>
 
           <!-- Continue Watching Rail -->
-          <section class="flex flex-col gap-3">
+          <section class="flex flex-col gap-1.5 shrink-0">
             <div class="flex items-center justify-between">
-              <h2 class="text-base font-bold text-white tracking-wide flex items-center gap-2">
+              <h2 class="text-xs font-bold text-white tracking-wide flex items-center gap-1.5 uppercase">
                 <span>Weiter schauen</span>
                 <span class="text-ruby-500">─→</span>
               </h2>
-              <span class="text-xs font-mono text-white/40">RAIL_ID: CONTINUE_WATCHING</span>
+              <span class="text-[10px] font-mono text-white/40">RAIL_ID: CONTINUE_WATCHING</span>
             </div>
 
             ${isColdStart ? html`
-              <div class="p-6 rounded-xl bg-surface-card/50 border border-dashed border-white/10 text-center flex flex-col items-center justify-center gap-1">
-                <span class="text-sm text-white/60">No watch history available for this profile.</span>
-                <span class="text-xs font-mono text-ruby-500">→ Recommender engine will fallback to editorial cold-start ranking</span>
+              <div class="p-3 rounded-lg bg-surface-card/50 border border-dashed border-white/10 text-center flex items-center justify-center gap-2">
+                <span class="text-xs text-white/60">No watch history available.</span>
+                <span class="text-[10px] font-mono text-ruby-500">→ Fallback to editorial cold-start ranking</span>
               </div>
             ` : html`
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-2.5">
                 ${watchHistory.map(item => html`
-                  <div key=${item.id} class="p-4 rounded-xl bg-surface-card border border-white/10 flex flex-col gap-3">
+                  <div key=${item.id} class="p-2.5 rounded-lg bg-surface-card border border-white/10 flex flex-col gap-2">
                     <div class="flex items-start justify-between">
                       <div>
-                        <h3 class="font-semibold text-white text-sm">${item.title}</h3>
-                        <span class="text-xs font-mono text-white/50">${item.category} • ${item.lang} • ${item.duration}</span>
+                        <h3 class="font-semibold text-white text-xs">${item.title}</h3>
+                        <span class="text-[10px] font-mono text-white/50">${item.category} • ${item.lang} • ${item.duration}</span>
                       </div>
-                      <span class="text-xs font-mono px-2 py-0.5 rounded bg-white/5 text-white/70">${Math.round(item.watchProgress * 100)}%</span>
+                      <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-white/5 text-white/70">${Math.round(item.watchProgress * 100)}%</span>
                     </div>
                     <!-- Progress Bar -->
-                    <div class="w-full h-1.5 bg-black/50 rounded-full overflow-hidden">
+                    <div class="w-full h-1 bg-black/50 rounded-full overflow-hidden">
                       <div class="h-full bg-ruby-500 transition-all duration-500" style=${{ width: `${item.watchProgress * 100}%` }}></div>
                     </div>
                   </div>
@@ -182,67 +182,66 @@
           </section>
 
           <!-- Recommended Rail (Für dich) -->
-          <section class="flex flex-col gap-4 flex-1">
-            <div class="flex items-center justify-between border-t border-white/10 pt-6">
+          <section class="flex flex-col gap-2 flex-1 min-h-0">
+            <div class="flex items-center justify-between border-t border-white/10 pt-2 shrink-0">
               <div>
-                <h2 class="text-lg font-bold text-white tracking-wide flex items-center gap-2">
+                <h2 class="text-sm font-bold text-white tracking-wide flex items-center gap-1.5">
                   <span>Für dich</span>
                   <span class="text-ruby-500">─→</span>
                 </h2>
-                <p class="text-xs text-white/50">Ranked dynamically by hot-swappable module at <code class="text-ruby-500 font-mono">${moduleUrl.split('?')[0]}</code></p>
+                <p class="text-[10px] text-white/50">Ranked by module: <code class="text-ruby-500 font-mono">${moduleUrl.split('?')[0]}</code></p>
               </div>
-              <div class="flex items-center gap-2 font-mono text-xs">
-                ${loading ? html`<span class="text-ruby-500 animate-pulse">● EXECUTING RANK()...</span>` : html`<span class="text-emerald-400">● RANK() COMPLETE</span>`}
+              <div class="flex items-center gap-1.5 font-mono text-[11px]">
+                ${loading ? html`<span class="text-ruby-500 animate-pulse">● EXECUTING...</span>` : html`<span class="text-emerald-400">● COMPLETE</span>`}
               </div>
             </div>
 
             <!-- Error State -->
             ${error && html`
-              <div class="p-6 rounded-xl bg-red-950/40 border border-red-500/50 text-red-200 flex items-start gap-4">
-                <div class="text-2xl">⚠️</div>
+              <div class="p-3 rounded-lg bg-red-950/40 border border-red-500/50 text-red-200 flex items-start gap-3">
+                <div class="text-lg">⚠️</div>
                 <div class="flex-1">
-                  <h3 class="font-bold text-sm text-red-100">Recommender Module Execution Error</h3>
-                  <p class="text-xs mt-1 text-red-300 font-mono">${error}</p>
-                  <p class="text-xs mt-2 text-white/60">The Preact shell caught an error during module import or rank() execution. The UI remains isolated from crash loops.</p>
+                  <h3 class="font-bold text-xs text-red-100">Recommender Module Error</h3>
+                  <p class="text-[10px] mt-0.5 text-red-300 font-mono">${error}</p>
                 </div>
               </div>
             `}
 
             <!-- Cards Grid -->
             ${loading && !error ? html`
-              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2.5 flex-1 min-h-0">
                 ${[1, 2, 3, 4].map(i => html`
-                  <div key=${i} class="h-48 rounded-xl bg-surface-card/50 border border-white/5 animate-pulse p-4 flex flex-col justify-between">
-                    <div class="w-2/3 h-4 bg-white/10 rounded"></div>
-                    <div class="w-full h-8 bg-white/5 rounded mt-auto"></div>
+                  <div key=${i} class="rounded-lg bg-surface-card/50 border border-white/5 animate-pulse p-3 flex flex-col justify-between">
+                    <div class="w-2/3 h-3 bg-white/10 rounded"></div>
+                    <div class="w-full h-6 bg-white/5 rounded mt-auto"></div>
                   </div>
                 `)}
               </div>
             ` : null}
 
             ${!loading && !error && html`
-              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2.5 flex-1 min-h-0">
                 ${recommendations.map((item, idx) => html`
-                  <div key=${item.id || idx} class="p-5 rounded-xl bg-surface-card border border-white/10 card-hover flex flex-col justify-between gap-4 relative overflow-hidden">
+                  <div key=${item.id || idx} class="p-3 rounded-lg bg-surface-card border border-white/10 card-hover flex flex-col justify-between gap-2 relative overflow-hidden">
                     <div class="absolute top-0 left-0 w-1 h-full ${item.isOriginal ? 'bg-ruby-500' : 'bg-white/20'}"></div>
                     
-                    <div class="flex flex-col gap-1 pl-2">
+                    <div class="flex flex-col gap-0.5 pl-1.5">
                       <div class="flex items-center justify-between">
-                        <span class="text-[10px] font-mono uppercase px-1.5 py-0.5 rounded bg-white/5 text-white/60">${item.category || 'General'}</span>
-                        ${item.isOriginal && html`<span class="text-[10px] font-mono font-bold text-ruby-500 tracking-wider">RUBY ORIGINALS</span>`}
+                        <span class="text-[9px] font-mono uppercase px-1 py-0.5 rounded bg-white/5 text-white/60">${item.category || 'General'}</span>
+                        ${item.isOriginal && html`<span class="text-[9px] font-mono font-bold text-ruby-500 tracking-wider">ORIGINAL</span>`}
                       </div>
-                      <h3 class="font-bold text-white text-base mt-1">${item.title}</h3>
-                      <div class="flex items-center gap-3 text-xs text-white/60 font-mono mt-1">
+                      <h3 class="font-bold text-white text-xs mt-0.5 leading-snug">${item.title}</h3>
+                      <div class="flex items-center gap-2 text-[10px] text-white/60 font-mono mt-0.5">
                         <span>★ ${item.rating || '4.5'}</span>
                         <span>[${item.lang || 'DE'}]</span>
                       </div>
                     </div>
 
                     <!-- Transparency Pill (Why this?) -->
-                    <div class="mt-auto pt-3 border-t border-white/10 pl-2">
-                      <div class="pill px-2.5 py-1.5 rounded-lg text-[11px] font-mono flex items-center gap-1.5 leading-snug">
-                        <span class="text-xs">💡</span>
-                        <span class="flex-1">${item.reason || 'Recommended by active ranking logic'}</span>
+                    <div class="mt-auto pt-2 border-t border-white/10 pl-1.5">
+                      <div class="pill px-2 py-1 rounded-md text-[10px] font-mono flex items-center gap-1 leading-tight">
+                        <span>💡</span>
+                        <span class="flex-1 truncate">${item.reason || 'Recommended by active ranking logic'}</span>
                       </div>
                     </div>
                   </div>
@@ -251,10 +250,10 @@
             `}
           </section>
 
-          <!-- Footer Info -->
-          <footer class="mt-8 pt-4 border-t border-white/5 flex items-center justify-between text-[11px] font-mono text-white/40">
-            <span>CONTAINER: CLOUD RUN // AGENTIC STUDIO</span>
-            <span>JS RUNTIME: BROWSER ES MODULE (SANDBOXED)</span>
+          <!-- Footer Info (Ultra Compact) -->
+          <footer class="pt-1.5 border-t border-white/5 flex items-center justify-between text-[9px] font-mono text-white/40 shrink-0">
+            <span>CONTAINER: CLOUD RUN</span>
+            <span>RUNTIME: ES MODULE (SANDBOXED)</span>
           </footer>
         </div>
       `;
